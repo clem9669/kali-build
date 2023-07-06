@@ -21,6 +21,18 @@
   become: true
   become_method: sudo
 
+- name: "Check if User_preference path exists"
+  stat:
+    path: "{{ ansible_env.HOME }}/.config/sublime-text/Packages/User/"
+  register: user_preference_subl
+
+- name: "Create directory for User preference"
+  file:
+    path: "{{ ansible_env.HOME }}/.config/sublime-text/Packages/User/"
+    state: directory
+    mode: '0755'
+  when: user_preference_subl.stat.exists == False
+                
 - name: "Copy subl preferences"
   copy:
     src: "{{ role_path }}/files/Preferences.sublime-settings"
