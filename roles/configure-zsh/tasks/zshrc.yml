@@ -1,0 +1,5 @@
+---
+- name: "Copy zshrc profile"
+  copy:
+    src: "{{ role_path }}/files/zshrc"
+    dest: "{{ ansible_env.HOME }}/.zshrc"

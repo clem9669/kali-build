@@ -1,0 +1,68 @@
+---
+# It does not git pull because changing ownership is considered as a change so it will error
+- name: "Installing useful github repos"
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.location }}"
+    update: false
+  loop:
+    - { repo: "https://github.com/411Hall/JAWS", location: "/opt/JAWS"}
+    - { repo: "https://github.com/AlessandroZ/LaZagne", location: "/opt/LaZagne"}
+    - { repo: "https://github.com/BeichenDream/GodPotato", location: "/opt/GodPotato"}
+    - { repo: "https://github.com/bitsadmin/wesng", location: "/opt/wesng"}
+    - { repo: "https://github.com/carlospolop/PEASS-ng", location: "/opt/PEASS"}
+    - { repo: "https://github.com/CompassSecurity/BloodHoundQueries", location: "/opt/BloodHoundQueries"}
+    - { repo: "https://github.com/cytopia/pwncat", location: "/opt/pwncat"}
+    - { repo: "https://github.com/Dec0ne/DavRelayUp", location: "/opt/DavRelayUp"}
+    - { repo: "https://github.com/dirkjanm/krbrelayx", location: "/opt/krbrelayx"}
+    - { repo: "https://github.com/dirkjanm/mitm6", location: "/opt/mitm6"}
+    - { repo: "https://github.com/DominicBreuker/pspy", location: "/opt/pspy"}
+    - { repo: "https://github.com/droope/droopescan", location: "/opt/droopescan"}
+    - { repo: "https://github.com/Flangvik/BetterSafetyKatz", location: "/opt/BetterSafetyKatz"}
+    - { repo: "https://github.com/Flangvik/SharpCollection", location: "/opt/SharpCollection"}
+    - { repo: "https://github.com/fortra/impacket", location: "/opt/impacket"}
+    - { repo: "https://github.com/gentilkiwi/mimikatz", location: "/opt/mimikatz"}
+    - { repo: "https://github.com/GhostPack/Certify", location: "/opt/Certify"}
+    - { repo: "https://github.com/GhostPack/Rubeus", location: "/opt/Rubeus"}
+    - { repo: "https://github.com/GhostPack/Seatbelt", location: "/opt/Seatbelt"}
+    - { repo: "https://github.com/Greenwolf/ntlm_theft", location: "/opt/ntlm_theft"}
+    - { repo: "https://github.com/Group3r/Group3r", location: "/opt/Group3r"}
+    - { repo: "https://github.com/Hackndo/lsassy", location: "/opt/lsassy"}
+    - { repo: "https://github.com/iamj0ker/bypass-403", location: "/opt/bypass"}
+    - { repo: "https://github.com/janstarke/ntdsextract2/", location: "/opt/ntdsextract2"}
+    - { repo: "https://github.com/jpillora/chisel", location: "/opt/chisel"}
+    - { repo: "https://github.com/laluka/bypass-url-parser", location: "/opt/bypass"}
+    - { repo: "https://github.com/lgandx/Responder", location: "/opt/Responder"}
+    - { repo: "https://github.com/ly4k/Certipy", location: "/opt/Certipy"}
+    - { repo: "https://github.com/mpgn/CrackMapExec", location: "/opt/CrackMapExec"}
+    - { repo: "https://github.com/mubix/IOXIDResolver", location: "/opt/IOXIDResolver"}
+    - { repo: "https://github.com/n00py/LAPSDumper", location: "/opt/LAPSDumper"}
+    - { repo: "https://github.com/PowerShellMafia/PowerSploit", location: "/opt/PowerSploit"}
+    - { repo: "https://github.com/rasta-mouse/Sherlock", location: "/opt/mouse"}
+    - { repo: "https://github.com/rebootuser/LinEnum", location: "/opt/LinEnum"}
+    - { repo: "https://github.com/rezasp/joomscan", location: "/opt/joomscan"}
+    - { repo: "https://github.com/ropnop/kerbrute", location: "/opt/kerbrute"}
+    - { repo: "https://github.com/SecuraBV/Timeroast", location: "/opt/Timeroast"}
+    - { repo: "https://github.com/skelsec/pypykatz", location: "/opt/pypykatz"}
+    - { repo: "https://github.com/SnaffCon/Snaffler", location: "/opt/Snaffler"}
+    - { repo: "https://github.com/TheWover/donut", location: "/opt/donut"}
+    - { repo: "https://github.com/topotam/PetitPotam", location: "/opt/PetitPotam"}
+    - { repo: "https://github.com/urbanadventurer/username-anarchy", location: "/opt/username-anarchy"}
+    - { repo: "https://github.com/xct/hashgrab", location: "/opt/hashgrab"}
+    - { repo: "https://github.com/xct/morbol", location: "/opt/morbol"}
+    - { repo: "https://github.com/xct/xc", location: "/opt/xc"}
+  become: true
+  become_method: sudo
+
+## need to download compiled package from github release
+
+# the following module sucks. It blocks git pull and create shit in repos
+- name: "Change folder owner"
+  file:
+    path: "/opt/"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+    recurse: yes
+    mode: 0700
+  become: true
+  become_method: sudo

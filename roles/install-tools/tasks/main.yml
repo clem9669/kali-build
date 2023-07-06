@@ -1,0 +1,6 @@
+---
+# tasks file for install-tools
+- include: "apt.yml"
+- include: "gem.yml"
+- include: "sublimetext.yml"
+- include: "github.yml"

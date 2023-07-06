@@ -1,0 +1,193 @@
+{
+  "policies": {
+    "AppAutoUpdate": true,
+    "BackgroundAppUpdate": true,
+    "BlockAboutAddons": false,
+    "BlockAboutConfig": false,
+    "BlockAboutProfiles": false,
+    "BlockAboutSupport": false,
+    "CaptivePortal": false,
+    "Cookies": {
+      "AcceptThirdParty": "never",
+      "ExpireAtSessionEnd": true,
+      "RejectTracker": true,
+      "Locked": false,
+      "Behavior": "reject-tracker-and-partition-foreign",
+      "BehaviorPrivateBrowsing": "reject-tracker-and-partition-foreign",
+    },
+    "DisableAppUpdate": false,
+    "DefaultDownloadDirectory": "${home}/Downloads",
+    "DisableBuiltinPDFViewer": false,
+    "DisableDeveloperTools": false,
+    "DisableFeedbackCommands": false,
+    "DisableFirefoxAccounts": true,
+    "DisableFirefoxScreenshots": true,
+    "DisableFirefoxStudies": true,
+    "DisableForgetButton": false,
+    "DisableFormHistory": false,
+    "DisableMasterPasswordCreation": true,
+    "DisablePasswordReveal": false,
+    "DisablePocket": true,
+    "DisablePrivateBrowsing": false,
+    "DisableProfileImport": false,
+    "DisableProfileRefresh": false,
+    "DisableSafeMode": false,
+    "DisableSecurityBypass": {
+      "InvalidCertificate": false,
+      "SafeBrowsing": false
+    },
+    "DisableSetDesktopBackground": true,
+    "DisableSystemAddonUpdate": false,
+    "DisableTelemetry": true,
+    "DisplayBookmarksToolbar": "newtab",
+    "DisplayMenuBar": "default-off",
+    "DNSOverHTTPS": {
+      "Enabled": false,
+    },
+    "DontCheckDefaultBrowser": true,
+    "DownloadDirectory": "${home}/Downloads",
+    "EnableTrackingProtection": {
+      "Value": true,
+      "Locked": true,
+      "Cryptomining": true,
+      "Fingerprinting": true,
+      "EmailTracking": true,
+    },
+    "Extensions": {
+      "Install": [
+{% for item in FirefoxPlugins %}
+        "https://addons.mozilla.org/firefox/downloads/latest/{{ item }}/latest.xpi"{{ "," if not loop.last }}
+{% endfor %}
+      ]
+    },
+    "ExtensionUpdate": true,
+    "FirefoxHome": {
+      "Search": true,
+      "TopSites": true,
+      "SponsoredTopSites": false,
+      "Highlights": false,
+      "Pocket": false,
+      "SponsoredPocket": false,
+      "Snippets": false,
+      "Locked": false
+    },
+    "GoToIntranetSiteForSingleWordEntryInAddressBar": true,
+    "Handlers": {
+      "mimeTypes": {
+        "application/msword": {
+          "action": "useSystemDefault",
+          "ask": true
+        }
+      },
+      "schemes": {
+        "mailto": {
+          "action": "useHelperApp",
+          "ask": true,
+          "handlers": [{
+            "name": "Gmail",
+            "uriTemplate": "https://mail.google.com/mail/?extsrc=mailto&url=%s"
+          }]
+        }
+      },
+      "extensions": {
+        "pdf": {
+          "action": "useHelperApp",
+          "ask": true,
+          "handlers": [{
+            "name": "Adobe Acrobat",
+            "path": "/usr/bin/acroread"
+          }]
+        }
+      }
+    },
+    "HardwareAcceleration": false,
+    "Homepage": {
+      "URL": "http://example.com/",
+      "Locked": false,
+      "StartPage": "homepage"
+    },
+    "InstallAddonsPermission": {
+      "Default": true
+    },
+    "NetworkPrediction": false,
+    "NoDefaultBookmarks": true,
+    "OfferToSaveLogins": true,
+    "OfferToSaveLoginsDefault": true,
+    "PasswordManagerEnabled": true,
+    "PDFjs": {
+      "Enabled": true,
+      "EnablePermissions": false
+    },
+    "Permissions": {
+      "Camera": {
+        "BlockNewRequests": true,
+        "Locked": false
+      },
+      "Microphone": {
+        "BlockNewRequests": true,
+        "Locked": false
+      },
+      "Location": {
+        "BlockNewRequests": true,
+        "Locked": false
+      },
+      "Notifications": {
+        "BlockNewRequests": true,
+        "Locked": false
+      },
+      "Autoplay": {
+        "Default": "block-audio-video",
+        "Locked": false
+      }
+    },
+    "PictureInPicture": {
+      "Enabled": false,
+      "Locked": false
+    },
+    "PopupBlocking": {
+      "Default": false,
+      "Locked": false
+    },
+    "Preferences": {
+      "browser.fixup.domainsuffixwhitelist.htb": {
+        "Value": true,
+        "Status": "user"
+      },
+      "browser.fixup.domainwhitelist.htb": {
+        "Value": true,
+        "Status": "user"
+      }
+    },
+    "PrimaryPassword": false,
+    "Proxy": {
+      "Mode": "none",
+      "Locked": false
+    },
+    "RequestedLocales": "fr-CA,en-GB",
+    "SanitizeOnShutdown": {
+      "Cache": false,
+      "Cookies": false,
+      "Downloads": true,
+      "FormData": false,
+      "History": true,
+      "Sessions": true,
+      "SiteSettings": true,
+      "OfflineApps": false,
+      "Locked": false
+    },
+    "SearchSuggestEnabled": false,
+    "ShowHomeButton": true,
+    "SSLVersionMax": "tls1.3",
+    "SSLVersionMin": "tls1.2",
+    "StartDownloadsInTempDirectory": false,
+    "UserMessaging": {
+      "WhatsNew": false,
+      "ExtensionRecommendations": false,
+      "FeatureRecommendations": false,
+      "UrlbarInterventions": false,
+      "SkipOnboarding": true,
+      "MoreFromMozilla": false,
+      "Locked": false
+    }
+  }
+}

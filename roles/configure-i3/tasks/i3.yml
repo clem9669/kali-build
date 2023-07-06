@@ -1,0 +1,30 @@
+---
+- name: "Install i3"
+  apt:
+    name: 
+      - i3
+      - i3blocks
+      - i3lock
+    state: latest
+  become: true
+  become_method: sudo
+
+- name: "Creates directory for config i3 in home"
+  file:
+    path: "{{ ansible_env.HOME }}/.config/i3/"
+    state: directory
+
+- name: "Copying i3 Config"
+  copy:
+    src: "{{ role_path }}/files/config-i3"
+    dest: "{{ ansible_env.HOME }}/.config/i3/config"
+
+- name: "Creates directory for config i3blocks in home"
+  file:
+    path: "{{ ansible_env.HOME }}/.config/i3blocks/"
+    state: directory
+
+- name: "Copying i3 Config"
+  copy:
+    src: "{{ role_path }}/files/i3blocks.conf"
+    dest: "{{ ansible_env.HOME }}/.config/i3blocks/"

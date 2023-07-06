@@ -1,0 +1,4 @@
+---
+- include: "zshrc.yml"
+- include: "zshtheme.yml"
+- include: "zsh-autosuggestions.yml"

@@ -1,0 +1,26 @@
+---
+- name: "Customizing Kali"
+  hosts: localhost
+  connection: local
+  roles:
+    - role: "roles/configure-i3"
+    - role: gantsign.oh-my-zsh
+      users:
+        - username: "{{ ansible_user_id }}"
+          oh_my_zsh:
+            theme: agnoster
+            plugins:
+              - git
+              - ansible
+              - rust
+              - adb
+              - docker
+              - colored-man-pages
+              - zsh-autosuggestions
+            update_mode: reminder
+            update_frequency: 3
+            write_zshrc: false
+
+    - role: "roles/configure-zsh"
+    - role: "roles/install-tools"
+    - role: "roles/configuration-firefox"

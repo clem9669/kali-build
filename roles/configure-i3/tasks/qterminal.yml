@@ -1,0 +1,6 @@
+---
+- name: "Configure profile Qterminal"
+  copy:
+    src: "{{ role_path }}/files/qterminal.ini"
+    dest: "{{ ansible_env.HOME }}/.config/qterminal.org/"
+# don't know why it changes every time the playbook is run

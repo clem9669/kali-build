@@ -1,0 +1,10 @@
+---
+- name: "Check if already installed"
+  stat:
+    path: "~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/"
+  register: plugin_sugg
+
+- name: "Install zsh-suggestions from git"
+  shell:
+    cmd: "git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+  when: plugin_sugg.stat.exists == False

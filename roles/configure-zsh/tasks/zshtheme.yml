@@ -1,0 +1,5 @@
+---
+- name: "Copy zsh agnoster custom theme"
+  copy:
+    src: "{{ role_path }}/files/agnoster.zsh-theme"
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/themes/agnoster.zsh-theme"

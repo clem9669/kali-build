@@ -1,0 +1,16 @@
+---
+- name: "Creates directory"
+  file:
+    path: "{{ ansible_env.HOME }}/.config/feh/"
+    state: directory
+
+- name: "Configure background"
+  copy:
+    src: "{{ role_path }}/files/fehbg"
+    dest: "{{ ansible_env.HOME }}/.config/feh/"
+    mode: 0755
+
+- name: "Copy background image"
+  copy:
+    src: "{{ role_path }}/files/mountains.jpg"
+    dest: "{{ ansible_env.HOME }}/Pictures/"

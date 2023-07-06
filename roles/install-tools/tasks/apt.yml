@@ -1,0 +1,16 @@
+---
+- name: "Installing tools from APT"
+  package:
+    name:
+      - jq
+      - xxd
+      - xclip
+      - seclists
+      - wafw00f
+      - remmina
+      - nuclei
+      - feroxbuster
+      - gobuster
+    state: latest
+  become: true
+  become_method: sudo
