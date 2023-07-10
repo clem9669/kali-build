@@ -1,20 +1,17 @@
 {
   "policies": {
-    "Certificates": {
-      "Install": ["/usr/local/share/ca-certificates/BurpSuiteCA.der"]
-    },
-    "DisableAppUpdate": true,
-    "DisplayBookmarksToolbar": true,
+    "DisableAppUpdate": false,
+    "DisplayBookmarksToolbar": false,
     "NoDefaultBookmarks": true,
     "OverrideFirstRunPage": "",
     "OverridePostUpdatePage": "",
     "Homepage": {
-      "URL": "https://start.parrotsec.org",
+      "URL": "https://www.google.fr/",
       "Locked": false,
       "StartPage": "homepage"
     },
     "SearchEngines": {
-      "Default": "DuckDuckGo",
+      "Default": "Google",
       "PreventInstalls": true
     },
     "SearchSuggestEnabled": false,
@@ -62,16 +59,9 @@
     "HardwareAcceleration": true,
     "NetworkPrediction": false,
     "PopupBlocking": {
-      "Allow": ["https://crypt.parrot.sh",
-                "https://pad.parrot.sh"],
       "Default": false,
       "Locked": false
     },
     "PromptForDownloadLocation": true,
-    "SupportMenu": {
-      "Title": "Parrot Support",
-      "URL": "https://community.parrotsec.org",
-      "AccessKey": "S"
-    }
   }
 }
