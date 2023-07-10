@@ -1,7 +1,7 @@
 - name: "Install Packages"
   package:
     name: "auditd"
-    state: present  
+    state: present
   become: true
   become_method: sudo
 
@@ -11,7 +11,7 @@
     dest: /etc/audit/rules.d/audit.rules
     owner: root
     group: root
-    mode: 0640      
+    mode: 0640
   become: true
   become_method: sudo
 
@@ -35,7 +35,7 @@
   loop:
     - { "path": "/var/log/laurel", "owner": "_laurel", "group": "_laurel" }
     - { "path": "/tmp/laurel", "owner": "_laurel", "group": "_laurel" }
-    - { "path":"/etc/laurel" }
+    - { "path": "/etc/laurel" }
   become: true
   become_method: sudo
   async: 15
@@ -70,7 +70,7 @@
 - name: "Extract /tmp/laurel-v0.5.2-x86_64-glibc.tar.gz"
   unarchive:
     src: /tmp/laurel-v0.5.2-x86_64-glibc.tar.gz
-    dest: /tmp/laurel/        
+    dest: /tmp/laurel/
     owner: root
     group: root
     mode: 0755
@@ -83,7 +83,7 @@
     chdir: /tmp/laurel/
   become: true
   become_method: sudo
-  
+
 - name: "Restart auditd"
   service:
     name: auditd
