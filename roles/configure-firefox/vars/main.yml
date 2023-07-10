@@ -2,8 +2,7 @@
 # vars file for configuration-firefox
 FirefoxPlugins:
   - "foxyproxy-standard"
-  - "privacy-badger17"
   - "ublock-origin"
   - "decentraleyes"
-  - "cookie-quick-manager"
   - "wappalyzer"
+  - "privacy-badger17"

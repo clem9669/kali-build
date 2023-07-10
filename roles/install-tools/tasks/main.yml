@@ -4,3 +4,4 @@
 - include: "gem.yml"
 - include: "sublimetext.yml"
 - include: "github.yml"
+- include: "burp.yml"
