@@ -205,3 +205,6 @@ exec_always --no-startup-id sh ~/.config/feh/fehbg
 
 # screenshot
 bindsym $mod+P exec flameshot gui
+
+# VMWare clipboard fix
+exec --no-startup-id vmware-user-suid-wrapper
