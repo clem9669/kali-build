@@ -6,5 +6,6 @@
   loop:
     - winrm
     - evil-winrm
+    - httparty
   become: true
   become_method: sudo
