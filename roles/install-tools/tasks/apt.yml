@@ -18,6 +18,6 @@
   become_method: sudo
 
 - name: "Setting date to France TZ"
-  cmd: "timedatectl set-timezone Europe/Paris"
+  command: "timedatectl set-timezone Europe/Paris"
   become: true
   become_method: sudo
