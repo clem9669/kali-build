@@ -13,6 +13,7 @@
       - gobuster
       - rsyslog
       - ufw
+      - wine64
     state: latest
   become: true
   become_method: sudo
