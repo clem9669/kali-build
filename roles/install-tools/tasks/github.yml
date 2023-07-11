@@ -51,6 +51,7 @@
     - { repo: "https://github.com/xct/hashgrab", location: "/opt/hashgrab"}
     - { repo: "https://github.com/xct/morbol", location: "/opt/morbol"}
     - { repo: "https://github.com/xct/xc", location: "/opt/xc"}
+    - { repo: "https://github.com/frohoff/ysoserial", location: "/opt/ysiserial"}
   become: true
   become_method: sudo
 
