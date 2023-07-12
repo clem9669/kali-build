@@ -4,8 +4,19 @@
     name: "{{ item }}"
     state: latest
   loop:
+    - logger
+    - stringio
     - winrm
+    - builder
+    - erubi
+    - gssapi
+    - gyoku
+    - httpclient
+    - logging
+    - little-plugger
+    - nori
+    - rubyntlm
+    - winrm-fs
     - evil-winrm
-    - httparty
   become: true
   become_method: sudo
