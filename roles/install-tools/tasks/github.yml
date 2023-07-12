@@ -67,3 +67,9 @@
     mode: 0700
   become: true
   become_method: sudo
+
+# install GDB + GEF
+- name: "Configuring GEF in GDB"
+  shell: |
+    wget -O ~/.gdbinit-gef.py -q https://gef.blah.cat/py
+    echo source ~/.gdbinit-gef.py >> ~/.gdbinit
