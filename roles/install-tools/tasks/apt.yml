@@ -22,3 +22,8 @@
   command: "timedatectl set-timezone Europe/Paris"
   become: true
   become_method: sudo
+
+- name: Update local Database
+  command: updatedb
+  become: true
+  become_method: sudo
