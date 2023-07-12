@@ -4,15 +4,20 @@
     name:
       - jq
       - xxd
+      - gdb
+      - npm
       - xclip
       - seclists
+      - bettercap
       - wafw00f
       - remmina
       - nuclei
       - feroxbuster
       - gobuster
       - rsyslog
+      - bloodhound
       - ufw
+      - xz-utils
       - wine64
     state: latest
   become: true
