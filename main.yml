@@ -21,6 +21,8 @@
             update_frequency: 3
             write_zshrc: false
 
+    - role: gantsign.golang
+      golang_install_dir: '/usr/local/go/'
     - role: "roles/configure-zsh"
     - role: "roles/install-tools"
     - role: "roles/configure-firefox"
