@@ -1,28 +1,28 @@
 ---
 - name: Copy zedencrypt archive to the remote host
   copy:
-    src: files/ZEDFREE-2023.2.Ubuntu.amd64.zip
-    dest: /opt/ZEDFREE-2023.2.Ubuntu.amd64.zip
+    src: 'files/ZEDFREE-2023.2.Ubuntu.amd64.zip'
+    dest: '/opt/ZEDFREE-2023.2.Ubuntu.amd64.zip'
     mode: '0600'  # Set the appropriate permissions for the .deb file
+
+- name: Create the destination folder for unzipping
+  file:
+    path: '/opt/zedencrypt'
+    state: directory
+    mode: '0755'
 
 - name: Unzip the zedencrypt archive
   unarchive:
-    src: /opt/ZEDFREE-2023.2.Ubuntu.amd64.zip
-    dest: /opt/zedencrypt  # Destination folder for the unzipped contents
+    src: '/opt/ZEDFREE-2023.2.Ubuntu.amd64.zip'
+    dest: '/opt/zedencrypt'  # Destination folder for the unzipped contents
 
 - name: Install zedencrypt using dpkg
-  apt:
-    deb: "/opt/zedencrypt/Ubuntu 22.04/ZEDFREE-2023.2.Ubuntu22.04.amd64.deb"
-    state: present
+  shell: dpkg -i '/opt/zedencrypt/Ubuntu 22.04/ZEDFREE-2023.2.Ubuntu22.04.amd64.deb'
   register: install_result
+  become: true
+  become_method: sudo
 
 - name: Check if the installation was successful
   debug:
     msg: "zedencrypt is installed successfully!"
-  when: install_result is success
-
-- name: Handle dependencies (if any)
-  apt:
-    autoremove: yes
-  when: install_result is changed
-
+  when: install_result.rc == 0

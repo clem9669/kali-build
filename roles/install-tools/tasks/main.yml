@@ -1,8 +1,9 @@
 ---
 # tasks file for install-tools
 - include: "apt.yml"
-- include: "gem.yml"
-- include: "sublimetext.yml"
-- include: "github.yml"
 - include: "burp.yml"
+- include: "gem.yml"
+- include: "github.yml"
 - include: "pip.yml"
+- include: "sublimetext.yml"
+- include: "zedencrypt.yml"
