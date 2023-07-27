@@ -21,8 +21,3 @@
   register: install_result
   become: true
   become_method: sudo
-
-- name: Check if the installation was successful
-  debug:
-    msg: "zedencrypt is installed successfully!"
-  when: install_result.rc == 0
