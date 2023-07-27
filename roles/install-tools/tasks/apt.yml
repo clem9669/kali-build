@@ -19,6 +19,7 @@
       - ufw
       - xz-utils
       - wine64
+      - realtek-rtl88xxau-dkms
     state: latest
   become: true
   become_method: sudo
