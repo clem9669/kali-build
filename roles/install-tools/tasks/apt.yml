@@ -21,6 +21,8 @@
       - wine64
       - realtek-rtl88xxau-dkms
       - libpcap-dev
+      - naabu
+      - httpx-toolkit
     state: latest
   become: true
   become_method: sudo

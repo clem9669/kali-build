@@ -1,4 +1,6 @@
 ---
-- name: "Go install HTTPX"
-  shell: go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
-  shell: go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
+- name: "Go install packages"
+# apt install httpx-toolkit
+#  shell: go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
+# apt install naabu
+# shell: go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
