@@ -52,6 +52,14 @@
     - { repo: "https://github.com/xct/morbol", location: "/opt/morbol"}
     - { repo: "https://github.com/xct/xc", location: "/opt/xc"}
     - { repo: "https://github.com/frohoff/ysoserial", location: "/opt/ysiserial"}
+    - { repo: "https://github.com/scipag/vulscan", location: "/opt/scipag_vulscan"}
+  become: true
+  become_method: sudo
+
+# install Vulscan into nmap: usage *nmap -sV --script=vulscan/vulscan.nse TARGET*
+- name: "Configuring vulscan into nmap"
+  shell: |
+    ln -s /opt/scipag_vulscan /usr/share/nmap/scripts/vulscan
   become: true
   become_method: sudo
 
