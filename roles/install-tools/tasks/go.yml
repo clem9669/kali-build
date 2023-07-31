@@ -1,0 +1,3 @@
+---
+- name: "Go install HTTPX"
+  shell: go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
