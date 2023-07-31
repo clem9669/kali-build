@@ -20,6 +20,7 @@
       - xz-utils
       - wine64
       - realtek-rtl88xxau-dkms
+      - libpcap-dev
     state: latest
   become: true
   become_method: sudo
