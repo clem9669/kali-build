@@ -221,4 +221,4 @@ find -L /usr/share/wordlists /opt/SecLists/ -type f -iname "*$1*"
 }
 
 ## PATH export
-export PATH="$PATH:/home/kali/.local/bin:/usr/local/go/bin"
+export PATH="$PATH:$HOME/.local/bin:/usr/local/go/bin:$HOME/.cargo/bin:$HOME/go/bin"
