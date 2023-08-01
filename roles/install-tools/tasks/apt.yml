@@ -23,6 +23,7 @@
       - libpcap-dev
       - naabu
       - httpx-toolkit
+      - testssl.sh
     state: latest
   become: true
   become_method: sudo
