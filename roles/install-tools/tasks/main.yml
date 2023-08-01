@@ -7,3 +7,4 @@
 - include: "pip.yml"
 - include: "sublimetext.yml"
 - include: "zedencrypt.yml"
+- include: "cargo.yml"
