@@ -4,3 +4,4 @@
 #  shell: go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 # apt install naabu
 # shell: go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
+  shell: go install github.com/denandz/sourcemapper@latest
