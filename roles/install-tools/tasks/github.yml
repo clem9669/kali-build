@@ -34,7 +34,7 @@
     - { repo: "https://github.com/laluka/bypass-url-parser", location: "/opt/bypass-url-parser"}
     - { repo: "https://github.com/lgandx/Responder", location: "/opt/Responder"}
     - { repo: "https://github.com/ly4k/Certipy", location: "/opt/Certipy"}
-    - { repo: "https://github.com/mpgn/CrackMapExec", location: "/opt/CrackMapExec"}
+    - { repo: "https://github.com/Porchetta-Industries/CrackMapExec", location: "/opt/CrackMapExec"}
     - { repo: "https://github.com/mubix/IOXIDResolver", location: "/opt/IOXIDResolver"}
     - { repo: "https://github.com/n00py/LAPSDumper", location: "/opt/LAPSDumper"}
     - { repo: "https://github.com/PowerShellMafia/PowerSploit", location: "/opt/PowerSploit"}
