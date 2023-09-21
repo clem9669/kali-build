@@ -1,5 +1,6 @@
 ---
 - name: "Installing tools from gem"
+  when: install_mode == 'full'
   gem:
     name: "{{ item }}"
     state: latest

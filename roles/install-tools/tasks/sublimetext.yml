@@ -6,14 +6,27 @@
   become: true
   become_method: sudo
 
-- name: "Add repo to source.list.d"
+- name: "Add SublimeText repo to source.list.d"
   apt_repository:
     repo: deb https://download.sublimetext.com/ apt/stable/
     filename: sublime-text.list
   become: true
   become_method: sudo
 
-- name: "Installing subl from APT"
+- name: "Check if Sublime Text binary exists"
+  stat:
+    path: /opt/sublime_text/sublime_text
+  register: sublime_binary
+
+- name: "Uninstall Sublime Text (Debian/Ubuntu) if binary doesn't exist"
+  when: sublime_binary.stat.exists == false
+  apt:
+    name: sublime-text
+    state: absent
+  become: true
+  become_method: sudo
+
+- name: "Installing SublimeText from APT"
   apt:
     name: sublime-text
     state: latest
@@ -32,7 +45,7 @@
     state: directory
     mode: '0755'
   when: user_preference_subl.stat.exists == False
-                
+
 - name: "Copy subl preferences"
   copy:
     src: "{{ role_path }}/files/Preferences.sublime-settings"

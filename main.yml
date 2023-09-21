@@ -2,6 +2,8 @@
 - name: "Customizing Kali"
   hosts: localhost
   connection: local
+  vars:
+    install_mode: light
   roles:
     - role: "roles/configure-i3"
     - role: gantsign.oh-my-zsh

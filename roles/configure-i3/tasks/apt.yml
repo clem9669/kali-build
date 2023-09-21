@@ -1,11 +1,17 @@
 ---
-- name: "Updating apt repo/cache"
-  apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+- name: "Update package cache (Debian/Ubuntu)"
+  apt:
+    update_cache: yes
+  when: ansible_os_family == 'Debian'
   become: true
   become_method: sudo
 
-- name: "Upgrade all packages"
-  apt: upgrade=yes force_apt_get=yes
+- name: "Upgrade all packages (Debian/Ubuntu)"
+  apt:
+    upgrade: full
+    autoremove: yes
+    autoclean: yes
+  when: ansible_os_family == 'Debian'
   become: true
   become_method: sudo
 

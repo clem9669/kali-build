@@ -1,5 +1,5 @@
 ---
-- name: "Installing tools from APT"
+- name: "Installing tools from APT (light install)"
   package:
     name:
       - jq
@@ -7,7 +7,6 @@
       - gdb
       - npm
       - xclip
-      - seclists
       - bettercap
       - wafw00f
       - remmina
@@ -15,15 +14,24 @@
       - feroxbuster
       - gobuster
       - rsyslog
-      - bloodhound
       - ufw
       - xz-utils
-      - wine64
-      - realtek-rtl88xxau-dkms
-      - libpcap-dev
-      - naabu
       - httpx-toolkit
       - testssl.sh
+    state: latest
+  become: true
+  become_method: sudo
+
+- name: "Installing tools from APT (full install)"
+  when: install_mode == 'full'
+  package:
+    name:
+      - seclists
+      - bloodhound
+      - wine64
+      - naabu
+      - realtek-rtl88xxau-dkms
+      - libpcap-dev
       - cargo
     state: latest
   become: true
@@ -34,7 +42,7 @@
   become: true
   become_method: sudo
 
-- name: Update local Database
+- name: "Update local Database"
   command: updatedb
   become: true
   become_method: sudo
