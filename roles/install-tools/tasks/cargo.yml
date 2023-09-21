@@ -1,8 +1,5 @@
 ---
-- name: Install Cargo
-  shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+- name: Install rustscan with Cargo
   become: true
   become_method: sudo
-
-- name: Install RustScan via Cargo
-  shell: "{{ ansible_env.HOME }}/.cargo/bin/cargo install rustscan"
+  command: cargo install rustscan
