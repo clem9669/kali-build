@@ -24,6 +24,7 @@
       - naabu
       - httpx-toolkit
       - testssl.sh
+      - cargo
     state: latest
   become: true
   become_method: sudo
