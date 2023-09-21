@@ -1,6 +1,4 @@
 ---
 - name: Install rustscan with Cargo
   when: install_mode == 'full' 
-  become: true
-  become_method: sudo
   command: cargo install rustscan
