@@ -57,10 +57,10 @@
   become_method: sudo
 
 # install Vulscan into nmap: usage *nmap -sV --script=vulscan/vulscan.nse TARGET*
-- name: "Configuring vulscan into nmap"
-  command: "[ -e /usr/share/nmap/scripts/vulscan ] && echo 'Link already exists' || ln -s /opt/scipag_vulscan /usr/share/nmap/scripts/vulscan"
-  become: true
-  become_method: sudo
+# - name: "Configuring vulscan into nmap"
+#   command: "[ -e /usr/share/nmap/scripts/vulscan ] && echo 'Link already exists' || ln -s /opt/scipag_vulscan /usr/share/nmap/scripts/vulscan"
+#   become: true
+#   become_method: sudo
 
 ## need to download compiled package from github release
 
