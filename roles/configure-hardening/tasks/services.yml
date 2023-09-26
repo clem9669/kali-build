@@ -1,0 +1,13 @@
+- name: Disable SSHD Service
+  service:
+    name: ssh
+    state: stopped
+    enabled: no
+  become: yes
+
+- name: Disable NetworkManager service
+  service:
+    name: NetworkManager
+    state: stopped
+    enabled: no
+  become: yes

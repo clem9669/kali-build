@@ -1,0 +1,4 @@
+---
+# tasks file for configure-hardening
+- include: services.yml
+- include: kernel_param.yml
