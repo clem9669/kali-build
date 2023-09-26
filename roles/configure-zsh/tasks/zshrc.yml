@@ -3,3 +3,9 @@
   copy:
     src: "{{ role_path }}/files/zshrc"
     dest: "{{ ansible_env.HOME }}/.zshrc"
+
+- name: "Copy neofetch conf"
+  copy:
+    src: "{{ role_path }}/files/neofetch.conf"
+    dest: "{{ ansible_env.HOME }}/.config/neofetch/config.conf"
+

@@ -32,3 +32,5 @@
     - role: "roles/install-tools"
     - role: "roles/configure-firefox"
     - role: "roles/configure-logging"
+    - role: "roles/configure-hardening"
+      when: install_mode == 'hard'
