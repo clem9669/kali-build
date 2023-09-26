@@ -1,4 +1,4 @@
 ---
 - name: Install rustscan with Cargo
   when: install_mode == 'full' 
-  command: cargo install rustscan
+  command: cargo install rustscan # taking long
