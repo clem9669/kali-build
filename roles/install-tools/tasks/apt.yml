@@ -18,6 +18,8 @@
       - xz-utils
       - httpx-toolkit
       - testssl.sh
+      - iptables-persistent
+      - neofetch
     state: latest
   become: true
   become_method: sudo
@@ -33,6 +35,7 @@
       - realtek-rtl88xxau-dkms
       - libpcap-dev
       - cargo
+      - libreoffice
     state: latest
   become: true
   become_method: sudo

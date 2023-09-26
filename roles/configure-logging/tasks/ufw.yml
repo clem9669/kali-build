@@ -7,12 +7,40 @@
   become: yes
   become_method: sudo
 
-- name: "Configure UFW"
-  ufw:
-    state: enabled
-    policy: allow
+- name: Ensure UFW is installed
+  apt:
+    name: ufw
+    state: present
   become: yes
-  become_method: sudo
+
+- name: Set UFW INPUT policies
+  ufw:
+    policy: deny
+    direction: incoming
+  become: yes
+
+- name: Set UFW FORWARD policy
+  ufw:
+    policy: deny
+    direction: routed
+  become: yes
+
+- name: Allow incoming traffic in the ESTABLISHED state (iptables)
+  command: iptables -A INPUT -m state --state ESTABLISHED -j ACCEPT
+  become: yes
+
+- name: Allow incoming TCP traffic on the loopback interface
+  ufw:
+    rule: allow
+    direction: in
+    interface: lo
+    proto: tcp
+  become: yes
+
+- name: Enable UFW logging
+  ufw:
+    logging: yes
+  become: yes
 
 - name: "Log SYN packets in INPUT Chain"
   lineinfile:
@@ -21,11 +49,20 @@
     insertbefore: "# don't delete the 'COMMIT' line or these rules won't be processed"
   become: yes
   become_method: sudo
-  
-- name: "Restart ufw"
-  service:
-    name: ufw
-    state: restarted
-  become: true
-  become_method: sudo
+
+- name: Enable UFW rules
+  ufw:
+    state: enabled
+  become: yes
+
+- name: Save IPv4 iptables Rules
+  shell: 'iptables-save > /etc/iptables/rules.v4'
+  become: yes
+
+- name: Save IPv6 iptables Rules
+  shell: 'ip6tables-save > /etc/iptables/rules.v6'
+  become: yes
         
+- name: Enable iptables-persistent service
+  shell: systemctl enable netfilter-persistent.service
+  become: yes
