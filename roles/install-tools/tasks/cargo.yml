@@ -1,6 +1,6 @@
 ---
 - name: Download and install Rustup
-    shell: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"
+  shell: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"
 
 # - name: Install rustscan with Cargo
 #   command: cargo install rustscan # taking long
