@@ -46,7 +46,6 @@
     - { repo: "https://github.com/Group3r/Group3r", location: "/opt/Group3r"}
     - { repo: "https://github.com/Hackndo/lsassy", location: "/opt/lsassy"}
     - { repo: "https://github.com/iamj0ker/bypass-403", location: "/opt/bypass"}
-    - { repo: "https://github.com/janstarke/ntdsextract2/", location: "/opt/ntdsextract2"}
     - { repo: "https://github.com/jpillora/chisel", location: "/opt/chisel"}
     - { repo: "https://github.com/laluka/bypass-url-parser", location: "/opt/bypass-url-parser"}
     - { repo: "https://github.com/lgandx/Responder", location: "/opt/Responder"}
