@@ -1,0 +1,8 @@
+- name: Run dmidecode to get BIOS information
+  shell: dmidecode -s bios-version
+  register: bios_version_output
+  changed_when: false
+
+- name: Display BIOS Version
+  debug:
+    msg: "BIOS Version: {{ bios_version_output.stdout }}. Keep it up to date !"

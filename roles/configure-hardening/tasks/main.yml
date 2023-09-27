@@ -4,5 +4,6 @@
 - include: kernel_param.yml
 - include: banner.yml
 - include: ufw.yml
+- include: bios.yml
 - include: i3.yml
 # - include: ntp.yml
