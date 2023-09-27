@@ -4,6 +4,18 @@
     src: "{{ role_path }}/files/zshrc"
     dest: "{{ ansible_env.HOME }}/.zshrc"
 
+- name: Check if neofetch config directory exists
+  stat:
+    path: /home/kali/.config/neofetch
+  register: directory_info
+
+- name: Create neofetch config directory if it doesn't exist
+  file:
+    path: /home/kali/.config/neofetch
+    state: directory
+  when: not directory_info.stat.exists
+
+
 - name: "Copy neofetch conf"
   copy:
     src: "{{ role_path }}/files/neofetch.conf"
