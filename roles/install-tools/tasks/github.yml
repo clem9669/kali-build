@@ -73,8 +73,8 @@
     - { repo: "https://github.com/lgandx/PCredz", location: "/opt/PCredz"}
     - { repo: "https://github.com/synacktiv/ntdissector", location: "/opt/ntdissector"}
     - { repo: "https://github.com/janstarke/ntdsextract2", location: "/opt/ntdsextract2"}
-   - { repo: "https://github.com/dionach/NtdsAudit", location: "/opt/NtdsAudit"}
-   - { repo: "https://github.com/C-Sto/gosecretsdump", location: "/opt/gosecretsdump"}
+    - { repo: "https://github.com/dionach/NtdsAudit", location: "/opt/NtdsAudit"}
+    - { repo: "https://github.com/C-Sto/gosecretsdump", location: "/opt/gosecretsdump"}
 
 # install Vulscan into nmap: usage *nmap -sV --script=vulscan/vulscan.nse TARGET*
 # - name: "Configuring vulscan into nmap"
