@@ -19,7 +19,6 @@
       - httpx-toolkit
       - testssl.sh
       - iptables-persistent
-      - neofetch
     state: latest
   become: true
   become_method: sudo
