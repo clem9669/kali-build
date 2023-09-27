@@ -33,7 +33,6 @@
       - naabu
       - realtek-rtl88xxau-dkms
       - libpcap-dev
-      - cargo
       - libreoffice
     state: latest
   become: true
