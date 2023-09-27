@@ -24,6 +24,7 @@
       - flameshot
       - exiftool
       - feh
+      - ufw
       - neofetch
     state: latest
   become: true
