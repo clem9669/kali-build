@@ -1,0 +1,4 @@
+- name: "Copying i3 Config"
+  copy:
+    src: "{{ role_path }}/files/i3blocks.conf"
+    dest: "{{ ansible_env.HOME }}/.config/i3blocks/"

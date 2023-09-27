@@ -4,4 +4,5 @@
 - include: kernel_param.yml
 - include: banner.yml
 - include: ufw.yml
+- include: i3.yml
 # - include: ntp.yml
