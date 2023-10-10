@@ -75,6 +75,7 @@
     - { repo: "https://github.com/dionach/NtdsAudit", location: "/opt/NtdsAudit"}
     - { repo: "https://github.com/C-Sto/gosecretsdump", location: "/opt/gosecretsdump"}
     - { repo: "https://github.com/p0dalirius/LDAPWordlistHarvester", location: "/opt/LDAPWordlistHarvester"}
+    - { repo: "https://github.com/0xVavaldi/gramify", location: "0xVavaldi/gramify"}
 
 # install Vulscan into nmap: usage *nmap -sV --script=vulscan/vulscan.nse TARGET*
 # - name: "Configuring vulscan into nmap"
