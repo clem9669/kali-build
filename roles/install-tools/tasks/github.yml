@@ -77,6 +77,7 @@
     - { repo: "https://github.com/p0dalirius/LDAPWordlistHarvester", location: "/opt/LDAPWordlistHarvester"}
     - { repo: "https://github.com/0xVavaldi/gramify", location: "/opt/gramify"}
     - { repo: "https://github.com/ticarpi/jwt_tool", location: "/opt/jwt_tool"}
+    - { repo: "https://github.com/synacktiv/nord-stream", location: "/opt/nord-stream"}
 
 # install Vulscan into nmap: usage *nmap -sV --script=vulscan/vulscan.nse TARGET*
 # - name: "Configuring vulscan into nmap"
