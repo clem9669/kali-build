@@ -9,3 +9,5 @@
 - include: "zedencrypt.yml"
 - include: "cargo.yml"
   when: install_mode == 'full'
+- include: "go.yml"
+  when: install_mode == 'full'
