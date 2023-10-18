@@ -70,23 +70,28 @@ Follow these steps to set up your environment on a Debian-based operating system
     * Install the necessary Ansible roles and dependencies using Ansible Galaxy:
 
         ```sh
-        ansible-galaxy install -r requirements.txt
+        ansible-galaxy install -r requirements.yml
         ```
 
 4. Execute Ansible Playbook:
     * Start the Ansible playbook and provide your root password when prompted for elevated operations:
 
         ```sh
-        ansible-playbook main.yml --ask-become-pass
+        ansible-playbook main.yml --ask-become-pass # or -K
         ```
 
 Copy/paste:
 ```sh
 git clone https://github.com/clem9669/kali-build
 cd kali-build/
-ansible-galaxy install -r requirements.txt
+ansible-galaxy install -r requirements.yml
 ansible-playbook main.yml --ask-become-pass
 ```
+
+It is possible to adjust the script with the 3 followings args `-e "install_mode=full"`:
+- light
+- full (=> all tools)
+- hard (=> hardening)
 
 <!-- USAGE EXAMPLES -->
 ## Usage
