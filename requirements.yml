@@ -1,2 +1,3 @@
 - src: gantsign.oh-my-zsh
 - src: gantsign.golang
+- src: gantsign.visual-studio-code

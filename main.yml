@@ -27,9 +27,18 @@
       golang_install_dir: '/usr/local/go/'
       golang_version: '1.20.6'
       golang_architecture: amd64
-      
+
     - role: "roles/configure-zsh"
     - role: "roles/install-tools"
+    - role: gantsign.visual-studio-code
+      users:
+        - username: "{{ ansible_user_id }}"
+          visual_studio_code_extensions:
+            - streetsidesoftware.code-spell-checker
+            - wholroyd.jinja
+            - ms-python.python
+            - snyk-security.snyk-vulnerability-scanner
+
     - role: "roles/configure-firefox"
     - role: "roles/configure-logging"
     - role: "roles/configure-hardening"
