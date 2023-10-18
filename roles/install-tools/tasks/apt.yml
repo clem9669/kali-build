@@ -33,6 +33,8 @@
       - realtek-rtl88xxau-dkms
       - libpcap-dev
       - libreoffice
+      - libkrb5-dev
+      - krb5-config
     state: latest
   become: true
   become_method: sudo
