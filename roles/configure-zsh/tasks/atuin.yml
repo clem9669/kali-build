@@ -4,10 +4,6 @@
     path: /usr/bin/atuin
   register: atuin_binary
 
-- name: Debug Atuin binary status
-  debug:
-    var: atuin_binary
-
 - name: Install Atuin from GitHub
   when: atuin_binary.stat.exists == False
   shell: "curl https://raw.githubusercontent.com/atuinsh/atuin/main/install.sh | bash"
