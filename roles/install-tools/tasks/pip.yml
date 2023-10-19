@@ -1,6 +1,5 @@
 ---
 - name: "Install pipx tools"
-  when: install_mode == 'full'
   community.general.pipx:
     name: "{{ item.name }}"
     source: "{{ item.url }}"

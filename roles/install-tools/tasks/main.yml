@@ -5,6 +5,7 @@
 - include: "gem.yml"
 - include: "github.yml"
 - include: "pip.yml"
+  when: install_mode == 'full'
 - include: "sublimetext.yml"
 - include: "zedencrypt.yml"
 - include: "cargo.yml"
