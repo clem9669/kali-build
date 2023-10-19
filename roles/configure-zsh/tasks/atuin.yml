@@ -4,12 +4,22 @@
     path: /usr/bin/atuin
   register: atuin_binary
 
+- name: Debug Atuin binary status
+  debug:
+    var: atuin_binary
+
 - name: Install Atuin from GitHub
-  when: atuin_binary == false
-  shell: bash <(curl https://raw.githubusercontent.com/atuinsh/atuin/main/install.sh)
+  when: atuin_binary.stat.exists == False
+  shell: "curl https://raw.githubusercontent.com/atuinsh/atuin/main/install.sh | bash"
+
+- name: Create Atuin config directory
+  when: atuin_binary.stat.exists == False
+  file:
+    path: "{{ ansible_env.HOME }}/.config/atuin"
+    state: directory
 
 - name: "Copy Atuin config file"
-  when: atuin_binary == false
+  when: atuin_binary.stat.exists == False
   copy:
     src: "{{ role_path }}/files/config.toml"
     dest: "{{ ansible_env.HOME }}/.config/atuin/config.toml"
