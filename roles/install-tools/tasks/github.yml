@@ -92,7 +92,13 @@
 ## need to download compiled package from github release
 
 # install GDB + GEF: https://github.com/hugsy/gef
+- name: Check if gdbinit-gef exists
+  stat:
+    path: '~/.gdbinit-gef.py'
+  register: gdbinit_gef_status
+
 - name: "Configuring GEF in GDB"
+  when: not gdbinit_gef_status.stat.exists
   shell: |
     wget -O ~/.gdbinit-gef.py -q https://gef.blah.cat/py
     echo source ~/.gdbinit-gef.py >> ~/.gdbinit
