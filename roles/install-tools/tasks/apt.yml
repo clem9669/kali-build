@@ -18,6 +18,7 @@
       - httpx-toolkit
       - testssl.sh
       - iptables-persistent
+      - keepassxc
     state: latest
   become: true
   become_method: sudo
