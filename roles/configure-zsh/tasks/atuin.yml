@@ -1,0 +1,15 @@
+---
+- name: "Check if Atuin (apt) exists"
+  stat:
+    path: /usr/bin/atuin
+  register: atuin_binary
+
+- name: Install Atuin from GitHub
+  when: atuin_binary == false
+  shell: bash <(curl https://raw.githubusercontent.com/atuinsh/atuin/main/install.sh)
+
+- name: "Copy Atuin config file"
+  when: atuin_binary == false
+  copy:
+    src: "{{ role_path }}/files/config.toml"
+    dest: "{{ ansible_env.HOME }}/.config/atuin/config.toml"
