@@ -3,5 +3,17 @@
   shell: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"
 
 - name: Install tools with Cargo
-  command: cargo install bat # taking long
+  command: cargo install bat
+  # command: cargo install atuin
   #command: cargo install rustscan # taking long
+
+# - name: "Check if Atuin (apt) exists"
+#   stat:
+#     path: /usr/bin/atuin
+#   register: atuin_binary
+
+# - name: "Copy Atuin config file"
+#   when: atuin_binary == false
+#   copy:
+#     src: "{{ role_path }}/files/config.toml"
+#     dest: "{{ ansible_env.HOME }}/.config/atuin/config.toml"
