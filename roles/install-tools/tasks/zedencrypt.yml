@@ -1,23 +1,31 @@
 ---
+- name: Check if zed_free binary exists
+  stat:
+    path: '/usr/bin/zed_free'
+  register: zed_free_binary
+
 - name: Copy zedencrypt archive to the remote host
+  when: zed_free_binary.stat.exists == false
   copy:
     src: 'files/ZEDFREE-2023.2.Ubuntu.amd64.zip'
     dest: '/opt/ZEDFREE-2023.2.Ubuntu.amd64.zip'
     mode: '0600'  # Set the appropriate permissions for the .deb file
 
 - name: Create the destination folder for unzipping
+  when: zed_free_binary.stat.exists == false
   file:
     path: '/opt/zedencrypt'
     state: directory
     mode: '0755'
 
 - name: Unzip the zedencrypt archive
+  when: zed_free_binary.stat.exists == false
   unarchive:
     src: '/opt/ZEDFREE-2023.2.Ubuntu.amd64.zip'
     dest: '/opt/zedencrypt'  # Destination folder for the unzipped contents
 
 - name: Install zedencrypt using dpkg
+  when: zed_free_binary.stat.exists == false
   shell: dpkg -i '/opt/zedencrypt/Ubuntu 22.04/ZEDFREE-2023.2.Ubuntu22.04.amd64.deb'
-  register: install_result
   become: true
   become_method: sudo
