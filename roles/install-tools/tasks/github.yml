@@ -54,7 +54,7 @@
     - { repo: "https://github.com/mubix/IOXIDResolver", location: "/opt/IOXIDResolver"}
     - { repo: "https://github.com/n00py/LAPSDumper", location: "/opt/LAPSDumper"}
     - { repo: "https://github.com/PowerShellMafia/PowerSploit", location: "/opt/PowerSploit"}
-    - { repo: "https://github.com/rasta-mouse/Sherlock", location: "/opt/mouse"}
+    - { repo: "https://github.com/rasta-mouse/Sherlock", location: "/opt/Sherlock"}
     - { repo: "https://github.com/rebootuser/LinEnum", location: "/opt/LinEnum"}
     - { repo: "https://github.com/rezasp/joomscan", location: "/opt/joomscan"}
     - { repo: "https://github.com/ropnop/kerbrute", location: "/opt/kerbrute"}
