@@ -2,6 +2,7 @@
   shell: dmidecode -s bios-version
   register: bios_version_output
   changed_when: false
+  become: true
 
 - name: Display BIOS Version
   debug:
