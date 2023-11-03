@@ -1,3 +1,4 @@
+# Get burp CA to OS store
 - name: "Check if BurpSuiteCA.der exists"
   stat:
     path: /usr/local/share/ca-certificates/BurpSuiteCA.der
@@ -51,3 +52,28 @@
   template:
     src: "templates/UserConfigCommunity.json.j2"
     dest: "/home/{{ ansible_user_id }}/.BurpSuite/UserConfigCommunity.json"
+
+# Get Burpsuite pro
+- name: "Check if BurpSuiteCA.der exists"
+  stat:
+      path: /usr/share/burpsuite/burpsuite_pro.jar
+        register: burp_pro
+
+- name: Download jar files
+  when: burp_pro.stat.exists == False
+  ansible.builtin.get_url:
+    url: "https://portswigger-cdn.net/burp/releases/download?product=pro&version=2023.10.2.4&type=JAR"
+    dest: "/usr/share/burpsuite/burpsuite_pro.jar"
+    checksum: "sha256:1f9fe7c55bc0a06cd120039c86ff6d018c8582ba1d87b5ee8024e7da8515f53c"
+    mode: '0644'
+  become: true
+  become_method: sudo
+
+- name: "Copying Burp Script"
+  when: burp_pro.stat.exists == False
+  copy:
+    src: files/burpsuite_pro
+    dest: /usr/bin/burpsuite_pro
+    mode: 0744
+  become: true
+  become_method: sudo

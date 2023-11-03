@@ -88,7 +88,7 @@ ansible-galaxy install -r requirements.yml
 ansible-playbook main.yml --ask-become-pass
 ```
 
-It is possible to adjust the script with the 3 followings args `-e "install_mode=full"`:
+It is possible to adjust the script with the 3 followings args `ansible-playbook main.yml -K -e "install_mode=full"`:
 - light
 - full (=> all tools)
 - hard (=> hardening)
@@ -118,3 +118,5 @@ Don't forget to give the project a star! Thanks again!
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+>>>>>>> 80e151750291b9cce814a350520f3277d88cd67b
