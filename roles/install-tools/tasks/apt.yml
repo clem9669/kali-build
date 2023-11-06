@@ -19,6 +19,7 @@
       - testssl.sh
       - iptables-persistent
       - keepassxc
+      - btop
     state: latest
   become: true
   become_method: sudo
