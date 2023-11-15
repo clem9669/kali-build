@@ -20,6 +20,7 @@
       - iptables-persistent
       - keepassxc
       - btop
+      - exploitdb-papers
     state: latest
   become: true
   become_method: sudo
