@@ -81,7 +81,8 @@
     - { repo: "https://github.com/franc-pentest/ldeep", location: "/opt/ldeep"}
     - { repo: "https://github.com/CravateRouge/bloodyAD", location: "/opt/bloodyAD"}
     - { repo: "https://github.com/CravateRouge/autobloody", location: "/opt/autobloody"}    
-    - { repo: "https://github.com/dirkjanm/adidnsdump", location: "/opt/adidnsdump"}    
+    - { repo: "https://github.com/dirkjanm/adidnsdump", location: "/opt/adidnsdump"}
+    - { repo: "https://github.com/volatilityfoundation/volatility3", location: "/opt/volatility3"}
 
 # install Vulscan into nmap: usage *nmap -sV --script=vulscan/vulscan.nse TARGET*
 # - name: "Configuring vulscan into nmap"
