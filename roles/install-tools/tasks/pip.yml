@@ -13,4 +13,3 @@
     - { name: 'sipvicious', url: 'git+https://github.com/EnableSecurity/sipvicious.git'}
     - { name: 'ApacheTomcatScanner', url: 'git+https://github.com/p0dalirius/ApacheTomcatScanner.git'}
     - { name: 'Crackmapexec', url: 'git+https://github.com/byt3bl33d3r/CrackMapExec.git'}
-    - { name: 'vol', url: 'git+https://github.com/volatilityfoundation/volatility3.git'}
