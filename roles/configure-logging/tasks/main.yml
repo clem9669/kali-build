@@ -1,5 +1,5 @@
 ---
 # tasks file for configure-logging
-- include: "ufw.yml"
-- include: "auditd.yml"
-- include: "general.yml"
+- include_tasks: "ufw.yml"
+- include_tasks: "auditd.yml"
+- include_tasks: "general.yml"

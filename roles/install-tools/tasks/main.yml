@@ -1,14 +1,14 @@
 ---
 # tasks file for install-tools
-- include: "apt.yml"
-- include: "burp.yml"
-- include: "gem.yml"
-- include: "github.yml"
-- include: "pip.yml"
+- include_tasks: "apt.yml"
+- include_tasks: "burp.yml"
+- include_tasks: "gem.yml"
+- include_tasks: "github.yml"
+- include_tasks: "pip.yml"
   when: install_mode == 'full'
-- include: "sublimetext.yml"
-- include: "zedencrypt.yml"
-- include: "cargo.yml"
+- include_tasks: "sublimetext.yml"
+- include_tasks: "zedencrypt.yml"
+- include_tasks: "cargo.yml"
   when: install_mode == 'full'
-- include: "go.yml"
+- include_tasks: "go.yml"
   when: install_mode == 'full'

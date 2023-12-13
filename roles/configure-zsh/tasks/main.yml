@@ -1,5 +1,5 @@
 ---
-- include: "zshrc.yml"
-- include: "zshtheme.yml"
-- include: "zsh-autosuggestions.yml"
-- include: "atuin.yml"
+- include_tasks: "zshrc.yml"
+- include_tasks: "zshtheme.yml"
+- include_tasks: "zsh-autosuggestions.yml"
+- include_tasks: "atuin.yml"

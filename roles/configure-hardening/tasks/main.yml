@@ -1,9 +1,9 @@
 ---
 # tasks file for configure-hardening
-- include: services.yml
-- include: kernel_param.yml
-- include: banner.yml
-- include: ufw.yml
-- include: bios.yml
-- include: i3.yml
+- include_tasks: services.yml
+- include_tasks: kernel_param.yml
+- include_tasks: banner.yml
+- include_tasks: ufw.yml
+- include_tasks: bios.yml
+- include_tasks: i3.yml
 # - include: ntp.yml
