@@ -4,6 +4,7 @@
     name: "{{ item.name }}"
     source: "{{ item.url }}"
     state: latest
+    install_deps: true
   loop:
     - { name: 'impacket', url: 'git+https://github.com/fortra/impacket.git' }
     - { name: 'ldeep', url: 'git+https://github.com/franc-pentest/ldeep.git' }
