@@ -84,7 +84,7 @@
             dest: "/home/{{ ansible_user_id }}/.BurpSuite/UserConfigPro.json"
 
 - name: Copying BurpSuite Pro workspace config
-  when: burp_cert.stat.exists == False
+  when: burp_pro.stat.exists == False
   copy:
     src: files/WorkspaceConfigPro.json
     dest: "/home/{{ ansible_user_id }}/.BurpSuite/WorkspaceConfigPro.json"
