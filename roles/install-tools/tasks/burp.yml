@@ -1,4 +1,4 @@
-# Get burp CA to OS store
+# Get burp community CA to OS store
 - name: "Check if BurpSuiteCA.der exists"
   stat:
     path: /usr/local/share/ca-certificates/BurpSuiteCA.der
@@ -53,7 +53,7 @@
     src: "templates/UserConfigCommunity.json.j2"
     dest: "/home/{{ ansible_user_id }}/.BurpSuite/UserConfigCommunity.json"
 
-# Get Burpsuite pro
+# Get Burpsuite_pro (JAR)
 - name: "Check if /usr/share/burpsuite/burpsuite_pro.jar exists"
   stat:
       path: /usr/share/burpsuite/burpsuite_pro.jar
@@ -76,3 +76,9 @@
     mode: 0755
   become: true
   become_method: sudo
+
+- name: Copy BurpSuite Pro Config
+  when: burp_pro.stat.exists == False
+    template:
+        src: "templates/UserConfigPro.json.j2"
+            dest: "/home/{{ ansible_user_id }}/.BurpSuite/UserConfigPro.json"
