@@ -82,3 +82,11 @@
     template:
         src: "templates/UserConfigPro.json.j2"
             dest: "/home/{{ ansible_user_id }}/.BurpSuite/UserConfigPro.json"
+
+- name: Copying BurpSuite Pro workspace config
+  when: burp_cert.stat.exists == False
+  copy:
+    src: files/WorkspaceConfigPro.json
+    dest: "/home/{{ ansible_user_id }}/.BurpSuite/WorkspaceConfigPro.json"
+    mode: 0744
+
