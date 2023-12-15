@@ -87,6 +87,7 @@
     - { repo: "https://github.com/dirkjanm/BloodHound.py", location: "/opt/BloodHound.py"}
     - { repo: "https://github.com/dirkjanm/ldapdomaindump", location: "/opt/ldapdomaindump"}
     - { repo: "https://github.com/dirkjanm/PKINITtools", location: "/opt/PKINITtools"}
+    - { repo: "https://github.com/safebuffer/sam-the-admin", location: "/opt/sam-the-admin"}
     
 # install Vulscan into nmap: usage *nmap -sV --script=vulscan/vulscan.nse TARGET*
 # - name: "Configuring vulscan into nmap"
