@@ -15,3 +15,5 @@
     - { name: 'ApacheTomcatScanner', url: 'git+https://github.com/p0dalirius/ApacheTomcatScanner.git'}
     - { name: 'Crackmapexec', url: 'git+https://github.com/byt3bl33d3r/CrackMapExec.git'}
     - { name: 'NetExec', url: 'git+https://github.com/Pennyw0rth/NetExec.git'}
+    - { name: 'DonPAPI', url: 'git+https://github.com/login-securite/DonPAPI.git'}
+    - { name: 'dploot', url: 'git+https://github.com/zblurx/dploot.git'}
