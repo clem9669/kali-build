@@ -83,7 +83,11 @@
     - { repo: "https://github.com/CravateRouge/autobloody", location: "/opt/autobloody"}    
     - { repo: "https://github.com/dirkjanm/adidnsdump", location: "/opt/adidnsdump"}
     - { repo: "https://github.com/volatilityfoundation/volatility3", location: "/opt/volatility3"}
-
+    - { repo: "https://github.com/dirkjanm/PrivExchange", location: "/opt/PrivExchange"}
+    - { repo: "https://github.com/dirkjanm/BloodHound.py", location: "/opt/BloodHound.py"}
+    - { repo: "https://github.com/dirkjanm/ldapdomaindump", location: "/opt/ldapdomaindump"}
+    - { repo: "https://github.com/dirkjanm/PKINITtools", location: "/opt/PKINITtools"}
+    
 # install Vulscan into nmap: usage *nmap -sV --script=vulscan/vulscan.nse TARGET*
 # - name: "Configuring vulscan into nmap"
 #   command: "[ -e /usr/share/nmap/scripts/vulscan ] && echo 'Link already exists' || ln -s /opt/scipag_vulscan /usr/share/nmap/scripts/vulscan"
