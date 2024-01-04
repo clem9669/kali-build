@@ -38,6 +38,7 @@
       - libreoffice
       - libkrb5-dev
       - krb5-config
+      - chromium
     state: latest
   become: true
   become_method: sudo
