@@ -67,7 +67,7 @@
     - { repo: "https://github.com/xct/hashgrab", location: "/opt/hashgrab"}
     - { repo: "https://github.com/xct/morbol", location: "/opt/morbol"}
     - { repo: "https://github.com/xct/xc", location: "/opt/xc"}
-    - { repo: "https://github.com/frohoff/ysoserial", location: "/opt/ysiserial"}
+    - { repo: "https://github.com/frohoff/ysoserial", location: "/opt/ysoserial"}
     - { repo: "https://github.com/scipag/vulscan", location: "/opt/scipag_vulscan"}
     - { repo: "https://github.com/lgandx/PCredz", location: "/opt/PCredz"}
     - { repo: "https://github.com/synacktiv/ntdissector", location: "/opt/ntdissector"}
@@ -80,7 +80,7 @@
     - { repo: "https://github.com/synacktiv/nord-stream", location: "/opt/nord-stream"}
     - { repo: "https://github.com/franc-pentest/ldeep", location: "/opt/ldeep"}
     - { repo: "https://github.com/CravateRouge/bloodyAD", location: "/opt/bloodyAD"}
-    - { repo: "https://github.com/CravateRouge/autobloody", location: "/opt/autobloody"}    
+    - { repo: "https://github.com/CravateRouge/autobloody", location: "/opt/autobloody"}
     - { repo: "https://github.com/dirkjanm/adidnsdump", location: "/opt/adidnsdump"}
     - { repo: "https://github.com/volatilityfoundation/volatility3", location: "/opt/volatility3"}
     - { repo: "https://github.com/dirkjanm/PrivExchange", location: "/opt/PrivExchange"}
@@ -88,7 +88,7 @@
     - { repo: "https://github.com/dirkjanm/ldapdomaindump", location: "/opt/ldapdomaindump"}
     - { repo: "https://github.com/dirkjanm/PKINITtools", location: "/opt/PKINITtools"}
     - { repo: "https://github.com/Ridter/noPac", location: "/opt/noPac"}
-    
+
 # install Vulscan into nmap: usage *nmap -sV --script=vulscan/vulscan.nse TARGET*
 # - name: "Configuring vulscan into nmap"
 #   command: "[ -e /usr/share/nmap/scripts/vulscan ] && echo 'Link already exists' || ln -s /opt/scipag_vulscan /usr/share/nmap/scripts/vulscan"
