@@ -79,9 +79,10 @@
 
 - name: Copy BurpSuite Pro Config
   when: burp_pro.stat.exists == False
-    template:
-        src: "templates/UserConfigPro.json.j2"
-        dest: "/home/{{ ansible_user_id }}/.BurpSuite/UserConfigPro.json"
+  template:
+      src: "templates/UserConfigPro.json.j2"
+      dest: "/home/{{ ansible_user_id }}/.BurpSuite/UserConfigPro.json"
+  mode: 0744
 
 - name: Copying BurpSuite Pro workspace config
   when: burp_pro.stat.exists == False
