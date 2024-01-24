@@ -77,17 +77,15 @@
   become: true
   become_method: sudo
 
-- name: Copy BurpSuite Pro Config
+- name: "Copy BurpSuite Pro Config"
   when: burp_pro.stat.exists == False
   template:
       src: "templates/UserConfigPro.json.j2"
       dest: "/home/{{ ansible_user_id }}/.BurpSuite/UserConfigPro.json"
-  mode: 0744
 
-- name: Copying BurpSuite Pro workspace config
+- name: "Copying BurpSuite Pro workspace config"
   when: burp_pro.stat.exists == False
   copy:
     src: files/WorkspaceConfigPro.json
     dest: "/home/{{ ansible_user_id }}/.BurpSuite/WorkspaceConfigPro.json"
     mode: 0744
-
