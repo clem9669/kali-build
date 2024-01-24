@@ -11,7 +11,7 @@
   become_method: sudo
 
 - name: "Add Sublime Text APT repository to sources list"
-  shell: 'echo "deb [signed-by=/usr/share/keyrings/sublimehq-archive-keyring.gpg] https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list'
+  shell: 'echo "deb [signed-by=/usr/share/keyrings/sublimehq-archive-keyring.gpg] https://download.sublimetext.com/ apt/stable/" | sudo dd of=/etc/apt/sources.list.d/sublime-text.list'
   when: sublime_binary.stat.exists == false
   become: true
   become_method: sudo
