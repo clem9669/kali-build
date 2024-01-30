@@ -13,6 +13,6 @@ pipx ensurepath
 export PATH="$PATH:$HOME/.local/bin"
 
 echo "[*] Installing Ansible Galaxy Collections"
-ansible-galaxy install -r requirement.yml
+ansible-galaxy install -r requirements.yml
 echo "[*] All good, now run:"
 echo "bash -x install.sh"
