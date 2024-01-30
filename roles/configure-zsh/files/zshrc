@@ -208,7 +208,13 @@ alias rot13="tr 'A-Za-z' 'N-ZA-Mn-za-m'"
 alias shred='shred -zvun 12'
 alias s='python3 -m http.server'
 #alias wget = 'wget -c'
-
+alias nmap-html='nmap --stylesheet https://raw.githubusercontent.com/honze-net/nmap-bootstrap-xsl/master/nmap-bootstrap.xsl'
+alias capture-creds="sudo tcpdump -i eth0 port http or port ftp or port smtp or port imap or port pop3 or port telnet -l -A | grep -iEB5 --line-buffered 'pass=|pwd=|log=|login=|user=|username=|pw=|passw=|passwd=|password=|pass:|user:|username:|password:|login:|pass |user |authorization:|token'"
+alias nocolor='sed "s/\x1B\[[0-9;]\+[A-Za-z]//g"'
+alias get-meteo='curl https://wttr.in/'
+alias cpy='xclip -selection clipboard'
+alias b64d='base64 -d'
+alias b64e='base64 -w 0'
 
 ## Functions
 mkcd()
