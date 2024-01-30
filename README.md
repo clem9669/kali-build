@@ -27,21 +27,24 @@ Here's the goals:
 * Rapid Machine Creation: with this project, you can create an identical machine within minutes.
 * Flexibility in Configuration: quickly tailor the sensitivity of the pentester's machine to your needs.
 
-<!-- GETTING STARTED -->
-## Getting Started
+## Sum-Up
 
-This is an example of how you may give instructions on setting up your project locally.
+The ansible playbook `main.yml` applies 9 ansible roles which are:
 
-### Prerequisites
-
-I recommand to install ansible with pip instead of apt.
-Starting from a nice and clean OS will avoid any trouble with dependencies and previous installations.
-
-```sh
-pip install ansible
-```
+- roles/configure-i3
+- gantsign.oh-my-zsh
+- gantsign.golang
+- roles/configure-zsh
+- roles/install-tools
+- gantsign.visual-studio-code
+- roles/configure-firefox
+- roles/configure-logging
+- roles/configure-hardening
 
 ## Pre-Install, Install, Update
+
+I recommand to install ansible with pip instead of apt.
+Starting from a nice and clean OS will avoid any trouble with dependencies and previous installati
 
 ```bash
 # Pre-install
@@ -55,59 +58,23 @@ bash -x install.sh
 
 ```
 
-## Sum-Up
-
-The ansible playbook `main.yml` applies 4 ansible roles which are:
-
-- roles/base-install
-- roles/offensive-stuff
-- roles/gui-tools
-- roles/hardening
-
-### Installation
-
-Follow these steps to set up your environment on a Debian-based operating system:
-
-1. Prepare Your Environment:
-    * Ensure you are on a Debian-based OS with knowledge of the privileged account password.
-
-2. Clone the Repository:
-    * Clone the repository and navigate to the project directory:
-
-        ```sh
-        git clone https://github.com/clem9669/kali-build
-        cd kali-build/
-        ```
-
-3. Install Dependencies:
-    * Install the necessary Ansible roles and dependencies using Ansible Galaxy:
-
-        ```sh
-        ansible-galaxy install -r requirements.yml
-        ```
-
-4. Execute Ansible Playbook:
-    * Start the Ansible playbook and provide your root password when prompted for elevated operations:
-
-        ```sh
-        ansible-playbook main.yml --ask-become-pass # or -K
-        ```
-
-Copy/paste:
-```sh
-git clone https://github.com/clem9669/kali-build
-cd kali-build/
-ansible-galaxy install -r requirements.yml
-ansible-playbook main.yml --ask-become-pass
-```
-
 It is possible to adjust the script with the 3 followings args `ansible-playbook main.yml -K -e "install_mode=full"`:
 - light
 - full (=> all tools)
 - hard (=> hardening)
 
 <!-- USAGE EXAMPLES -->
-## Usage
+## Details and explanations
+
+### roles/configure-i3
+### gantsign.oh-my-zsh
+### gantsign.golang
+### roles/configure-zsh
+### roles/install-tools
+### gantsign.visual-studio-code
+### roles/configure-firefox
+### roles/configure-logging
+### roles/configure-hardening
 
 Make a table for all the things done in playbooks
 
@@ -117,6 +84,7 @@ Make a table for all the things done in playbooks
 This section should list any major resources used to build the project. 
 
 * https://github.com/ippsec/parrot-build
+* https://github.com/laluka/lalubuntu
 * https://www.youtube.com/ippsec
 * https://chat.openai.com/
 * https://docs.ansible.com/
