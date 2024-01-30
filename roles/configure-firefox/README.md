@@ -1,38 +1,13 @@
-Role Name
-=========
+# Ansible Task README
 
-A brief description of the role goes here.
+## Updating Firefox Policies
 
-Requirements
-------------
+This Ansible task is designed to automate the process of updating Firefox policies on a target system using the policy templates provided by Mozilla. The task leverages the Jinja2 template engine to customize the `policies.json` file and then deploys it to the specified destination on the target system.
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+### Task Details
 
-Role Variables
---------------
-
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
-
-Dependencies
-------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
-
-Example Playbook
-----------------
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
-
-License
--------
-
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+- **Task Name:** Updating Firefox Policies
+- **Task Module:** `template`
+- **Source Template:** `templates/policies.json.j2`
+- **Destination Path:** `/usr/share/firefox-esr/distribution/policies.json`
+- **Privilege Escalation:** The task uses `become` with `sudo` as the privilege escalation method.
