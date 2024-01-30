@@ -1,15 +1,15 @@
 ---
-    # - name: Install httpx-toolkit ## installed with apt
-    #   shell: go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
+- name: Install various Go packages
+  shell: "/usr/local/go/bin/go install '{{ item }}'"
+  loop:
+    - github.com/denandz/sourcemapper@latest
+    - github.com/schollz/croc/v9@latest
+    - github.com/sensepost/gowitness@latest
+    - github.com/xm1k3/cent@latest
+    - github.com/wader/fq@latest
+    - github.com/lc/gau/v2/cmd/gau@latest
+    - github.com/tomnomnom/gron@latest
 
-    # - name: Install naabu ## installed with apt
-    #   shell: go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
 
-- name: Install sourcemapper
-  shell: /usr/local/go/bin/go install github.com/denandz/sourcemapper@latest
-
-- name: Install croc
-  shell: /usr/local/go/bin/go install github.com/schollz/croc/v9@latest
-
-- name: Install gowitness
-  shell: /usr/local/go/bin/go install github.com/sensepost/gowitness@latest
+# github.com/projectdiscovery/httpx/cmd/httpx@latest is installed via apt-get
+# github.com/projectdiscovery/naabu/v2/cmd/naabu@latest is installed via apt-get
