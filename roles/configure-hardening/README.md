@@ -1,38 +1,34 @@
-Role Name
-=========
+# Ansible Playbook README
 
-A brief description of the role goes here.
+## Configure Hardening
 
-Requirements
-------------
+This Ansible playbook focuses on configuring various security-hardening measures on a target system. The playbook is modular, organized into separate tasks for different aspects of system hardening.
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+### Included Tasks
 
-Role Variables
---------------
+1. **Services Configuration**
+   - File: `services.yml`
+   - Includes tasks related to configuring and managing system services.
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+2. **Kernel Parameter Hardening**
+   - File: `kernel_param.yml`
+   - Includes tasks for configuring kernel parameters to enhance security.
 
-Dependencies
-------------
+3. **Banner Configuration**
+   - File: `banner.yml`
+   - Includes tasks for configuring system banners.
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+4. **UFW (Uncomplicated Firewall) Configuration**
+   - File: `ufw.yml`
+   - Includes tasks for installing UFW and setting up firewall rules.
 
-Example Playbook
-----------------
+5. **BIOS Information Retrieval**
+   - File: `bios.yml`
+   - Includes tasks for running `dmidecode` to retrieve BIOS information and displaying the BIOS version.
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+6. **i3 Window Manager Configuration**
+   - File: `i3.yml`
+    
+7. **Additional Hardening Measures**
+   - File: (Uncommented) `ntp.yml`
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
-
-License
--------
-
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
