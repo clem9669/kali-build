@@ -1,38 +1,35 @@
-Role Name
-=========
+# Ansible Playbook README
 
-A brief description of the role goes here.
+## Tool Installation Playbook
 
-Requirements
-------------
+This Ansible playbook focuses on installing various tools and utilities on a target system. The playbook is modular, with separate tasks for different categories of tools.
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+### Included Tasks
 
-Role Variables
---------------
+1. **APT Packages Installation**
+   - File: `apt.yml`
+   - Installs essential APT packages based on the selected installation mode (`light` or `full`).
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+2. **Burp Suite Installation**
+   - File: `burp.yml`
+   - Downloads and configures Burp Suite Community and Pro versions, including CA certificate setup.
 
-Dependencies
-------------
+3. **Ruby Gems Installation**
+   - File: `gem.yml`
+   - Installs Ruby gems used for various purposes.
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+4. **GitHub Repositories Cloning**
+   - File: `github.yml`
+   - Clones various GitHub repositories into the `/opt/` directory.
 
-Example Playbook
-----------------
+5. **Pip Packages Installation**
+   - File: `pip.yml`
+   - Installs Python packages using pip or pipx, including some tools and libraries.
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+6. **Sublime Text Installation**
+   - File: `sublimetext.yml`
+   - Installs Sublime Text and configures user preferences.
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
-
-License
--------
-
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+7. **ZedEncrypt Installation**
+   - File: `zedencrypt.yml`
+   - Installs ZedEncrypt tool on the target system.
