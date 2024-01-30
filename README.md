@@ -45,7 +45,7 @@ pip install ansible
 
 ```bash
 # Pre-install
-sudo apt install -y curl wget git vim tmux # Basics
+sudo apt install -y curl wget git # Basics
 git clone https://github.com/clem9669/kali-build
 cd kali-build
 bash -x pre-install.sh
