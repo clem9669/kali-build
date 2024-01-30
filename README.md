@@ -27,16 +27,6 @@ Here's the goals:
 * Rapid Machine Creation: with this project, you can create an identical machine within minutes.
 * Flexibility in Configuration: quickly tailor the sensitivity of the pentester's machine to your needs.
 
-### Built With
-
-This section should list any major resources used to build the project. 
-
-* https://github.com/ippsec/parrot-build
-* https://www.youtube.com/ippsec
-* https://chat.openai.com/
-* https://docs.ansible.com/
-* https://www.sublimetext.com/
-
 <!-- GETTING STARTED -->
 ## Getting Started
 
@@ -50,6 +40,29 @@ Starting from a nice and clean OS will avoid any trouble with dependencies and p
 ```sh
 pip install ansible
 ```
+
+## Pre-Install, Install, Update
+
+```bash
+# Pre-install
+sudo apt install -y curl wget git vim tmux # Basics
+git clone https://github.com/clem9669/kali-build
+cd kali-build
+bash -x pre-install.sh
+
+# Main Install
+bash -x install.sh
+
+```
+
+## Sum-Up
+
+The ansible playbook `main.yml` applies 4 ansible roles which are:
+
+- roles/base-install
+- roles/offensive-stuff
+- roles/gui-tools
+- roles/hardening
 
 ### Installation
 
@@ -98,6 +111,16 @@ It is possible to adjust the script with the 3 followings args `ansible-playbook
 
 Make a table for all the things done in playbooks
 
+
+### Built With
+
+This section should list any major resources used to build the project. 
+
+* https://github.com/ippsec/parrot-build
+* https://www.youtube.com/ippsec
+* https://chat.openai.com/
+* https://docs.ansible.com/
+* https://www.sublimetext.com/
 
 <!-- ROADMAP -->
 ## Roadmap
