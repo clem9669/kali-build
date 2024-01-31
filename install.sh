@@ -21,7 +21,7 @@ case $choice in
     1) install_mode="light";;
     2) install_mode="full";;
     3) install_mode="hard";;
-    255) "Cancel" ;;
+    255) echo "User canceled. Exiting."; exit 1;;
     *) echo "Invalid choice. Defaulting to light."; install_mode="light";;
 esac
 
