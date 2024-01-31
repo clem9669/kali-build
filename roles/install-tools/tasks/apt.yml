@@ -21,6 +21,7 @@
       - keepassxc
       - btop
       - exploitdb-papers
+      - xsltproc
     state: latest
   become: true
   become_method: sudo
