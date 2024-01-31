@@ -91,6 +91,7 @@
     - { repo: "https://github.com/Ragnt/AngryOxide", location: "/opt/AngryOxide"}
     - { repo: "https://github.com/rbsec/dnscan", location: "/opt/dnscan"}
     - { repo: "https://github.com/MattKeeley/Spoofy", location: "/opt/Spoofy"}
+    - { repo: "https://github.com/jtesta/ssh-audit", location: "/opt/ssh-audit"}
 
 # install Vulscan into nmap: usage *nmap -sV --script=vulscan/vulscan.nse TARGET*
 # - name: "Configuring vulscan into nmap"
