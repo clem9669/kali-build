@@ -6,5 +6,3 @@
   when: install_desktop == 'i3'
 - include_tasks: "regolith.yml"
   when: install_desktop == 'regolith'
-- include_tasks: "qterminal.yml"
-
