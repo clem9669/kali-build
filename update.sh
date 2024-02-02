@@ -18,7 +18,7 @@ if [ "$LOCAL" != "$REMOTE" ]; then
         case $response in
             [Yy]* | "" )
                 git pull
-                bash -x install.sh
+                bash install.sh
                 echo "Kali-build has been updated."
                 break
                 ;;
