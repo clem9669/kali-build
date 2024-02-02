@@ -27,10 +27,10 @@ desktop_choice=$(whiptail --title "Choose Desktop Environment" --menu "Select a 
 
 # Map the desktop_choice to actual desktop environment names
 case $desktop_choice in
-    "1") install_desktop="XFCE" ;;
+    "1") install_desktop="xfce" ;;
     "2") install_desktop="i3" ;;
     "3") install_desktop="regolith" ;;
-    *)  install_desktop="XFCE" ;;  # Default to XFCE if an unexpected value is chosen
+    *)  install_desktop="xfce" ;;  # Default to XFCE if an unexpected value is chosen
 esac
 
 # Run Ansible playbook with the chosen install_mode and install_desktop
