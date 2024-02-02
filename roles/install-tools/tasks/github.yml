@@ -113,3 +113,10 @@
   shell: |
     wget -O ~/.gdbinit-gef.py -q https://gef.blah.cat/py
     echo source ~/.gdbinit-gef.py >> ~/.gdbinit
+
+- name: Download file from URL
+  get_url:
+    url: "https://gist.githubusercontent.com/xct/ab71d58a29e9017eb38565e32aeb95b0/raw/4d20cf8d66971e7507313044b01f27ec964f960b/resh.py"
+    dest: /opt/resh.py
+    mode: '0644'
+    checksum: sha256:1fbb33243d884732b2d61ce2d3b746a4073de2dce26133b1ee1d2713bfebafe2
