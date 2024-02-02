@@ -3,6 +3,8 @@
   package:
     name:
       - jq
+      - ntpdate
+      - flameshot
       - xxd
       - gdb
       - npm
@@ -21,7 +23,6 @@
       - keepassxc
       - btop
       - exploitdb-papers
-      - xsltproc
     state: latest
   become: true
   become_method: sudo
@@ -31,7 +32,9 @@
   package:
     name:
       - seclists
+      - exiftool
       - bloodhound
+      - xsltproc
       - wine64
       - naabu
       - realtek-rtl88xxau-dkms

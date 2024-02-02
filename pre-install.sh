@@ -5,7 +5,7 @@ IFS=$'\n\t'
 
 echo "[*] Installing linux basics"
 sudo apt-get update && sudo apt-get upgrade -y
-sudo apt-get install -y pipx curl git wget whiptail
+sudo apt-get install -y pipx curl git wget whiptail neofetch ufw feh pipx
 
 echo "[*] Installing Pipx & Ansible"
 pipx install ansible --force

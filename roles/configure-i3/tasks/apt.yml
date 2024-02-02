@@ -15,18 +15,3 @@
   when: ansible_os_family == 'Debian'
   become: true
   become_method: sudo
-
-- name: "Installing Packages"
-  package:
-    name:
-      - jq
-      - pipx
-      - ntpdate
-      - flameshot
-      - exiftool
-      - feh
-      - ufw
-      - neofetch
-    state: latest
-  become: true
-  become_method: sudo
