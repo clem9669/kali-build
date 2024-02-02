@@ -23,7 +23,7 @@
   loop:
     - regolith-desktop
     - regolith-session-flashback
-    - regolith-look-lascaille
+    - regolith-look-nord
 
 # - name: Set lightdm as the default X display manager
 #   ansible.builtin.debconf:
