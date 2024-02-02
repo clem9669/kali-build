@@ -8,7 +8,7 @@ sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install -y pipx curl git wget whiptail
 
 echo "[*] Installing Pipx & Ansible"
-pipx install ansible-core --force
+pipx install ansible --force
 pipx ensurepath
 export PATH="$PATH:$HOME/.local/bin"
 
