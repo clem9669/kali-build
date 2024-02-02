@@ -99,3 +99,8 @@
 - name: Set GNOME interface to prefer dark color scheme
   ansible.builtin.shell: "gsettings set org.gnome.desktop.interface color-scheme prefer-dark"
   when: not regolith_installed2.stat.exists
+
+- name: "Configure profile Qterminal i3"
+  copy:
+    src: "{{ role_path }}/files/qterminal_i3.ini"
+    dest: "{{ ansible_env.HOME }}/.config/qterminal.org/qterminal.ini"

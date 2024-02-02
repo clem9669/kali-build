@@ -1,0 +1,5 @@
+---
+- name: "Configure profile Qterminal i3"
+  copy:
+    src: "{{ role_path }}/files/qterminal_xfce.ini"
+    dest: "{{ ansible_env.HOME }}/.config/qterminal.org/qterminal.ini"
