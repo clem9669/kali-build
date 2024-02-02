@@ -25,6 +25,15 @@
     - regolith-session-flashback
     - regolith-look-lascaille
 
+# - name: Set lightdm as the default X display manager
+#   ansible.builtin.debconf:
+#     name: lightdm
+#     question: 'shared/default-x-display-manager'
+#     value: 'lightdm'
+#     vtype: 'select'
+#   become: true
+#   when: not regolith_installed.stat.exists
+
 - name: Restart login manager
   ansible.builtin.service:
     name: lightdm  # Adjust the service name based on your system's login manager
@@ -53,6 +62,11 @@
   become: true
   when: not regolith_installed.stat.exists
 
+- name: Ensure the ~/.config/regolith3/i3/config.d/ directory exists
+  ansible.builtin.file:
+    path: '{{ ansible_env.HOME }}/.config/regolith3/i3/config.d/'
+    state: directory
+
 - name: Append lines to the i3 config file
   ansible.builtin.blockinfile:
     path: '{{ ansible_env.HOME }}/.config/regolith3/i3/config.d/config'
@@ -64,3 +78,11 @@
     path: '{{ ansible_env.HOME }}/.config/regolith3/Xresources'
     block: '{{ i3_xresources_block }}'
     create: yes
+
+- name: "Copy background image"
+  copy:
+    src: "{{ role_path }}/files/mountains.jpg"
+    dest: "{{ ansible_env.HOME }}/Pictures/"
+
+- name: Set GNOME interface to prefer dark color scheme
+  ansible.builtin.shell: "gsettings set org.gnome.desktop.interface color-scheme prefer-dark"

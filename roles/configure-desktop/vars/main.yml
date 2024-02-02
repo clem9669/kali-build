@@ -8,5 +8,8 @@ i3_config_block: |
 
 i3_xresources_block: |
     gtk.font_name: Nerd Font Mono 10
-    regolith.wallpaper.file: {{ role_path }}/files/mountains.jpg
+    regolith.wallpaper.file: {{ ansible_env.HOME }}/Pictures/mountains.jpg
     regolith.wallpaper.options: stretched
+    wm.mod: Mod1 # super key is ALT not win/cmd
+    wm.alt: Mod4 # super key is ALT not win/cmd
+
