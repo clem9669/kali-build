@@ -7,19 +7,24 @@
 - name: Register Regolith public key
   ansible.builtin.shell:
     cmd: "wget -qO - https://regolith-desktop.org/regolith.key | gpg --dearmor | sudo dd of=/usr/share/keyrings/regolith-archive-keyring.gpg > /dev/null"
-  
+  when: not regolith_installed.stat.exists
+
 - name: Add Regolith repository URL
   ansible.builtin.shell:
-    cmd: "echo deb \"[arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] https://regolith-desktop.org/release-3_0-{{ ansible_distribution|lower }}-{{ ansible_distribution_release|lower }}-amd64 {{ ansible_distribution_release|lower }} main\" | sudo tee /etc/apt/sources.list.d/regolith.list"
-  
+    cmd: "echo deb \"[arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] https://regolith-desktop.org/release-3_0-debian-bookworm-amd64 bookworm main\" | sudo dd of=/etc/apt/sources.list.d/regolith.list"
+  become: true
+  when: not regolith_installed.stat.exists
+
 - name: Update apt repositories
   ansible.builtin.apt:
     update_cache: yes
+  become: true
 
 - name: Install Regolith Desktop
   ansible.builtin.apt:
     name: "{{ item }}"
     state: present
+  become: true
   loop:
     - regolith-desktop
     - regolith-session-flashback
@@ -34,15 +39,17 @@
 #   become: true
 #   when: not regolith_installed.stat.exists
 
-- name: Restart login manager
-  ansible.builtin.service:
-    name: lightdm  # Adjust the service name based on your system's login manager
-    state: restarted
+# - name: Restart login manager
+#   ansible.builtin.service:
+#     name: lightdm  # Adjust the service name based on your system's login manager
+#     state: restarted
+#   become: true
 
 - name: Install i3 packages
-  ansible.builtin.package:
+  ansible.builtin.apt:
     name: '{{ item }}'
     state: latest
+  become: true
   loop: 
   - i3xrocks-battery
   - i3xrocks-bluetooth
@@ -56,11 +63,13 @@
   - i3xrocks-rofication
   - i3xrocks-temp
   - i3xrocks-time
-  - i3xrocks-updates
   - i3xrocks-volume
   - i3xrocks-wifi
-  become: true
-  when: not regolith_installed.stat.exists
+
+- name: Register if Regolith config exists
+  ansible.builtin.stat:
+    path: '{{ ansible_env.HOME }}/.config/regolith3/i3/config.d/config'
+  register: regolith_installed2
 
 - name: Ensure the ~/.config/regolith3/i3/config.d/ directory exists
   ansible.builtin.file:
@@ -72,17 +81,21 @@
     path: '{{ ansible_env.HOME }}/.config/regolith3/i3/config.d/config'
     block: '{{ i3_config_block }}'
     create: yes
+  when: not regolith_installed2.stat.exists
 
 - name: Append lines to the i3 Xresources file
   ansible.builtin.blockinfile:
     path: '{{ ansible_env.HOME }}/.config/regolith3/Xresources'
     block: '{{ i3_xresources_block }}'
     create: yes
+  when: not regolith_installed2.stat.exists
 
 - name: "Copy background image"
   copy:
     src: "{{ role_path }}/files/mountains.jpg"
     dest: "{{ ansible_env.HOME }}/Pictures/"
+  when: not regolith_installed2.stat.exists
 
 - name: Set GNOME interface to prefer dark color scheme
   ansible.builtin.shell: "gsettings set org.gnome.desktop.interface color-scheme prefer-dark"
+  when: not regolith_installed2.stat.exists
