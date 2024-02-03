@@ -42,3 +42,4 @@
     - role: "roles/configure-logging"
     - role: "roles/configure-hardening"
       when: install_mode == 'hard'
+    - role: "roles/configure-terminal"
