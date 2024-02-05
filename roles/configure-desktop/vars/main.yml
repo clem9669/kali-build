@@ -1,0 +1,15 @@
+---
+# vars file for configure-i3
+i3_config_block: |
+    bindsym $mod+p exec flameshot gui
+    bindsym $mod+s exec gnome-control-center sound
+    bindsym $mod+m exec xrandr --output $(xrandr | grep ' connected ' -m 1 | awk '{ print $1 }') --off
+    bindsym $mod+Shift+m exec xrandr --output $(xrandr | grep ' connected ' -m 1 | awk '{ print $1 }') --auto
+
+i3_xresources_block: |
+    gtk.font_name: Nerd Font Mono 10
+    regolith.wallpaper.file: {{ ansible_env.HOME }}/Pictures/mountains.jpg
+    regolith.wallpaper.options: stretched
+    wm.mod: Mod1 # super key is ALT not win/cmd
+    wm.alt: Mod4 # super key is ALT not win/cmd
+

@@ -28,3 +28,24 @@
   copy:
     src: "{{ role_path }}/files/i3blocks.conf"
     dest: "{{ ansible_env.HOME }}/.config/i3blocks/"
+
+- name: "Creates directory"
+  file:
+    path: "{{ ansible_env.HOME }}/.config/feh/"
+    state: directory
+
+- name: "Configure background"
+  copy:
+    src: "{{ role_path }}/files/fehbg"
+    dest: "{{ ansible_env.HOME }}/.config/feh/"
+    mode: 0755
+
+- name: "Copy background image"
+  copy:
+    src: "{{ role_path }}/files/mountains.jpg"
+    dest: "{{ ansible_env.HOME }}/Pictures/"
+
+- name: "Configure profile Qterminal i3"
+  copy:
+    src: "{{ role_path }}/files/qterminal_i3.ini"
+    dest: "{{ ansible_env.HOME }}/.config/qterminal.org/qterminal.ini"
