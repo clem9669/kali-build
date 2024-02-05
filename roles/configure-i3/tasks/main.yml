@@ -1,5 +1,0 @@
----
-- include_tasks: "apt.yml"
-- include_tasks: "i3.yml"
-- include_tasks: "feh.yml"
-- include_tasks: "qterminal.yml"

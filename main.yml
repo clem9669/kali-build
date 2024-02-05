@@ -4,8 +4,9 @@
   connection: local
   vars:
     install_mode: light
+    install_mode: xfce
   roles:
-    - role: "roles/configure-i3"
+    - role: "roles/configure-desktop"
     - role: gantsign.oh-my-zsh
       users:
         - username: "{{ ansible_user_id }}"
