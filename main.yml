@@ -4,7 +4,8 @@
   connection: local
   vars:
     install_mode: light
-    install_mode: xfce
+    install_desktop: xfce
+    install_terminal: qterminal
   roles:
     - role: "roles/configure-desktop"
     - role: gantsign.oh-my-zsh

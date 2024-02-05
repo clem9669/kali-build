@@ -1,0 +1,21 @@
+---
+- name: Check if Alacritty is installed
+  stat:
+    path: "{{ lookup('env', 'HOME') }}/.cargo/bin/alacritty"
+  register: alacritty_installed
+
+- name: Install Rust with rustup
+  command: >
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+  when: alacritty_installed.stat.exists == False
+
+- name: Set Rust environment variables
+  environment:
+    PATH: "{{ lookup('env', 'HOME') }}/.cargo/bin:{{ ansible_env.PATH }}"
+  become_user: "{{ ansible_ssh_user }}"
+  when: alacritty_installed.stat.exists == False
+
+- name: Install Alacritty with cargo
+  command: "cargo install alacritty"
+  become_user: "{{ ansible_ssh_user }}"
+  when: alacritty_installed.stat.exists == False

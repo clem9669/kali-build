@@ -33,8 +33,21 @@ case $desktop_choice in
     *)  install_desktop="xfce" ;;  # Default to XFCE if an unexpected value is chosen
 esac
 
-# Run Ansible playbook with the chosen install_mode and install_desktop
-ansible-playbook -vv -i inventory.ini --ask-become main.yml -e "install_mode=$install_mode install_desktop=$install_desktop"
+# Display menu to the user using whiptail for terminal choice
+terminal_choice=$(whiptail --title "Choose Terminal" --menu "Select a terminal:" 20 70 10 \
+    "1" "Default from the OS (e.g., qterminal)" \
+    "2" "Install Alacritty" \
+    3>&1 1>&2 2>&3)
+
+# Map the terminal_choice to actual terminal names
+case $terminal_choice in
+    "1") install_terminal="default" ;;
+    "2") install_terminal="alacritty" ;;
+    *)  install_terminal="default" ;;  # Default to OS default terminal if an unexpected value is chosen
+esac
+
+# Run Ansible playbook with the chosen install_mode, install_desktop, and install_terminal
+ansible-playbook -vv -i inventory.ini --ask-become main.yml -e "install_mode=$install_mode install_desktop=$install_desktop install_terminal=$install_terminal"
 
 # Display completion message
 echo "[*] Done! Logout, then you can pick your desktop environment and Login!"
