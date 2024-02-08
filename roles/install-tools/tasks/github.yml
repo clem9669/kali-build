@@ -93,6 +93,8 @@
     - { repo: "https://github.com/MattKeeley/Spoofy", location: "/opt/Spoofy"}
     - { repo: "https://github.com/jtesta/ssh-audit", location: "/opt/ssh-audit"}
     - { repo: "https://github.com/clem9669/nmap-bootstrap-xsl", location: "/opt/nmap-bootstrap-xsl"}
+    - { repo: "https://github.com/s0lst1c3/eaphammer", location: "/opt/eaphammer"}
+    - { repo: "https://github.com/v1s1t0r1sh3r3/airgeddon", location: "/opt/airgeddon"}
 
 # install Vulscan into nmap: usage *nmap -sV --script=vulscan/vulscan.nse TARGET*
 # - name: "Configuring vulscan into nmap"
