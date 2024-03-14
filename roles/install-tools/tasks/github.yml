@@ -95,6 +95,7 @@
     - { repo: "https://github.com/s0lst1c3/eaphammer", location: "/opt/eaphammer"}
     - { repo: "https://github.com/v1s1t0r1sh3r3/airgeddon", location: "/opt/airgeddon"}
     - { repo: "https://github.com/ZerBea/hcxtools", location: "/opt/hcxtools"}
+    - { repo: "https://github.com/GemDem/CharlesCrawler", location: "/opt/CharlesCrawler"}
 
 # install Vulscan into nmap: usage *nmap -sV --script=vulscan/vulscan.nse TARGET*
 # - name: "Configuring vulscan into nmap"
