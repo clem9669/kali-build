@@ -15,7 +15,6 @@
   become: true
   become_method: sudo
 
-# It does not git pull because changing ownership is considered as a change so it will error
 - name: "Installing useful github repos"
   when: install_mode == 'full'
   git:
