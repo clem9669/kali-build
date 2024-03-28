@@ -97,7 +97,10 @@
     - { repo: "https://github.com/ZerBea/hcxtools", location: "/opt/hcxtools"}
     - { repo: "https://github.com/GemDem/CharlesCrawler", location: "/opt/CharlesCrawler"}
     - { repo: "https://github.com/itm4n/PrivescCheck", location: "/opt/PrivescCheck"}
+    - { repo: "https://github.com/GoSecure/pywsus", location: "/opt/pywsus"}
 
+
+    
 # install Vulscan into nmap: usage *nmap -sV --script=vulscan/vulscan.nse TARGET*
 # - name: "Configuring vulscan into nmap"
 #   command: "[ -e /usr/share/nmap/scripts/vulscan ] && echo 'Link already exists' || ln -s /opt/scipag_vulscan /usr/share/nmap/scripts/vulscan"
