@@ -42,6 +42,7 @@
       - libreoffice
       - libkrb5-dev
       - krb5-config
+      - krb5-user
       - chromium
     state: latest
   become: true
