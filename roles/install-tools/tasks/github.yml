@@ -75,6 +75,8 @@
     - { repo: "https://github.com/xct/hashgrab", location: "/opt/hashgrab"}
     - { repo: "https://github.com/xct/morbol", location: "/opt/morbol"}
     - { repo: "https://github.com/xct/xc", location: "/opt/xc"}
+    - { repo: "https://github.com/ohpe/juicy-potato", location: "/opt/juicy-potato"}
+    - { repo: "https://github.com/itm4n/PrintSpoofer", location: "/opt/PrintSpoofer"}
 
 - name: Download Github releases
   when: install_mode == 'full'
@@ -100,6 +102,13 @@
     - { url: "https://github.com/carlospolop/PEASS-ng/releases/latest/download/winPEASx64_ofs.exe", dest: "/opt/PEASS/bin/winPEASx64_ofs.exe" }
     - { url: "https://github.com/carlospolop/PEASS-ng/releases/latest/download/winPEASx86.exe", dest: "/opt/PEASS/bin/winPEASx86.exe" }
     - { url: "https://github.com/carlospolop/PEASS-ng/releases/latest/download/winPEASx86_ofs.exe", dest: "/opt/PEASS/bin/winPEASx86_ofs.exe" }
+    - { url: "https://github.com/ohpe/juicy-potato/releases/latest/download/JuicyPotato.exe", dest: "/opt/juicy-potato/JuicyPotato.exe" }
+    - { url: "https://github.com/itm4n/PrintSpoofer/releases/latest/download/PrintSpoofer32.exe", dest: "/opt/PrintSpoofer/bin/PrintSpoofer32.exe" }
+    - { url: "https://github.com/itm4n/PrintSpoofer/releases/latest/download/PrintSpoofer64.exe", dest: "/opt/PrintSpoofer/bin/PrintSpoofer64.exe" }
+    - { url: "https://github.com/BeichenDream/GodPotato/releases/latest/download/GodPotato-NET2.exe", dest: "/opt/GodPotato/bin/GodPotato-NET2.exe" }
+    - { url: "https://github.com/BeichenDream/GodPotato/releases/latest/download/GodPotato-NET35.exe", dest: "/opt/GodPotato/bin/GodPotato-NET35.exe" }
+    - { url: "https://github.com/BeichenDream/GodPotato/releases/latest/download/GodPotato-NET4.exe", dest: "/opt/GodPotato/bin/GodPotato-NET4.exe" }
+
     
 # install Vulscan into nmap: usage *nmap -sV --script=vulscan/vulscan.nse TARGET*
 # - name: "Configuring vulscan into nmap"
