@@ -9,13 +9,13 @@
   become_method: sudo
 
   
- - name: Add custom network configuration
-   become: yes
-   lineinfile:
-     path: /etc/network/interfaces
-     line: "{{ item }}"
-     insertafter: EOF
-   with_items:
-     - "#  address 10.10.10.2"
-     - "#  netmask 255.255.255.0"
-     - "#  gateway 10.10.10.1"
+- name: Add custom network configuration
+  become: yes
+  lineinfile:
+    path: /etc/network/interfaces
+    line: "{{ item }}"
+    insertafter: EOF
+  with_items:
+    - "#  address 10.10.10.2"
+    - "#  netmask 255.255.255.0"
+    - "#  gateway 10.10.10.1"
