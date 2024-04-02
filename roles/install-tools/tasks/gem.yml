@@ -1,7 +1,7 @@
 ---
 - name: "Installing tools from gem"
   when: install_mode == 'full'
-  gem:
+  community.general.gem:
     name: "{{ item }}"
     state: latest
   loop:
