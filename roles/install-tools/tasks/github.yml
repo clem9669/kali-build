@@ -134,3 +134,9 @@
     dest: /opt/smtpAudit.py
     mode: '0644'
     checksum: sha256:2a63a440a09c862967a442016ed1120e76c98aa3c1da018e6284e5c1e66b5164
+
+- name: "Download Sysinternals from Microsoft"
+  get_url:
+    url: "https://download.sysinternals.com/files/SysinternalsSuite.zip"
+    dest: /opt/SysinternalsSuite.zip
+    mode: '0644'
