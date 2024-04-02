@@ -30,13 +30,16 @@
     - { repo: "https://github.com/CompassSecurity/BloodHoundQueries", location: "/opt/BloodHoundQueries"}
     - { repo: "https://github.com/cytopia/pwncat", location: "/opt/pwncat"}
     - { repo: "https://github.com/Dec0ne/DavRelayUp", location: "/opt/DavRelayUp"}
+    - { repo: "https://github.com/dionach/NtdsAudit", location: "/opt/NtdsAudit"}
     - { repo: "https://github.com/dirkjanm/krbrelayx", location: "/opt/krbrelayx"}
     - { repo: "https://github.com/dirkjanm/mitm6", location: "/opt/mitm6"}
     - { repo: "https://github.com/DominicBreuker/pspy", location: "/opt/pspy"}
     - { repo: "https://github.com/droope/droopescan", location: "/opt/droopescan"}
+    - { repo: "https://github.com/firefart/aquatone", location: "/opt/aquatone"}
     - { repo: "https://github.com/Flangvik/BetterSafetyKatz", location: "/opt/BetterSafetyKatz"}
     - { repo: "https://github.com/Flangvik/SharpCollection", location: "/opt/SharpCollection"}
     - { repo: "https://github.com/fortra/impacket", location: "/opt/impacket"}
+    - { repo: "https://github.com/frohoff/ysoserial", location: "/opt/ysoserial"}
     - { repo: "https://github.com/gentilkiwi/mimikatz", location: "/opt/mimikatz"}
     - { repo: "https://github.com/GhostPack/Certify", location: "/opt/Certify"}
     - { repo: "https://github.com/GhostPack/Rubeus", location: "/opt/Rubeus"}
@@ -45,59 +48,31 @@
     - { repo: "https://github.com/Group3r/Group3r", location: "/opt/Group3r"}
     - { repo: "https://github.com/Hackndo/lsassy", location: "/opt/lsassy"}
     - { repo: "https://github.com/iamj0ker/bypass-403", location: "/opt/bypass"}
+    - { repo: "https://github.com/janstarke/ntdsextract2", location: "/opt/ntdsextract2"}
     - { repo: "https://github.com/jpillora/chisel", location: "/opt/chisel"}
     - { repo: "https://github.com/laluka/bypass-url-parser", location: "/opt/bypass-url-parser"}
+    - { repo: "https://github.com/lgandx/PCredz", location: "/opt/PCredz"}
     - { repo: "https://github.com/lgandx/Responder", location: "/opt/Responder"}
     - { repo: "https://github.com/ly4k/Certipy", location: "/opt/Certipy"}
-    - { repo: "https://github.com/Porchetta-Industries/CrackMapExec", location: "/opt/CrackMapExec"}
     - { repo: "https://github.com/mubix/IOXIDResolver", location: "/opt/IOXIDResolver"}
     - { repo: "https://github.com/n00py/LAPSDumper", location: "/opt/LAPSDumper"}
+    - { repo: "https://github.com/Porchetta-Industries/CrackMapExec", location: "/opt/CrackMapExec"}
     - { repo: "https://github.com/PowerShellMafia/PowerSploit", location: "/opt/PowerSploit"}
     - { repo: "https://github.com/rasta-mouse/Sherlock", location: "/opt/Sherlock"}
     - { repo: "https://github.com/rebootuser/LinEnum", location: "/opt/LinEnum"}
     - { repo: "https://github.com/rezasp/joomscan", location: "/opt/joomscan"}
     - { repo: "https://github.com/ropnop/kerbrute", location: "/opt/kerbrute"}
+    - { repo: "https://github.com/scipag/vulscan", location: "/opt/scipag_vulscan"}
     - { repo: "https://github.com/SecuraBV/Timeroast", location: "/opt/Timeroast"}
     - { repo: "https://github.com/skelsec/pypykatz", location: "/opt/pypykatz"}
     - { repo: "https://github.com/SnaffCon/Snaffler", location: "/opt/Snaffler"}
+    - { repo: "https://github.com/synacktiv/ntdissector", location: "/opt/ntdissector"}
     - { repo: "https://github.com/TheWover/donut", location: "/opt/donut"}
     - { repo: "https://github.com/topotam/PetitPotam", location: "/opt/PetitPotam"}
     - { repo: "https://github.com/urbanadventurer/username-anarchy", location: "/opt/username-anarchy"}
     - { repo: "https://github.com/xct/hashgrab", location: "/opt/hashgrab"}
     - { repo: "https://github.com/xct/morbol", location: "/opt/morbol"}
     - { repo: "https://github.com/xct/xc", location: "/opt/xc"}
-    - { repo: "https://github.com/frohoff/ysoserial", location: "/opt/ysoserial"}
-    - { repo: "https://github.com/scipag/vulscan", location: "/opt/scipag_vulscan"}
-    - { repo: "https://github.com/lgandx/PCredz", location: "/opt/PCredz"}
-    - { repo: "https://github.com/synacktiv/ntdissector", location: "/opt/ntdissector"}
-    - { repo: "https://github.com/janstarke/ntdsextract2", location: "/opt/ntdsextract2"}
-    - { repo: "https://github.com/dionach/NtdsAudit", location: "/opt/NtdsAudit"}
-    - { repo: "https://github.com/C-Sto/gosecretsdump", location: "/opt/gosecretsdump"}
-    - { repo: "https://github.com/p0dalirius/LDAPWordlistHarvester", location: "/opt/LDAPWordlistHarvester"}
-    - { repo: "https://github.com/0xVavaldi/gramify", location: "/opt/gramify"}
-    - { repo: "https://github.com/ticarpi/jwt_tool", location: "/opt/jwt_tool"}
-    - { repo: "https://github.com/synacktiv/nord-stream", location: "/opt/nord-stream"}
-    - { repo: "https://github.com/franc-pentest/ldeep", location: "/opt/ldeep"}
-    - { repo: "https://github.com/CravateRouge/bloodyAD", location: "/opt/bloodyAD"}
-    - { repo: "https://github.com/CravateRouge/autobloody", location: "/opt/autobloody"}
-    - { repo: "https://github.com/dirkjanm/adidnsdump", location: "/opt/adidnsdump"}
-    - { repo: "https://github.com/volatilityfoundation/volatility3", location: "/opt/volatility3"}
-    - { repo: "https://github.com/dirkjanm/PrivExchange", location: "/opt/PrivExchange"}
-    - { repo: "https://github.com/dirkjanm/BloodHound.py", location: "/opt/BloodHound.py"}
-    - { repo: "https://github.com/dirkjanm/ldapdomaindump", location: "/opt/ldapdomaindump"}
-    - { repo: "https://github.com/dirkjanm/PKINITtools", location: "/opt/PKINITtools"}
-    - { repo: "https://github.com/Ridter/noPac", location: "/opt/noPac"}
-    - { repo: "https://github.com/Ragnt/AngryOxide", location: "/opt/AngryOxide"}
-    - { repo: "https://github.com/rbsec/dnscan", location: "/opt/dnscan"}
-    - { repo: "https://github.com/MattKeeley/Spoofy", location: "/opt/Spoofy"}
-    - { repo: "https://github.com/jtesta/ssh-audit", location: "/opt/ssh-audit"}
-    - { repo: "https://github.com/clem9669/nmap-bootstrap-xsl", location: "/opt/nmap-bootstrap-xsl"}
-    - { repo: "https://github.com/s0lst1c3/eaphammer", location: "/opt/eaphammer"}
-    - { repo: "https://github.com/v1s1t0r1sh3r3/airgeddon", location: "/opt/airgeddon"}
-    - { repo: "https://github.com/ZerBea/hcxtools", location: "/opt/hcxtools"}
-    - { repo: "https://github.com/GemDem/CharlesCrawler", location: "/opt/CharlesCrawler"}
-    - { repo: "https://github.com/itm4n/PrivescCheck", location: "/opt/PrivescCheck"}
-    - { repo: "https://github.com/GoSecure/pywsus", location: "/opt/pywsus"}
 
     
 # install Vulscan into nmap: usage *nmap -sV --script=vulscan/vulscan.nse TARGET*
