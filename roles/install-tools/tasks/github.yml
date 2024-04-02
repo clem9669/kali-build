@@ -127,3 +127,10 @@
     dest: /opt/resh.py
     mode: '0644'
     checksum: sha256:1fbb33243d884732b2d61ce2d3b746a4073de2dce26133b1ee1d2713bfebafe2
+    
+- name: "Download mgeeky's smtpAudit.py from URL"
+  get_url:
+    url: "https://gist.githubusercontent.com/mgeeky/ef49e5fb6c3479dd6a24eb90b53f9baa/raw/2f5b9c7a3f2d28c43740ebc34c9d93df5908e4fd/smtpAudit.py"
+    dest: /opt/smtpAudit.py
+    mode: '0644'
+    checksum: sha256:2a63a440a09c862967a442016ed1120e76c98aa3c1da018e6284e5c1e66b5164
