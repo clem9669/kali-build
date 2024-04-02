@@ -98,6 +98,7 @@
     - { repo: "https://github.com/GemDem/CharlesCrawler", location: "/opt/CharlesCrawler"}
     - { repo: "https://github.com/itm4n/PrivescCheck", location: "/opt/PrivescCheck"}
     - { repo: "https://github.com/GoSecure/pywsus", location: "/opt/pywsus"}
+    - { repo: "https://github.com/Flangvik/SharpCollection", location: "/opt/SharpCollection"}
 
 
     
