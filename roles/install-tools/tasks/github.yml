@@ -76,6 +76,30 @@
     - { repo: "https://github.com/xct/morbol", location: "/opt/morbol"}
     - { repo: "https://github.com/xct/xc", location: "/opt/xc"}
 
+- name: Download Github releases
+  when: install_mode == 'full'
+  ansible.builtin.get_url:
+    url: "{{ item.url }}"
+    dest: "{{ item.dest }}"
+  loop:
+    - { url: "https://github.com/DominicBreuker/pspy/releases/latest/download/pspy32", dest: "/opt/pspy/bin/pspy32" }
+    - { url: "https://github.com/DominicBreuker/pspy/releases/latest/download/pspy64", dest: "/opt/pspy/bin/pspy64" }
+    - { url: "https://github.com/DominicBreuker/pspy/releases/latest/download/pspy32s", dest: "/opt/pspy/bin/pspy32s" }
+    - { url: "https://github.com/DominicBreuker/pspy/releases/latest/download/pspy64s", dest: "/opt/pspy/bin/pspy64s" }
+    - { url: "https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh", dest: "/opt/PEASS/bin/linpeas.sh" }
+    - { url: "https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas_darwin_amd64", dest: "/opt/PEASS/bin/linpeas_darwin_amd64" }
+    - { url: "https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas_darwin_arm64", dest: "/opt/PEASS/bin/linpeas_darwin_arm64" }
+    - { url: "https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas_linux_386", dest: "/opt/PEASS/bin/linpeas_linux_386" }
+    - { url: "https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas_linux_amd64", dest: "/opt/PEASS/bin/linpeas_linux_amd64" }
+    - { url: "https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas_linux_arm", dest: "/opt/PEASS/bin/linpeas_linux_arm" }
+    - { url: "https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas_linux_arm64", dest: "/opt/PEASS/bin/linpeas_linux_arm64" }
+    - { url: "https://github.com/carlospolop/PEASS-ng/releases/latest/download/winPEAS.bat", dest: "/opt/PEASS/bin/winPEAS.bat" }
+    - { url: "https://github.com/carlospolop/PEASS-ng/releases/latest/download/winPEASany.exe", dest: "/opt/PEASS/bin/winPEASany.exe" }
+    - { url: "https://github.com/carlospolop/PEASS-ng/releases/latest/download/winPEASany_ofs.exe", dest: "/opt/PEASS/bin/winPEASany_ofs.exe" }
+    - { url: "https://github.com/carlospolop/PEASS-ng/releases/latest/download/winPEASx64.exe", dest: "/opt/PEASS/bin/winPEASx64.exe" }
+    - { url: "https://github.com/carlospolop/PEASS-ng/releases/latest/download/winPEASx64_ofs.exe", dest: "/opt/PEASS/bin/winPEASx64_ofs.exe" }
+    - { url: "https://github.com/carlospolop/PEASS-ng/releases/latest/download/winPEASx86.exe", dest: "/opt/PEASS/bin/winPEASx86.exe" }
+    - { url: "https://github.com/carlospolop/PEASS-ng/releases/latest/download/winPEASx86_ofs.exe", dest: "/opt/PEASS/bin/winPEASx86_ofs.exe" }
     
 # install Vulscan into nmap: usage *nmap -sV --script=vulscan/vulscan.nse TARGET*
 # - name: "Configuring vulscan into nmap"
