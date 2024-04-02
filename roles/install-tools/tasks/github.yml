@@ -108,6 +108,7 @@
     - { url: "https://github.com/BeichenDream/GodPotato/releases/latest/download/GodPotato-NET2.exe", dest: "/opt/GodPotato/bin/GodPotato-NET2.exe" }
     - { url: "https://github.com/BeichenDream/GodPotato/releases/latest/download/GodPotato-NET35.exe", dest: "/opt/GodPotato/bin/GodPotato-NET35.exe" }
     - { url: "https://github.com/BeichenDream/GodPotato/releases/latest/download/GodPotato-NET4.exe", dest: "/opt/GodPotato/bin/GodPotato-NET4.exe" }
+    - { url: "https://github.com/AlessandroZ/LaZagne/releases/latest/download/lazagne.exe", dest: "/opt/LaZagne/lazagne.exe" }
 
     
 # install Vulscan into nmap: usage *nmap -sV --script=vulscan/vulscan.nse TARGET*
