@@ -14,13 +14,13 @@
   become: yes
 
 - name: Set UFW INPUT policies
-  ufw:
+  community.general.ufw:
     policy: allow
     direction: incoming
   become: yes
 
 - name: Set UFW FORWARD policy
-  ufw:
+  community.general.ufw:
     policy: deny
     direction: routed
   become: yes
@@ -30,7 +30,7 @@
   become: yes
 
 - name: Allow incoming TCP traffic on the loopback interface
-  ufw:
+  community.general.ufw:
     rule: allow
     direction: in
     interface: lo
@@ -38,7 +38,7 @@
   become: yes
 
 - name: Enable UFW logging
-  ufw:
+  community.general.ufw:
     logging: yes
   become: yes
 
@@ -51,7 +51,7 @@
   become_method: sudo
 
 - name: Enable UFW rules
-  ufw:
+  community.general.ufw:
     state: enabled
   become: yes
 
