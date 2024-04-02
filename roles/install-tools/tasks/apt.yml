@@ -43,6 +43,8 @@
       - libkrb5-dev
       - krb5-config
       - krb5-user
+      - xfreerdp
+      - hydra
       - chromium
       - vlc
     state: latest
