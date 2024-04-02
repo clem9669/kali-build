@@ -36,6 +36,7 @@
     - { repo: "https://github.com/dirkjanm/mitm6", location: "/opt/mitm6"}
     - { repo: "https://github.com/DominicBreuker/pspy", location: "/opt/pspy"}
     - { repo: "https://github.com/droope/droopescan", location: "/opt/droopescan"}
+    - { repo: "https://github.com/stealthcopter/deepce", location: "/opt/deepce"}
     - { repo: "https://github.com/firefart/aquatone", location: "/opt/aquatone"}
     - { repo: "https://github.com/Flangvik/BetterSafetyKatz", location: "/opt/BetterSafetyKatz"}
     - { repo: "https://github.com/Flangvik/SharpCollection", location: "/opt/SharpCollection"}
