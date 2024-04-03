@@ -4,9 +4,11 @@
   connection: local
   vars:
     install_mode: light
-    install_mode: xfce
+    install_desktop: xfce
+    install_terminal: qterminal
   roles:
     - role: "roles/configure-desktop"
+    - role: "roles/configure-terminal"
     - role: gantsign.oh-my-zsh
       users:
         - username: "{{ ansible_user_id }}"

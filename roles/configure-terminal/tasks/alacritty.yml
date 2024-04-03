@@ -1,0 +1,10 @@
+---
+- name: Install Alacritty with APT
+  apt:
+    name: alacritty
+    state: present
+  become: true
+  
+- name: Set Alacritty as default terminal emulator
+  command: update-alternatives --set x-terminal-emulator /usr/bin/alacritty
+  become: true
