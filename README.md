@@ -29,7 +29,7 @@ Here's the goals:
 
 ## Sum-Up
 
-The ansible playbook `main.yml` applies 9 ansible roles which are:
+The ansible playbook `main.yml` applies 10 ansible roles which are:
 
 - roles/configure-i3
 - gantsign.oh-my-zsh
@@ -40,6 +40,7 @@ The ansible playbook `main.yml` applies 9 ansible roles which are:
 - roles/configure-firefox
 - roles/configure-logging
 - roles/configure-hardening
+- roles/configure-terminals
 
 ## Pre-Install, Install, Update
 
