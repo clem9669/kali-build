@@ -225,7 +225,7 @@ mkcd()
 
 wordlists()
 {
-find -L /usr/share/wordlists /opt/SecLists/ -type f -iname "*$1*"
+find -L /usr/share/seclists /usr/share/wordlists /usr/share/dirbuster /usr/share/wfuzz /usr/share/dirb /opt/weblist /opt/wordlists -type f -iname "*$1*"
 }
 
 ## PATH export
