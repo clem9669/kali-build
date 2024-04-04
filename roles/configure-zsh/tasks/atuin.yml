@@ -19,3 +19,13 @@
   copy:
     src: "{{ role_path }}/files/config.toml"
     dest: "{{ ansible_env.HOME }}/.config/atuin/config.toml"
+
+- name: "Copy command history file"
+  when: atuin_binary.stat.exists == False
+  copy:
+    src: "{{ role_path }}/files/history.txt"
+    dest: "/tmp/history.txt"
+
+- name: Import command history into atuin
+  when: atuin_binary.stat.exists == False
+  shell: "HISTFILE=history.txt atuin import zsh"
