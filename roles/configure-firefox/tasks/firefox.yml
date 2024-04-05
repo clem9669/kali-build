@@ -1,8 +1,17 @@
-# https://github.com/mozilla/policy-templates
-- name: "Updating Firefox Policies"
-  template:
-    src: "templates/policies.json.j2"
-    dest: "/usr/share/firefox-esr/distribution/policies.json"
+---
+# Create the folder /etc/firefox/policies/ with root privileges
+- name: Create folder /etc/firefox/policies/
+  file:
+    path: /etc/firefox/policies/
+    state: directory
+    mode: 0755
   become: true
   become_method: sudo
 
+# Update Firefox Policies using a template
+- name: Updating Firefox Policies
+  template:
+    src: "templates/policies.json.j2"
+    dest: "/etc/firefox/policies/policies.json"
+  become: true
+  become_method: sudo
