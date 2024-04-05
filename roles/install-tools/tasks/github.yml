@@ -77,7 +77,7 @@
     - { repo: "https://github.com/xct/xc", location: "/opt/xc"}
     - { repo: "https://github.com/ohpe/juicy-potato", location: "/opt/juicy-potato"}
     - { repo: "https://github.com/itm4n/PrintSpoofer", location: "/opt/PrintSpoofer"}
-    - { repo: "https://github.com/clem9669/wordlists", location: "/opt/wordlists"}
+    # - { repo: "https://github.com/clem9669/wordlists", location: "/opt/wordlists"}
     - { repo: "https://github.com/clem9669/weblist", location: "/opt/weblist"}
     - { repo: "https://github.com/clem9669/hashcat-rule", location: "/opt/hashcat-rule"}
     - { repo: "https://github.com/projectdiscovery/nuclei-templates", location: "{{ ansible_env.HOME }}/.local/nuclei-templates"}
