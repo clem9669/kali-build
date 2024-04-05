@@ -22,6 +22,9 @@
       - iptables-persistent
       - keepassxc
       - btop
+      - strace
+      - ltrace
+      - cmake
       - exploitdb-papers
     state: latest
   become: true
