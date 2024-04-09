@@ -3,3 +3,4 @@
   when: install_terminal == 'qterminal'
 - include_tasks: "alacritty.yml"
   when: install_terminal == 'alacritty'
+- include_tasks: "vmware.yml"
