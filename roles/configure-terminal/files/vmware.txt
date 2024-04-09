@@ -1,0 +1,9 @@
+1. Configure 'Always enabled' shared folder
+
+2. Detect VMware configuration:
+$ vmware-hgfsclient
+
+3. Adding a persistnat configuration in /etc/fstab
+
+# Use shared folders between VMWare guest and host
+.host:/Downloads    /media/Downloads    fuse.vmhgfs-fuse    defaults,allow_other,uid=1000     0    0
