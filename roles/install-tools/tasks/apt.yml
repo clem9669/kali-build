@@ -40,7 +40,6 @@
       - bloodhound
       - xsltproc
       - wine64
-      - naabu
       - realtek-rtl88xxau-dkms
       - libpcap-dev
       - libreoffice
