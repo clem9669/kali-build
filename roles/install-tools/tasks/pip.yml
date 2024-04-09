@@ -68,7 +68,6 @@
     - PyYAML
     - recommonmark
     - requests
-    - requestsdnspython
     - rich
     - rsa
     - s3fs
