@@ -9,6 +9,7 @@
     - github.com/wader/fq@latest
     - github.com/lc/gau/v2/cmd/gau@latest
     - github.com/tomnomnom/gron@latest
+    - github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
 
 
 # github.com/projectdiscovery/httpx/cmd/httpx@latest is installed via apt-get
