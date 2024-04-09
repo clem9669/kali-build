@@ -26,6 +26,7 @@
       - ltrace
       - cmake
       - exploitdb-papers
+      - python3-pip
     state: latest
   become: true
   become_method: sudo
