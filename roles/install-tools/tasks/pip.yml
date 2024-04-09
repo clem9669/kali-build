@@ -44,12 +44,12 @@
     - ldapdomaindump
     - leechcorepyc
     - lxml
-    - minikerberosldap3
+    - minikerberos
     - netaddr
     - netaddr
     - netifaces
     - netifaces
-    - openpyxlimpacket
+    - openpyxl
     - oscrypto
     - packaging
     - pandas
