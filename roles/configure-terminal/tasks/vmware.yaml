@@ -1,1 +1,10 @@
+---
+- name: Check if VM is VMware
+  set_fact:
+    is_vmware: "{{ ansible_virtualization_type == 'VMware' }}"
 
+- name: Copy file if VM is VMware
+  copy:
+    src: "files/vmware.txt"
+    dest: "/home/{{ ansible_user }}/VMWare_shared_folder.txt"
+  when: is_vmware
