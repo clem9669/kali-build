@@ -5,6 +5,6 @@
 
 - name: Copy file if VM is VMware
   copy:
-    src: "files/vmware.txt"
-    dest: "/home/{{ ansible_user }}/VMWare_shared_folder.txt"
+    src: "{{ role_path }}/files/vmware.txt"
+    dest: "{{ ansible_env.HOME }}/VMWare_shared_folder.txt"
   when: is_vmware
