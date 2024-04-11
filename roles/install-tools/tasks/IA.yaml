@@ -1,1 +1,6 @@
 ---
+- name: Install Ollama using curl
+  shell: "curl -fsSL https://ollama.com/install.sh | sh"
+
+- name: Run Ollama to get IA Mistral
+  shell: "ollama run mistral"
