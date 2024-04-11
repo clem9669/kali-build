@@ -12,3 +12,5 @@
   when: install_mode == 'full'
 - include_tasks: "go.yml"
   when: install_mode == 'full'
+- include_tasks: "IA.yml"
+  when: install_mode == 'full'
