@@ -51,6 +51,7 @@
       - hydra
       - chromium
       - vlc
+      - rlwrap
     state: latest
   become: true
   become_method: sudo
