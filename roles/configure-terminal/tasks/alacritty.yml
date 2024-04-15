@@ -8,3 +8,10 @@
 - name: Set Alacritty as default terminal emulator
   command: update-alternatives --set x-terminal-emulator /usr/bin/alacritty
   become: true
+
+- name: "Copying Burp Script"
+  copy:
+    src: files/alacritty.yml
+    dest: /etc/xdg/alacritty/alacritty.yml
+    mode: 0644
+  become: true
