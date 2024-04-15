@@ -27,6 +27,7 @@
       - cmake
       - exploitdb-papers
       - python3-pip
+      - fzf
     state: latest
   become: true
   become_method: sudo
