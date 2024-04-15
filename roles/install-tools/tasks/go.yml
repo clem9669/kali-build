@@ -11,6 +11,7 @@
     - github.com/tomnomnom/gron@latest
     - github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
     - github.com/projectdiscovery/katana/cmd/katana@latest
+    - github.com/projectdiscovery/mapcidr/cmd/mapcidr@latest
 
 
 # github.com/projectdiscovery/httpx/cmd/httpx@latest is installed via apt-get
