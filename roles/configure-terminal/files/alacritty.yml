@@ -1,0 +1,53 @@
+font:
+  size: 10
+
+  normal:
+    family: Fira Code
+    style: Regular
+
+  bold:
+    family: Fira Code
+    style: Bold
+
+  italic:
+    family: Fira Code
+    style: Italic
+
+  bold_italic:
+    family: Fira Code
+    style: Bold Italic
+
+colors:
+  primary:
+    background: '0x23252e'
+    foreground: '0xFFFFFF'
+
+  normal:
+    black:   '0x1F2229'
+    red:     '0xD41919'
+    green:   '0x5EBDAB'
+    yellow:  '0xFEA44C'
+    blue:    '0x367BF0'
+    magenta: '0x9755B3'
+    cyan:    '0x49AEE6'
+    white:   '0xE6E6E6'
+
+  bright:
+    black:   '0x198388'
+    red:     '0xEC0101'
+    green:   '0x47D4B9'
+    yellow:  '0xFF8A18'
+    blue:    '0x277FFF'
+    magenta: '0x962AC3'
+    cyan:    '0x05A1F7'
+    white:   '0xFFFFFF'
+
+
+window:
+  padding:
+    x: 5
+    y: 5
+
+key_bindings:
+  # Define the keybinding, for example, Ctrl+Shift+N
+  - { key: N, mods: Control|Shift, command: { program: "/bin/sh", args: ["-c", "alacritty --working-directory=$(pwd)"] } }
