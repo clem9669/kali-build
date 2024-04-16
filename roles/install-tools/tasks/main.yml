@@ -4,6 +4,7 @@
 - include_tasks: "burp.yml"
 - include_tasks: "gem.yml"
 - include_tasks: "github.yml"
+  when: install_mode == 'full'
 - include_tasks: "pip.yml"
   when: install_mode == 'full'
 - include_tasks: "sublimetext.yml"
