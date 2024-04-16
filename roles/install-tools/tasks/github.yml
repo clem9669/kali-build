@@ -80,7 +80,9 @@
     # - { repo: "https://github.com/clem9669/wordlists", location: "/opt/wordlists"}
     - { repo: "https://github.com/clem9669/weblist", location: "/opt/weblist"}
     - { repo: "https://github.com/clem9669/hashcat-rule", location: "/opt/hashcat-rule"}
+    - { repo: "https://github.com/dirkjanm/adidnsdump", location: "/opt/adidnsdump"}
     - { repo: "https://github.com/projectdiscovery/nuclei-templates", location: "{{ ansible_env.HOME }}/.local/nuclei-templates"}
+    
     
 - name: Ensure directory exists for downloading Github binaries
   ansible.builtin.file:
