@@ -16,7 +16,6 @@
   become_method: sudo
 
 - name: "Installing useful github repos"
-  when: install_mode == 'full'
   git:
     repo: "{{ item.repo }}"
     dest: "{{ item.location }}"
@@ -99,7 +98,6 @@
     - { path: "/opt/LaZagne/" }
     
 - name: Download Github releases
-  when: install_mode == 'full'
   ansible.builtin.get_url:
     url: "{{ item.url }}"
     dest: "{{ item.dest }}"
