@@ -82,6 +82,7 @@
     - { repo: "https://github.com/dirkjanm/adidnsdump", location: "/opt/adidnsdump"}
     - { repo: "https://github.com/projectdiscovery/nuclei-templates", location: "{{ ansible_env.HOME }}/.local/nuclei-templates"}
     - { repo: "https://github.com/ShutdownRepo/pywhisker", location: "/opt/pywhisker"}
+    - { repo: "https://github.com/dirkjanm/PKINITtools", location: "/opt/PKINITtools"}
     
     
 - name: Ensure directory exists for downloading Github binaries
