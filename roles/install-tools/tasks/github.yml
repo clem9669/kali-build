@@ -84,6 +84,7 @@
     - { repo: "https://github.com/ShutdownRepo/pywhisker", location: "/opt/pywhisker"}
     - { repo: "https://github.com/dirkjanm/PKINITtools", location: "/opt/PKINITtools"}
     - { repo: "https://github.com/AlmondOffSec/PassTheCert", location: "/opt/PassTheCert"}
+    - { repo: "https://github.com/p0dalirius/FindUncommonShares", location: "/opt/FindUncommonShares"}
     
     
 - name: Ensure directory exists for downloading Github binaries
