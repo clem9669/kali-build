@@ -85,6 +85,7 @@
     - { repo: "https://github.com/dirkjanm/PKINITtools", location: "/opt/PKINITtools"}
     - { repo: "https://github.com/AlmondOffSec/PassTheCert", location: "/opt/PassTheCert"}
     - { repo: "https://github.com/p0dalirius/FindUncommonShares", location: "/opt/FindUncommonShares"}
+    - { repo: "https://github.com/GemDem/CharlesCrawler", location: "/opt/CharlesCrawler"}
     
     
 - name: Ensure directory exists for downloading Github binaries
