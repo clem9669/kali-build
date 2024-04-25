@@ -1,0 +1,10 @@
+- name: Set keyboard layout to French (azerty)
+  become: true
+  copy:
+    dest: /etc/default/keyboard
+    content: |
+      XKBMODEL="pc105"
+      XKBLAYOUT="fr"
+      XKBVARIANT=""
+      XKBOPTIONS=""
+      BACKSPACE="guess"
