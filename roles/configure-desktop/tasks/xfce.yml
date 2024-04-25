@@ -1,4 +1,9 @@
 ---
+- name: "Ensure the ~/.config/qterminal.org/ directory exists"
+  ansible.builtin.file:
+    path: '{{ ansible_env.HOME }}/.config/qterminal.org/'
+    state: directory
+
 - name: "Configure profile Qterminal XFCE"
   copy:
     src: "{{ role_path }}/files/qterminal_xfce.ini"
