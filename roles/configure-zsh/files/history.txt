@@ -2913,7 +2913,8 @@ top or htop
 tortoutatis -s SESSIONID -u starbucks
 touch <filename-txt>
 touch bin/a
-traceroute $TARGETtrevorspray -u emails.txt -p $PASSWORD --exit-on-success
+traceroute $TARGET
+trevorspray -u emails.txt -p $PASSWORD --exit-on-success
 tree
 trevorspray --recon $DOMAIN -u emails.txt --threads 10
 trevorspray -u emails.txt -p $PASSWORD --ssh root@$TARGETtridtrilium-starttshark -i eth0 -w capture.pcap
