@@ -2973,8 +2973,8 @@ volatility3 -f memory.dmp windows.registry.printkey
 volatility3 -f memory.dmp windows.registry.printkey ‑‑key "Software\Microsoft\Windows\CurrentVersion"
 vssadmin create shadow /for=C:
 vssadmin list shadows
-wafw00f $TARGETwaybackurls test.com
-wafw00f $URL
+wafw00f $TARGET
+waybackurls test.com
 wc -l ips.txt
 wc -l whatweb_urls.txt
 webclientservicescanner '<domain>/<user>:<password>'@<ip_range>
@@ -2999,7 +2999,10 @@ wget -m ftp://<ip>:<port>/
 wget -m ftp://anonymous:anonymous@<ip>
 wget https://download.sysinternals.com/files/SysinternalsSuite.zip
 whatportis 3306
-whatportis postgresqlwhatweb $TARGETwhois $TARGETWifite.py --kill
+whatportis postgresql
+whatweb $TARGET
+whois $TARGET
+Wifite.py --kill
 whatwaf -u $URL
 whatweb --help
 whatweb -i c -a 3 --follow-redirect always
