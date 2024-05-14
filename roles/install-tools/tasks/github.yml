@@ -86,6 +86,7 @@
     - { repo: "https://github.com/AlmondOffSec/PassTheCert", location: "/opt/PassTheCert"}
     - { repo: "https://github.com/p0dalirius/FindUncommonShares", location: "/opt/FindUncommonShares"}
     - { repo: "https://github.com/GemDem/CharlesCrawler", location: "/opt/CharlesCrawler"}
+    - { repo: "https://github.com/luigigubello/PayloadsAllThePDFs", location: "/opt/PayloadsAllThePDFs"}
     
     
 - name: Ensure directory exists for downloading Github binaries
