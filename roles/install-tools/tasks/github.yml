@@ -88,6 +88,7 @@
     - { repo: "https://github.com/p0dalirius/FindUncommonShares", location: "/opt/FindUncommonShares"}
     - { repo: "https://github.com/GemDem/CharlesCrawler", location: "/opt/CharlesCrawler"}
     - { repo: "https://github.com/luigigubello/PayloadsAllThePDFs", location: "/opt/PayloadsAllThePDFs"}
+    - { repo: "https://github.com/Ullaakut/cameradar", location: "/opt/cameradar"}
     
     
 - name: Ensure directory exists for downloading Github binaries
