@@ -11,7 +11,7 @@
 
 - name: "Copying Burp Script"
   copy:
-    src: files/alacritty.yml
-    dest: /etc/xdg/alacritty/alacritty.yml
+    src: files/alacritty.toml
+    dest: /etc/xdg/alacritty/alacritty.toml
     mode: 0644
   become: true
