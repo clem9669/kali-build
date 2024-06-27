@@ -28,4 +28,4 @@
 
 - name: Import command history into atuin
   when: atuin_binary.stat.exists == False
-  shell: "HISTFILE=/tmp/history.txt atuin import zsh"
+  shell: "HISTFILE=/tmp/history.txt {{ ansible_env.HOME }}/.atuin/bin/atuin import zsh"
