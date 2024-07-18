@@ -28,6 +28,7 @@
       - exploitdb-papers
       - python3-pip
       - fzf
+      - sshpass
     state: latest
   become: true
   become_method: sudo
