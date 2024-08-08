@@ -23,7 +23,6 @@
               - git
               - ansible
               - rust
-              - adb
               - docker
               - colored-man-pages
               - zsh-autosuggestions
