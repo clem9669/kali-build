@@ -89,6 +89,8 @@
     - { repo: "https://github.com/GemDem/CharlesCrawler", location: "/opt/CharlesCrawler"}
     - { repo: "https://github.com/luigigubello/PayloadsAllThePDFs", location: "/opt/PayloadsAllThePDFs"}
     - { repo: "https://github.com/Ullaakut/cameradar", location: "/opt/cameradar"}
+    - { repo: "https://github.com/nil0x42/duplicut", location: "/opt/duplicut" }
+    - { repo: "https://github.com/jtesta/ssh-audit", location: "/opt/ssh-audit"}
     
     
 - name: Ensure directory exists for downloading Github binaries
