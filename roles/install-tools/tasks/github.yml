@@ -91,6 +91,8 @@
     - { repo: "https://github.com/Ullaakut/cameradar", location: "/opt/cameradar"}
     - { repo: "https://github.com/nil0x42/duplicut", location: "/opt/duplicut" }
     - { repo: "https://github.com/jtesta/ssh-audit", location: "/opt/ssh-audit"}
+    - { repo: "https://github.com/hashcat/hashcat-utils", location: "/opt/hashcat-utils"}
+    - { repo: "https://github.com/iphelix/pack", location: "/opt/pack"}
     
     
 - name: Ensure directory exists for downloading Github binaries
