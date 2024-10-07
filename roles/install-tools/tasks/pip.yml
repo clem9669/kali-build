@@ -25,6 +25,7 @@
   ansible.builtin.pip:
     name: "{{ item }}"
     state: present
+    break_system_packages: true
   loop:
     - beautifulsoup4
     - capstone
