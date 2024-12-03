@@ -216,6 +216,7 @@ alias cpy='xclip -selection clipboard'
 alias b64d='base64 -d'
 alias b64e='base64 -w 0'
 alias fzf-wordlists='find /usr/share/seclists /usr/share/wordlists /usr/share/dirbuster /usr/share/wfuzz /usr/share/dirb /opt/weblist /opt/wordlists -type f | fzf'
+alias gc='git clone --depth 1'
 
 ## Functions
 mkcd()
