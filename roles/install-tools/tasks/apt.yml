@@ -53,6 +53,7 @@
       - chromium
       - vlc
       - rlwrap
+      - genisoimage
     state: latest
   become: true
   become_method: sudo
