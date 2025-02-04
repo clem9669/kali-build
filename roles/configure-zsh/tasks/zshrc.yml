@@ -4,20 +4,20 @@
     src: "{{ role_path }}/files/zshrc"
     dest: "{{ ansible_env.HOME }}/.zshrc"
 
-- name: "Check if neofetch config directory exists"
+- name: "Check if fastfetch config directory exists"
   stat:
-    path: /home/kali/.config/neofetch
+    path: /home/kali/.config/fastfetch
   register: directory_info
 
-- name: "Create neofetch config directory if it doesn't exist"
+- name: "Create fastfetch config directory if it doesn't exist"
   file:
-    path: "{{ ansible_env.HOME }}/.config/neofetch"
+    path: "{{ ansible_env.HOME }}/.config/fastfetch"
     state: directory
   when: not directory_info.stat.exists
 
 
-- name: "Copy neofetch conf"
+- name: "Copy fastfetch conf"
   copy:
-    src: "{{ role_path }}/files/neofetch.conf"
-    dest: "{{ ansible_env.HOME }}/.config/neofetch/config.conf"
+    src: "{{ role_path }}/files/fastfetch.conf"
+    dest: "{{ ansible_env.HOME }}/.config/fastfetch/config.jsonc"
 
