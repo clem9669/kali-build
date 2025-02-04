@@ -26,7 +26,7 @@
     - { repo: "https://github.com/BeichenDream/GodPotato", location: "/opt/GodPotato"}
     - { repo: "https://github.com/bitsadmin/wesng", location: "/opt/wesng"}
     - { repo: "https://github.com/carlospolop/PEASS-ng", location: "/opt/PEASS"}
-    - { repo: "https://github.com/BloodHoundAD/BloodHound", location: "/opt/BloodHound"}
+    - { repo: "https://github.com/SpecterOps/BloodHound", location: "/opt/BloodHound"}
     - { repo: "https://github.com/CompassSecurity/BloodHoundQueries", location: "/opt/BloodHoundQueries"}
     - { repo: "https://github.com/cytopia/pwncat", location: "/opt/pwncat"}
     - { repo: "https://github.com/Dec0ne/DavRelayUp", location: "/opt/DavRelayUp"}
