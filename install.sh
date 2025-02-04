@@ -12,10 +12,10 @@ install_mode_choice=$(whiptail --title "Choose Installation Mode" --menu "Select
 
 # Map the install_mode_choice to actual installation mode names
 case $install_mode_choice in
-    "1") install_mode="light" ;;
-    "2") install_mode="full" ;;
+    "1") install_mode="full" ;;
+    "2") install_mode="light" ;;
     "3") install_mode="hard" ;;
-    *)  install_mode="light" ;;  # Default to Light if an unexpected value is chosen
+    *)  install_mode="full" ;;  # Default to full if an unexpected value is chosen
 esac
 
 # Display menu to the user using whiptail for desktop environment
@@ -27,10 +27,10 @@ desktop_choice=$(whiptail --title "Choose Desktop Environment" --menu "Select a 
 
 # Map the desktop_choice to actual desktop environment names
 case $desktop_choice in
-    "1") install_desktop="xfce" ;;
-    "2") install_desktop="i3" ;;
+    "1") install_desktop="i3" ;;
+    "2") install_desktop="xfce" ;;
     "3") install_desktop="regolith" ;;
-    *)  install_desktop="xfce" ;;  # Default to XFCE if an unexpected value is chosen
+    *)  install_desktop="i3" ;;  # Default to i3 if an unexpected value is chosen
 esac
 
 # Display menu to the user using whiptail for terminal choice
@@ -41,9 +41,9 @@ terminal_choice=$(whiptail --title "Choose Terminal" --menu "Select a terminal:"
 
 # Map the terminal_choice to actual terminal names
 case $terminal_choice in
-    "1") install_terminal="default" ;;
-    "2") install_terminal="alacritty" ;;
-    *)  install_terminal="default" ;;  # Default to OS default terminal if an unexpected value is chosen
+    "1") install_terminal="alacritty" ;;
+    "2") install_terminal="default" ;;
+    *)  install_terminal="alacritty" ;;  # Default to alacritty terminal if an unexpected value is chosen
 esac
 
 # Run Ansible playbook with the chosen install_mode, install_desktop, and install_terminal
