@@ -193,7 +193,7 @@ fi
 
 ### Commands
 setxkbmap fr
-neofetch
+fastfetch
 
 ### Alias
 alias ap='sudo apt update && sudo apt upgrade -y'
