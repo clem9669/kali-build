@@ -1,20 +1,4 @@
 ---
-- name: "Check the current owner of the folder"
-  stat:
-    path: /opt/
-  register: folder_info
-
-- name: "Change folder owner if not already set"
-  file:
-    path: "/opt/"
-    owner: "{{ ansible_env.USER }}"
-    group: "{{ ansible_env.USER }}"
-    recurse: yes
-    mode: 0700
-  when: folder_info.stat.pw_name is undefined or folder_info.stat.pw_name != ansible_env.USER
-  become: true
-  become_method: sudo
-
 - name: "Installing useful github repos"
   git:
     repo: "{{ item.repo }}"
