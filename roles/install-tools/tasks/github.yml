@@ -20,6 +20,7 @@
     repo: "{{ item.repo }}"
     dest: "{{ item.location }}"
     update: false
+    depth: 5
   loop:
     - { repo: "https://github.com/411Hall/JAWS", location: "/opt/JAWS"}
     - { repo: "https://github.com/AlessandroZ/LaZagne", location: "/opt/LaZagne"}
