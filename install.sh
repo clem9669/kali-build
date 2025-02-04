@@ -5,8 +5,8 @@ export PATH="$PATH:$HOME/.local/bin"
 
 # Display menu to the user using whiptail for install_mode
 install_mode_choice=$(whiptail --title "Choose Installation Mode" --menu "Select an installation mode:" 20 70 10 \
-    "1" "Light: Default minimum installation (lacking Go tools, Cargo tools, Apt tools, wordlists, etc)" \
-    "2" "Full: Light installation with all tools from various sources (Go, Cargo, Gem, etc)" \
+    "1" "Full: Light installation with all tools from various sources (Go, Cargo, Gem, etc)" \
+    "2" "Light: Default minimum installation (lacking Go tools, Cargo tools, Apt tools, wordlists, etc)" \
     "3" "Hard: Default minimum installation with hardening (disabling DHCP, changing kernel params, setting up UFW rules, etc)" \
     3>&1 1>&2 2>&3)
 
@@ -20,8 +20,8 @@ esac
 
 # Display menu to the user using whiptail for desktop environment
 desktop_choice=$(whiptail --title "Choose Desktop Environment" --menu "Select a desktop environment:" 20 70 10 \
-    "1" "XFCE" \
-    "2" "i3" \
+    "1" "i3" \
+    "2" "XFCE" \
     "3" "Regolith" \
     3>&1 1>&2 2>&3)
 
@@ -35,8 +35,8 @@ esac
 
 # Display menu to the user using whiptail for terminal choice
 terminal_choice=$(whiptail --title "Choose Terminal" --menu "Select a terminal:" 20 70 10 \
-    "1" "Default from the OS (e.g., qterminal)" \
-    "2" "Install Alacritty" \
+    "1" "Install Alacritty" \
+    "2" "Default from the OS (e.g., qterminal)" \
     3>&1 1>&2 2>&3)
 
 # Map the terminal_choice to actual terminal names
