@@ -58,3 +58,7 @@ burpsuite_extras_extensions:
     name: Authz.bapp
     url: https://portswigger-cdn.net/bappstore/bapps/download/4316cc18ac5f434884b2089831c7d19e/1
     checksum: sha256:be42ccbd8c36f391564edd0073062f2b9a0a309e2f01121d349cab905f432b7c
+  AuthMatrix:
+    name: AuthMatrix.bapp
+    url: https://portswigger-cdn.net/bappstore/bapps/download/30d8ee9f40c041b0bfec67441aad158e/12
+    checksum: sha256:18a4223f3e0acc2a2c53e6d5ba54498963c27188c2da2764dbd57c34d8d523ed
