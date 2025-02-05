@@ -13,6 +13,17 @@ This Ansible playbook focuses on installing various tools and utilities on a tar
 2. **Burp Suite Installation**
    - File: `burp.yml`
    - Downloads and configures Burp Suite Community and Pro versions, including CA certificate setup.
+      - param_miner.bapp
+      - retire_js.bapp
+      - json_web_token.bapp
+      - active_scan_plus.bapp
+      - autorize.bapp
+      - js_miner.bapp
+      - J2EEScan.bapp
+      - 403bypass.bapp
+      - JS_Link_Finder.bapp
+      - Auth_Analyzer.bapp
+      - Authz.bapp
 
 3. **Ruby Gems Installation**
    - File: `gem.yml`
