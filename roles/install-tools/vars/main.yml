@@ -1,7 +1,7 @@
 ---
 # vars file for install-tools
 ## Burp
-burpsuite_extras_dir: "/usr/local/lib/BurpSuite"
+burpsuite_extras_dir: "/home/{{ ansible_user_id }}/.BurpSuite/lib"
 burpsuite_extras_jars:
   jruby:
     jar: jruby-complete.jar
@@ -11,3 +11,50 @@ burpsuite_extras_jars:
     jar: jython-standalone.jar
     url: https://repo1.maven.org/maven2/org/python/jython-standalone/2.7.3/jython-standalone-2.7.3.jar
     checksum: sha256:da7f3d829b148bcfa86b059dc964e3a8556fedb021096c8db07e30c66faab9b4
+
+burpsuite_extras_dir_extensions: "/home/{{ ansible_user_id }}/.BurpSuite/extensions"
+burpsuite_extras_extensions:
+  paramminer:
+    name: param_miner.bapp
+    url: https://portswigger-cdn.net/bappstore/bapps/download/17d2949a985c4b7ca092728dba871943/33
+    checksum: sha256:0fdcdd38e1496d51690f3a4609c7f64b9af9c632002b3519fc0fc699f1fb96ad
+  retirejs:
+    name: retire_js.bapp
+    url: https://portswigger-cdn.net/bappstore/bapps/download/36238b534a78494db9bf2d03f112265c/13
+    checksum: sha256:ae3d413db8af1fd73935ec684c186e9b75e293b8c2e59c2253f1871280ab3761
+  jsonwebtoken:
+    name: json_web_token.bapp
+    url: https://portswigger-cdn.net/bappstore/bapps/download/f923cbf91698420890354c1d8958fee6/29
+    checksum: sha256:a5454c1e41a7044853a80ef1d1640732843ff8e1d88d7d96aad038ede12cf79e
+  active_scan:
+    name: active_scan_plus.bapp
+    url: https://portswigger-cdn.net/bappstore/bapps/download/3123d5b5f25c4128894d97ea1acc4976/39
+    checksum: sha256:f592b75fef2ec58178f35e6ef875b37de7dcc353dfae3c413491d9bfd7b1c0bd
+  autorize:
+    name: autorize.bapp
+    url: https://portswigger-cdn.net/bappstore/bapps/download/f9bbac8c4acf4aefa4d7dc92a991af2f/27
+    checksum: sha256:aaa72b5f48c56839fb8b51dc5bfc135447490a41ab7240a0bb24ba031477c69e
+  jsminer:
+    name: js_miner.bapp
+    url: https://portswigger-cdn.net/bappstore/bapps/download/0ab7a94d8e11449daaf0fb387431225b/8
+    checksum: sha256:a2da30bba033309b427d7e4f6c3f3bf5b0ef90f789971244d71ac5a089da8292
+  J2EEScan:
+    name: J2EEScan.bapp
+    url: https://portswigger-cdn.net/bappstore/bapps/download/7ec6d429fed04cdcb6243d8ba7358880/6
+    checksum: sha256:f7abd7c63aa71ff40bad8744517c14ad843097f8135f29584e5e512958969843
+  403bypass:
+    name: 403bypass.bapp
+    url: https://portswigger-cdn.net/bappstore/bapps/download/444407b96d9c4de0adb7aed89e826122/5
+    checksum: sha256:24220c9d33b9bd23713b5f23a5d06c8a6d91bca2b498ec58e81946fb85a47a9f
+  JSLinkFinder:
+    name: JS_Link_Finder.bapp
+    url: https://portswigger-cdn.net/bappstore/bapps/download/0e61c786db0c4ac787a08c4516d52ccf/1
+    checksum: sha256:acaea29a32a0479408adfc25682de1ca8a882a4db5b09e4e98eb9ac708986fa8
+  Auth_Analyzer:
+    name: Auth_Analyzer.bapp
+    url: https://portswigger-cdn.net/bappstore/bapps/download/7db49799266c4f85866f54d9eab82c89/27
+    checksum: sha256:bb93f576607af0790a85a916698583302e4fb9bef9b9cfe4767d6f6c478e6e6a
+  Authz:
+    name: Authz.bapp
+    url: https://portswigger-cdn.net/bappstore/bapps/download/4316cc18ac5f434884b2089831c7d19e/1
+    checksum: sha256:be42ccbd8c36f391564edd0073062f2b9a0a309e2f01121d349cab905f432b7c
