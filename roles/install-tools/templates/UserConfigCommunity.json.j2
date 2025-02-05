@@ -1,5 +1,8 @@
 {
     "user_options":{
+        "bchecks":{
+            "imported_scripts":[]
+        },
         "connections":{
             "platform_authentication":{
                 "credentials":[],
@@ -27,19 +30,53 @@
             },
             "http_message_display":{
                 "font_name":"Monospaced",
-                "font_size":15,
+                "font_size":12,
                 "font_smoothing":true,
                 "highlight_requests":true,
                 "highlight_responses":true,
                 "pretty_print_by_default":true
             },
+            "table_appearance":{
+                "zebra_striping":true
+            },
             "user_interface":{
-                "font_size":14,
+                "font_size":10,
                 "look_and_feel":"Dark"
             }
         },
         "extender":{
-            "extensions":[],
+            "extensions":[
+                {
+                    "bapp_serial_version":29,
+                    "bapp_uuid":"f923cbf91698420890354c1d8958fee6",
+                    "errors":"ui",
+                    "extension_file":"bapps/f923cbf91698420890354c1d8958fee6/build/libs/JWT4B_Montoya-1.0-SNAPSHOT.jar",
+                    "extension_type":"java",
+                    "loaded":true,
+                    "name":"JSON Web Tokens",
+                    "output":"ui"
+                },
+                {
+                    "bapp_serial_version":33,
+                    "bapp_uuid":"17d2949a985c4b7ca092728dba871943",
+                    "errors":"ui",
+                    "extension_file":"bapps/17d2949a985c4b7ca092728dba871943/build/libs/param-miner-all.jar",
+                    "extension_type":"java",
+                    "loaded":true,
+                    "name":"Param Miner",
+                    "output":"ui"
+                },
+                {
+                    "bapp_serial_version":12,
+                    "bapp_uuid":"30d8ee9f40c041b0bfec67441aad158e",
+                    "errors":"ui",
+                    "extension_file":"bapps/30d8ee9f40c041b0bfec67441aad158e/AuthMatrix.py",
+                    "extension_type":"python",
+                    "loaded":true,
+                    "name":"AuthMatrix",
+                    "output":"ui"
+                }
+            ],
             "java":{
                 "folder_for_loading_library_jar_files":""
             },
@@ -56,6 +93,8 @@
             }
         },
         "intruder":{
+            "sidebar_display_mode":"auto-expand",
+            "sidebar_position":"right",
             "tab_bar_layout":"wrapped"
         },
         "misc":{
@@ -74,6 +113,12 @@
                 "interval":30,
                 "show_progress":true
             },
+            "collaborator_server":{
+                "location":"",
+                "poll_over_unencrypted_http":false,
+                "polling_location":"",
+                "type":"default"
+            },
             "embedded_browser":{
                 "allow_saving_browser_settings":true,
                 "browser_data_directory":""
@@ -90,6 +135,10 @@
                     "hotkey":"Ctrl+I"
                 },
                 {
+                    "action":"send_to_organizer",
+                    "hotkey":"Ctrl+O"
+                },
+                {
                     "action":"forward_intercepted_proxy_message",
                     "hotkey":"Ctrl+F"
                 },
@@ -99,7 +148,7 @@
                 },
                 {
                     "action":"issue_repeater_request",
-                    "hotkey":"Ctrl+Enter"
+                    "hotkey":"Ctrl+Space"
                 },
                 {
                     "action":"switch_to_dashboard",
@@ -120,6 +169,14 @@
                 {
                     "action":"switch_to_repeater",
                     "hotkey":"Ctrl+Shift+R"
+                },
+                {
+                    "action":"switch_to_logger",
+                    "hotkey":"Ctrl+Shift+L"
+                },
+                {
+                    "action":"switch_to_organizer",
+                    "hotkey":"Ctrl+Shift+O"
                 },
                 {
                     "action":"go_to_previous_tab",
@@ -360,18 +417,42 @@
             ],
             "out_of_scope_history_logging_action":"prompt",
             "pause_tasks_at_startup_default":true,
-            "show_learn_tab":true,
-            "submit_anonymous_feedback":true,
-            "temporary_files_location":""
+            "show_learn_tab":false,
+            "submit_feedback":false,
+            "suppress_confirm_on_close":false,
+            "temporary_files_location":"",
+            "uninteresting_headers":{
+                "hide_uninteresting_headers_by_default":false,
+                "uninteresting_headers":[
+                    "accept",
+                    "accept-encoding",
+                    "accept-language",
+                    "if-modified-since",
+                    "if-none-match",
+                    "priority",
+                    "sec-ch-ua",
+                    "sec-ch-ua-arch",
+                    "sec-ch-ua-bitness",
+                    "sec-ch-ua-full-version",
+                    "sec-ch-ua-mobile",
+                    "sec-ch-ua-model",
+                    "sec-ch-ua-platform",
+                    "sec-ch-ua-platform-version",
+                    "sec-ch-ua-wow64",
+                    "sec-fetch-dest",
+                    "sec-fetch-mode",
+                    "sec-fetch-site",
+                    "sec-fetch-user",
+                    "upgrade-insecure-requests",
+                    "x-requested-with"
+                ]
+            }
         },
         "proxy":{
-            "http_history":{
-                "sort_column":"#",
-                "sort_order":"ascending"
-            },
-            "websockets_history":{
-                "sort_column":"#",
-                "sort_order":"ascending"
+            "default_display_message":{
+                "request":"edited",
+                "response":"edited",
+                "websocket":"original"
             }
         },
         "repeater":{
