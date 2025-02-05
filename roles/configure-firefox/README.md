@@ -11,3 +11,13 @@ This Ansible task is designed to automate the process of updating Firefox polici
 - **Source Template:** `templates/policies.json.j2`
 - **Destination Path:** `/usr/share/firefox-esr/distribution/policies.json`
 - **Privilege Escalation:** The task uses `become` with `sudo` as the privilege escalation method.
+
+### Extensions
+
+Firefox Plugins:
+  - "foxyproxy-standard"
+  - "ublock-origin"
+  - "decentraleyes"
+  - "wappalyzer"
+  - "privacy-badger17"
+  - "pwnfox"
