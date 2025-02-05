@@ -30,10 +30,6 @@ burpsuite_extras_extensions:
     name: active_scan_plus.bapp
     url: https://portswigger-cdn.net/bappstore/bapps/download/3123d5b5f25c4128894d97ea1acc4976/39
     checksum: sha256:f592b75fef2ec58178f35e6ef875b37de7dcc353dfae3c413491d9bfd7b1c0bd
-  autorize:
-    name: autorize.bapp
-    url: https://portswigger-cdn.net/bappstore/bapps/download/f9bbac8c4acf4aefa4d7dc92a991af2f/27
-    checksum: sha256:aaa72b5f48c56839fb8b51dc5bfc135447490a41ab7240a0bb24ba031477c69e
   jsminer:
     name: js_miner.bapp
     url: https://portswigger-cdn.net/bappstore/bapps/download/0ab7a94d8e11449daaf0fb387431225b/8
@@ -50,6 +46,12 @@ burpsuite_extras_extensions:
     name: JS_Link_Finder.bapp
     url: https://portswigger-cdn.net/bappstore/bapps/download/0e61c786db0c4ac787a08c4516d52ccf/1
     checksum: sha256:acaea29a32a0479408adfc25682de1ca8a882a4db5b09e4e98eb9ac708986fa8
+  AuthMatrix:
+    name: AuthMatrix.bapp
+    url: https://portswigger-cdn.net/bappstore/bapps/download/30d8ee9f40c041b0bfec67441aad158e/12
+    checksum: sha256:18a4223f3e0acc2a2c53e6d5ba54498963c27188c2da2764dbd57c34d8d523ed
+
+/*
   Auth_Analyzer:
     name: Auth_Analyzer.bapp
     url: https://portswigger-cdn.net/bappstore/bapps/download/7db49799266c4f85866f54d9eab82c89/27
@@ -58,7 +60,8 @@ burpsuite_extras_extensions:
     name: Authz.bapp
     url: https://portswigger-cdn.net/bappstore/bapps/download/4316cc18ac5f434884b2089831c7d19e/1
     checksum: sha256:be42ccbd8c36f391564edd0073062f2b9a0a309e2f01121d349cab905f432b7c
-  AuthMatrix:
-    name: AuthMatrix.bapp
-    url: https://portswigger-cdn.net/bappstore/bapps/download/30d8ee9f40c041b0bfec67441aad158e/12
-    checksum: sha256:18a4223f3e0acc2a2c53e6d5ba54498963c27188c2da2764dbd57c34d8d523ed
+  autorize:
+    name: autorize.bapp
+    url: https://portswigger-cdn.net/bappstore/bapps/download/f9bbac8c4acf4aefa4d7dc92a991af2f/27
+    checksum: sha256:aaa72b5f48c56839fb8b51dc5bfc135447490a41ab7240a0bb24ba031477c69e
+*/
