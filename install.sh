@@ -5,7 +5,7 @@ export PATH="$PATH:$HOME/.local/bin"
 
 # Display menu to the user using whiptail for install_mode
 install_mode_choice=$(whiptail --title "Choose Installation Mode" --menu "Select an installation mode:" 20 70 10 \
-    "1" "Full: Light installation with all tools from various sources (Go, Cargo, Gem, etc)" \
+    "1" "Full: Light installation with all tools from various sources (Go, Cargo, Gem, IA, etc)" \
     "2" "Light: Default minimum installation (lacking Go tools, Cargo tools, Apt tools, wordlists, etc)" \
     "3" "Hard: Light installation with hardening (disabling DHCP, changing kernel params, setting up UFW rules, etc)" \
     3>&1 1>&2 2>&3)
