@@ -72,13 +72,12 @@
     dest: "/home/{{ ansible_user_id }}/.BurpSuite/UserConfigCommunity.json"
 
 # Get Burpsuite_pro (JAR)
-- name: "Check if /usr/share/burpsuite/burpsuite_pro.jar exists"
-  stat:
-      path: /usr/share/burpsuite/burpsuite_pro.jar
-  register: burp_pro
+# - name: "Check if /usr/share/burpsuite/burpsuite_pro.jar exists"
+#   stat:
+#       path: /usr/share/burpsuite/burpsuite_pro.jar
+#   register: burp_pro
 
 - name: Download Burpsuite_pro files
-  when: burp_pro.stat.exists == False
   ansible.builtin.get_url:
     url: "https://portswigger-cdn.net/burp/releases/download?product=pro&type=JAR"
     dest: "/usr/share/burpsuite/burpsuite_pro.jar"
@@ -87,7 +86,6 @@
   become_method: sudo
 
 - name: "Copying Burp Script"
-  when: burp_pro.stat.exists == False
   copy:
     src: files/burpsuite_pro
     dest: /usr/bin/burpsuite_pro
@@ -97,7 +95,6 @@
 
 # BurpSuite Pro Config
 - name: "Copy BurpSuite Pro Config"
-  when: burp_pro.stat.exists == False
   template:
       src: "templates/UserConfigPro.json.j2"
       dest: "/home/{{ ansible_user_id }}/.BurpSuite/UserConfigPro.json"
