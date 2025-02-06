@@ -2,6 +2,6 @@
 - name: Install Ollama using curl
   shell: "curl -fsSL https://ollama.com/install.sh | sh"
 
-# Run it if you want
-# - name: Run Ollama to get IA Mistral
-#   shell: "ollama run mistral"
+# Optionally, you can run the Ollama command to get IA Mistral, but only if Ollama was installed
+- name: Run Ollama to get IA Mistral
+  shell: "ollama pull mistral"

@@ -46,8 +46,40 @@ case $terminal_choice in
     *)  install_terminal="alacritty" ;;  # Default to alacritty terminal if an unexpected value is chosen
 esac
 
-# Run Ansible playbook with the chosen install_mode, install_desktop, and install_terminal
-ansible-playbook -vv -i inventory.ini --ask-become main.yml -e "install_mode=$install_mode install_desktop=$install_desktop install_terminal=$install_terminal"
+# Not ready yet: https://github.com/clem9669/kali-build/issues/12#issuecomment-2640048225
+# # Display menu to the user for Docker installation choice
+# docker_choice=$(whiptail --title "Install Docker" --menu "Do you want to install Docker?" 20 70 10 \
+#     "1" "Do not install Docker" \
+#     "2" "Install Docker" \
+#     3>&1 1>&2 2>&3)
+
+# # Map the docker_choice to actual Docker installation flag using case
+# case $docker_choice in
+#     "1") install_docker="false" ;;
+#     "2") install_docker="true" ;;
+#     *)  install_docker="false" ;;  # Default to false if an unexpected value is chosen
+# esac
+
+# Ask if the user wants to install Ollama only if the install_mode is "full"
+if [[ "$install_mode" == "full" ]]; then
+    ollama_choice=$(whiptail --title "Install Ollama + Mistral (4Gb)" --menu "Do you want to install Ollama with a model?" 20 70 10 \
+        "1" "Do not install Ollama" \
+        "2" "Install Ollama + Mistral (4Gb)" \
+        3>&1 1>&2 2>&3)
+
+    # Map the ollama_choice to actual Ollama installation flag using case
+    case $ollama_choice in
+        "1") install_ollama="false" ;;
+        "2") install_ollama="true" ;;
+        *)  install_ollama="false" ;;  # Default to false if an unexpected value is chosen
+    esac
+else
+    install_ollama="false"  # Automatically set to false if not in "full" mode
+fi
+
+# Run Ansible playbook with the chosen options
+ansible-playbook -vv -i inventory.ini --ask-become main.yml \
+    -e "install_mode=$install_mode install_desktop=$install_desktop install_terminal=$install_terminal install_docker=$install_docker install_ollama=$install_ollama"
 
 # Display completion message
 echo "[*] Done! Logout, then you can pick your desktop environment and Login!"

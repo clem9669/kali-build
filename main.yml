@@ -3,14 +3,35 @@
   hosts: localhost
   connection: local
 
-#  environment:
-#    http_proxy: http://proxy.example.com:8080
-#    https_proxy: http://proxy.example.com:8080
+  #  environment:
+  #    http_proxy: http://proxy.example.com:8080
+  #    https_proxy: http://proxy.example.com:8080
 
   vars:
     install_mode: light
     install_desktop: xfce
     install_terminal: qterminal
+    install_docker: false
+
+    # Docker Configuration Options
+    docker_edition: "ce"
+    docker_packages_state: present
+    docker_service_manage: true
+    docker_service_state: started
+    docker_service_enabled: true
+    docker_install_compose_plugin: true
+    docker_install_compose: false
+    docker_apt_release_channel: stable
+    docker_apt_ansible_distribution: debian
+    docker_apt_ansible_distribution_release: bookworm
+    ansible_distribution_release: bookworm
+    docker_users:
+      - "{{ ansible_user_id }}"
+    docker_daemon_options:
+      storage-driver: "overlay2"
+      log-opts:
+        max-size: "100m"
+
   roles:
     - role: "roles/configure-desktop"
     - role: "roles/configure-terminal"
@@ -31,7 +52,7 @@
             write_zshrc: false
 
     - role: gantsign.golang
-      golang_install_dir: '/usr/local/go/'
+      golang_install_dir: "/usr/local/go/"
       golang_architecture: amd64
 
     - role: "roles/configure-zsh"
@@ -42,9 +63,13 @@
           visual_studio_code_extensions:
             - streetsidesoftware.code-spell-checker
             - wholroyd.jinja
+            - esbenp.prettier-vscode
             - ms-python.python
             - snyk-security.snyk-vulnerability-scanner
-
+    
+    # Does not support Kali yet
+    # - role: geerlingguy.docker
+    #   when: install_docker
     - role: "roles/configure-firefox"
     - role: "roles/configure-logging"
     - role: "roles/configure-hardening"
