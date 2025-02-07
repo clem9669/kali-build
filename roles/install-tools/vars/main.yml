@@ -50,7 +50,14 @@ burpsuite_extras_extensions:
     name: AuthMatrix.bapp
     url: https://portswigger-cdn.net/bappstore/bapps/download/30d8ee9f40c041b0bfec67441aad158e/12
     checksum: sha256:18a4223f3e0acc2a2c53e6d5ba54498963c27188c2da2764dbd57c34d8d523ed
-
+  ExifTool_Scanner:
+    name: ExifTool_Scanner.bapp
+    url: https://portswigger-cdn.net/bappstore/bapps/download/858352a27e6e4a6caa802e61fdeb7dd4/5
+    checksum: sha256:80c2c821da7be3a076bfc58ca5d5cd74b3ec48af053c2dcff0d6c162d1b967bc
+  PwnFox:
+    name: PwnFox.jar
+    url: https://github.com/yeswehack/PwnFox/releases/download/v1.0.3/PwnFox.jar
+    checksum: sha256:eddaef68aff92fd69f507497803f86ddab9727515825732248ed442da08d971e
 
 #  Auth_Analyzer:
 #    name: Auth_Analyzer.bapp

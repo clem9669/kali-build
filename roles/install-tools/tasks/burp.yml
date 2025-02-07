@@ -1,31 +1,32 @@
-# Get burp community CA to OS store
-- name: "Check if BurpSuiteCA.der exists"
-  stat:
-    path: /usr/local/share/ca-certificates/BurpSuiteCA.der
-  register: burp_cert
+# This is not faster and only works for CE. Has to be reworked
+# # Get burp community CA to OS store
+# - name: "Check if BurpSuiteCA.der exists"
+#   stat:
+#     path: /usr/local/share/ca-certificates/BurpSuiteCA.der
+#   register: burp_cert
 
-- name: "Copying Burp Script"
-  when: burp_cert.stat.exists == False
-  copy:
-    src: files/getburpcert.sh
-    dest: /tmp/getburpcert.sh
-    mode: 0744
+# - name: "Copying Burp Script"
+#   when: burp_cert.stat.exists == False
+#   copy:
+#     src: files/getburpcert.sh
+#     dest: /tmp/getburpcert.sh
+#     mode: 0744
 
-- name: "Executing bash script to Download CA Certificate"
-  when: burp_cert.stat.exists == False
-  shell:
-    /tmp/getburpcert.sh
+# - name: "Executing bash script to Download CA Certificate"
+#   when: burp_cert.stat.exists == False
+#   shell:
+#     /tmp/getburpcert.sh
 
-- name: "Copying CA Certificate to /usr/local/share/ca-certificates"
-  when: burp_cert.stat.exists == False
-  copy:
-    src: /tmp/cacert.der
-    dest: /usr/local/share/ca-certificates/BurpSuite_CE_CA.der
-    owner: root
-    group: root
-    mode: 0644
-  become: true
-  become_method: sudo
+# - name: "Copying CA Certificate to /usr/local/share/ca-certificates"
+#   when: burp_cert.stat.exists == False
+#   copy:
+#     src: /tmp/cacert.der
+#     dest: /usr/local/share/ca-certificates/BurpSuite_CE_CA.der
+#     owner: root
+#     group: root
+#     mode: 0644
+#   become: true
+#   become_method: sudo
 
 # Get burp extras + extensions
 - name: Ensure BurpSuite extras directory exists
@@ -33,16 +34,12 @@
     path: "{{ burpsuite_extras_dir }}"
     state: directory
     mode: '0755'
-  become: true
-  become_method: sudo
 
 - name: Ensure BurpSuite extensions directory exists
   ansible.builtin.file:
     path: "{{ burpsuite_extras_dir_extensions }}"
     state: directory
     mode: '0755'
-  become: true
-  become_method: sudo
 
 - name: Download jypthon jruby files
   ansible.builtin.get_url:
@@ -50,8 +47,6 @@
     dest: "{{ burpsuite_extras_dir }}/{{ item.value.jar }}"
     checksum: "{{ item.value.checksum }}"
     mode: '0644'
-  become: true
-  become_method: sudo
   loop: "{{ lookup('dict', burpsuite_extras_jars) }}"
 
 - name: Download Burp's extensions 
@@ -60,13 +55,10 @@
     dest: "{{ burpsuite_extras_dir_extensions }}/{{ item.value.name }}"
     checksum: "{{ item.value.checksum }}"
     mode: '0644'
-  become: true
-  become_method: sudo
   loop: "{{ lookup('dict', burpsuite_extras_extensions) }}"
 
 # BurpSuite Community Config
 - name: Copy BurpSuite Community Config
-  when: burp_cert.stat.exists == False
   template:
     src: "templates/UserConfigCommunity.json.j2"
     dest: "/home/{{ ansible_user_id }}/.BurpSuite/UserConfigCommunity.json"
