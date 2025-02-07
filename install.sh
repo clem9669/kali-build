@@ -78,8 +78,9 @@ else
 fi
 
 # Run Ansible playbook with the chosen options
+# removed docker arg  install_docker=$install_docker
 ansible-playbook -vv -i inventory.ini --ask-become main.yml \
-    -e "install_mode=$install_mode install_desktop=$install_desktop install_terminal=$install_terminal install_docker=$install_docker install_ollama=$install_ollama"
+    -e "install_mode=$install_mode install_desktop=$install_desktop install_terminal=$install_terminal install_ollama=$install_ollama"
 
 # Display completion message
 echo "[*] Done! Logout, then you can pick your desktop environment and Login!"
