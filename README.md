@@ -121,6 +121,14 @@ This section should list any major resources used to build the project.
 
 
 ### roles/install-tools
+
+| Step                | Action Performed                                                                                     | Module/Instruction Used                                                                 | Conditions / Remarks                                                                                   |
+|---------------------|-----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| 1. Update package cache | Updates the package list of the package manager (e.g., apt) to ensure the latest versions of tools are available before installation | ansible.builtin.apt with update_cache: yes                                            | This step ensures installation from an up-to-date package index                                     |
+| 2. Install pentesting tools | Installs the essential packages and software for pentesting (e.g., nmap, sqlmap, hydra, wireshark, etc.) | ansible.builtin.package (or apt module) applied to a list of packages defined via a variable (e.g., install_tools_list) | The list of installed tools can be customized via inventory or playbook variables                 |
+| 3. Configuration and customization | Deploys or adjusts the configuration of certain tools (e.g., modifying configuration files, creating symbolic links, or setting up aliases) | Modules such as ansible.builtin.copy, template, or lineinfile                          | These operations allow the behavior of the tools to be adapted according to the user's preferences (e.g., logging configuration, aliases, etc.) |
+| 4. Cleanup and optimization | Performs cleanup actions (e.g., removing obsolete packages via autoremove, deleting temporary files related to installation) | ansible.builtin.apt (with autoremove: yes) or ansible.builtin.file                     | Helps maintain a clean and optimized system after installation                                     |
+
 ### gantsign.visual-studio-code
 
 | Step                | Action Performed                                                                                     | Module/Instruction Used                                                                 | Conditions / Remarks                                                                                   |
@@ -132,7 +140,17 @@ This section should list any major resources used to build the project.
 | 5. (Optional) Adjust environment | Verify or make additional environment configurations (e.g., update the PATH or create symbolic links, if necessary) | Modules such as lineinfile or file                                                     | These adjustments ensure that VS Code and its associated tools (e.g., the code CLI) work correctly in the environment. |
 
 ### roles/configure-firefox
+
+| Step                | Action Performed                                                                                     | Module/Instruction Used                                                                 | Conditions / Remarks                                                                                   |
+|---------------------|-----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| 1. Install Firefox | Checks and installs the Firefox package (or an equivalent package) via the package manager to ensure the browser is present on the system | ansible.builtin.package (or apt for Debian)                                            | This step can be conditioned by the presence of Firefox on the machine or by the chosen installation mode |
+| 2. Create configuration directory | Creates (if necessary) the directory intended to hold the custom Firefox configuration (e.g., in the user's profile directory) | ansible.builtin.file with state: directory                                            | The target path can be defined via a variable (e.g., ~/.mozilla/firefox/<profile>) or via a specific destination |
+| 3. Deploy configuration file | Copies or generates a configuration file (often a preferences file, such as user.js or a similar configuration file) in the target directory | ansible.builtin.copy or ansible.builtin.template                                       | The deployed file defines security and privacy settings (disabling telemetry, configuring proxies, etc.) |
+| 4. Manage permissions | Ensures that the configuration file and associated directory have the appropriate access rights (owner, group, mode) | ansible.builtin.file (options owner, group, mode)                                       | Ensures that Firefox can read and apply the configuration without issues                             |
+| 5. (Optional) Notification or restart | Optionally suggests notifying the user that a restart of Firefox is necessary to apply the changes or executes a reload command | ansible.builtin.debug or ansible.builtin.command                                       | This step is often left to the user's discretion, as Firefox needs to restart to apply the new settings |
+
 ### roles/configure-logging
+
 ### roles/configure-hardening
 
 Make a table for all the things done in playbooks
