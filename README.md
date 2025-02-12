@@ -52,10 +52,10 @@ Starting from a nice and clean OS will avoid any trouble with dependencies and p
 sudo apt install -y curl wget git # Basics
 git clone https://github.com/clem9669/kali-build
 cd kali-build
-bash -x pre-install.sh
+bash pre-install.sh
 
 # Main Install
-bash -x install.sh
+bash install.sh
 
 ```
 
@@ -68,6 +68,16 @@ It is possible to adjust the script with the 3 followings args `ansible-playbook
 ## Details and explanations
 
 ### roles/configure-i3
+
+| Step                | Description                                                                                     | File(s) / Command(s) Modified                                                                 | Comments                                                                                   |
+|---------------------|-------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
+| 1. Install i3 packages | - Installs the i3 window manager and possibly its dependencies (i3status, i3lock, etc.).       | - Uses the apt module to install the necessary packages (e.g., i3, i3status)                | Ensures that i3 and associated tools are present on the system.                            |
+| 2. Create configuration directory | - Creates the configuration directory for i3 in the user's home directory (usually ~/.config/i3). | - Uses the file module to create the directory ~/.config/i3                                 | Verifies that the directory exists before copying configuration files.                   |
+| 3. Deploy configuration file | - Copies or generates the main i3 configuration file (often named config) in the configuration directory. | - Uses the copy or template module to deploy the config file (e.g., files/config or templates/config.j2) | Allows customization of the i3 configuration (keyboard shortcuts, appearance, etc.).      |
+| 4. Deploy additional files | - Deploys other optional files (e.g., configuration for i3status or autostart scripts).       | - Uses the copy module to transfer files like i3status.conf or autostart scripts            | Provides a complete configuration for the i3 environment.                                 |
+| 5. Manage permissions | - Ensures that the deployed files and directories have the correct permissions and ownership.  | - Uses the file module with owner, group, and mode parameters                               | Important to ensure that the configuration will be read correctly by i3.                  |
+| 6. Restart / reload i3 | - (Optional) Runs a command to restart or reload the i3 configuration to apply changes immediately. | - Uses the command or shell module to execute i3-msg restart or i3-msg reload              | This step can be conditional or displayed as a manual recommendation to the user.          |
+
 ### gantsign.oh-my-zsh
 ### gantsign.golang
 ### roles/configure-zsh
