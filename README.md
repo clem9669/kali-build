@@ -79,6 +79,13 @@ It is possible to adjust the script with the 3 followings args `ansible-playbook
 | 6. Restart / reload i3 | - (Optional) Runs a command to restart or reload the i3 configuration to apply changes immediately. | - Uses the command or shell module to execute i3-msg restart or i3-msg reload              | This step can be conditional or displayed as a manual recommendation to the user.          |
 
 ### gantsign.oh-my-zsh
+
+| Step                | Action Performed                                                                                     | Module/Instruction                                                                 | Condition / Note                                                                                   |
+|---------------------|-----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| 1. Load system-specific variables | Searches for and imports the variable file corresponding to the OS family (e.g., "Debian.yml" or "default.yml") | ansible.builtin.include_vars with a lookup first_found                            | The variable files are located in the vars/os_family directory                                    |
+| 2. Install Oh My Zsh | Executes the set of tasks for installing and configuring Oh My Zsh by importing the task file "install.yml" | ansible.builtin.import_tasks: install.yml                                         | This file contains the actual installation logic (cloning the repo, configuration, etc.)          |
+| 3. Adjustments for the console on Debian | Performs specific settings for the console configuration on Debian-based distributions | ansible.builtin.include_tasks: debian-console-setup.yml                          | This step is only executed if ansible_facts.os_family is Debian                                  |
+
 ### gantsign.golang
 ### roles/configure-zsh
 ### roles/install-tools
