@@ -122,6 +122,15 @@ This section should list any major resources used to build the project.
 
 ### roles/install-tools
 ### gantsign.visual-studio-code
+
+| Step                | Action Performed                                                                                     | Module/Instruction Used                                                                 | Conditions / Remarks                                                                                   |
+|---------------------|-----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| 1. Add Microsoft repository (for Debian/Ubuntu) | Add the official Microsoft repository and import the GPG key to enable the installation of VS Code via the package manager | apt_repository and apt_key                                                            | Executed on Debian/Ubuntu-based distributions; the method may vary for other OS.                     |
+| 2. Install Visual Studio Code | Install VS Code using the package manager or via a downloaded package (depending on the distribution) | package (or specific modules like dpkg followed by apt for Debian)                    | The installed version is defined via variables (e.g., the desired version) and can be customized.   |
+| 3. Deploy configuration files | Copy (or generate via template) a configuration file (e.g., settings.json) to the user's directory to customize VS Code | ansible.builtin.copy or ansible.builtin.template                                       | These configuration files can include settings for the interface, preferences, or other user-specific options. |
+| 4. Install VS Code extensions | For each extension listed in the variable visual_studio_code_extensions (passed to the role), install the extension for the user | ansible.builtin.command (execution of the command code --install-extension <extension>) | The installation is typically done in a loop over the list of extensions for each user defined in the variable users. |
+| 5. (Optional) Adjust environment | Verify or make additional environment configurations (e.g., update the PATH or create symbolic links, if necessary) | Modules such as lineinfile or file                                                     | These adjustments ensure that VS Code and its associated tools (e.g., the code CLI) work correctly in the environment. |
+
 ### roles/configure-firefox
 ### roles/configure-logging
 ### roles/configure-hardening
