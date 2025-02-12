@@ -64,6 +64,17 @@ It is possible to adjust the script with the 3 followings args `ansible-playbook
 - full (=> all tools)
 - hard (=> hardening)
 
+### Built With
+
+This section should list any major resources used to build the project. 
+
+* https://github.com/ippsec/parrot-build
+* https://github.com/laluka/lalubuntu
+* https://www.youtube.com/ippsec
+* https://chat.openai.com/
+* https://docs.ansible.com/
+* https://www.sublimetext.com/
+
 <!-- USAGE EXAMPLES -->
 ## Details and explanations
 
@@ -99,6 +110,16 @@ It is possible to adjust the script with the 3 followings args `ansible-playbook
 | 7. (Optional) Configure GOPATH | If defined, the golang_gopath variable is used to configure the Go environment (by setting the environment variable or creating the directory if it does not exist) | Additional action (can be performed via file or lineinfile modules)                    | Allows users to have their custom Go workspace                                                      |
 
 ### roles/configure-zsh
+
+| Step                | Action Performed                                                                                     | Module/Instruction Used                                                                 | Condition / Remarks                                                                                   |
+|---------------------|-----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| 1. Create or verify configuration directory | Verify that the Zsh configuration directory (e.g., the user's directory or a dedicated folder) exists or create it if necessary | ansible.builtin.file with the option state: directory                                  | Ensures that the directory (often ~/.config/zsh or simply the user's directory) is present          |
+| 2. Deploy configuration files | Copy or generate the Zsh shell configuration file (e.g., a .zshrc or a specific configuration file) | ansible.builtin.copy or ansible.builtin.template                                        | The deployed file contains recommended settings, aliases, and options for the shell (e.g., PATH configuration, display options, etc.) |
+| 3. Customize configuration | Apply additional specific settings (e.g., customize the command prompt, enable plugins or additional modules) | Modification tasks (with lineinfile or via template)                                   | These adjustments complement or modify the basic Zsh configuration to suit the pentester's needs    |
+| 4. Manage permissions | Ensure that the deployed configuration files have the appropriate permissions (correct owner, group, and access mode) | ansible.builtin.file (option owner, group, mode)                                       | Ensures that the user can read and modify their configuration file without issues                    |
+| 5. (Optional) Update or reload configuration | (The role may include a step to notify the user or reload the shell configuration if applicable) | For example, execute a command with ansible.builtin.command or shell                   | This step can be conditional or simply indicated in the documentation to allow the user to manually reload the configuration |
+
+
 ### roles/install-tools
 ### gantsign.visual-studio-code
 ### roles/configure-firefox
@@ -107,17 +128,6 @@ It is possible to adjust the script with the 3 followings args `ansible-playbook
 
 Make a table for all the things done in playbooks
 
-
-### Built With
-
-This section should list any major resources used to build the project. 
-
-* https://github.com/ippsec/parrot-build
-* https://github.com/laluka/lalubuntu
-* https://www.youtube.com/ippsec
-* https://chat.openai.com/
-* https://docs.ansible.com/
-* https://www.sublimetext.com/
 
 <!-- ROADMAP -->
 ## Roadmap
