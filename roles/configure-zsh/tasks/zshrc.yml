@@ -1,4 +1,19 @@
 ---
+- name: "Define timestamp"
+  set_fact:
+    backup_timestamp: "{{ lookup('pipe', 'date +%Y%m%d%H%M%S') }}"
+
+- name: "Check if zshrc is present"
+  ansible.builtin.stat:
+    path: "{{ ansible_env.HOME }}/.zshrc"
+  register: zshrc_stat
+
+- name: "Backup zshrc with timestamp"
+  ansible.builtin.copy:
+    src: "{{ ansible_env.HOME }}/.zshrc"
+    dest: "{{ ansible_env.HOME }}/.zshrc.{{ backup_timestamp }}"
+  when: zshrc_stat.stat.exists
+
 - name: "Copy zshrc profile"
   copy:
     src: "{{ role_path }}/files/zshrc"
