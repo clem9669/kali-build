@@ -16,4 +16,4 @@
 - include_tasks: "IA.yml"
   when: install_ollama == 'true'
 - include_tasks: "docker.yml"
-  when: install_docker == 'yes'
+  when: install_docker == 'true'
