@@ -66,6 +66,7 @@
             - esbenp.prettier-vscode
             - ms-python.python
             - snyk-security.snyk-vulnerability-scanner
+            - ms-azuretools.vscode-docker
     
     # Does not support Kali yet
     # - role: geerlingguy.docker
