@@ -32,7 +32,7 @@
 
 - name: "Install Docker Repository"
   ansible.builtin.apt_repository:
-    repo: "deb [arch={{ ansible_architecture }} signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian {{ distribution }} stable"
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian {{ distribution }} stable"
     state: present
     update_cache: yes
   become: true
