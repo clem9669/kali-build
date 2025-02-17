@@ -1,5 +1,8 @@
 ---
 # vars file for install-tools
+## Docker
+distribution: "bookworm"
+
 ## Burp
 burpsuite_extras_dir: "/home/{{ ansible_user_id }}/.BurpSuite/lib"
 burpsuite_extras_jars:
