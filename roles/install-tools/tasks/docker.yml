@@ -21,23 +21,27 @@
   become: true
   become_method: sudo
 
-- name: "Add Docker keyring to apt"
-  apt_key:
+- name: "Download Docker GPG key"
+  ansible.builtin.get_url:
     url: "https://download.docker.com/linux/debian/gpg"
-    state: present
+    dest: "/etc/apt/keyrings/docker.asc"
+    mode: '0644'
+    force: true
   become: true
   become_method: sudo
 
 - name: "Install Docker Repository"
-  apt_repository:
-    repo: "deb [arch=amd64] https://download.docker.com/linux/debian {{ distribution }} stable"
+  ansible.builtin.apt_repository:
+    repo: "deb [arch={{ ansible_architecture }} signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian {{ distribution }} stable"
     state: present
     update_cache: yes
   become: true
   become_method: sudo
 
 - name: "Upgrade all packages"
-  apt: upgrade=yes force_apt_get=yes
+  apt:
+    upgrade: dist
+    force_apt_get: yes
   become: true
   become_method: sudo
 
