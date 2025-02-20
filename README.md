@@ -45,7 +45,8 @@ The ansible playbook `main.yml` applies 10 ansible roles which are:
 ## Pre-Install, Install, Update
 
 I recommand to install ansible with pip instead of apt.
-Starting from a nice and clean OS will avoid any trouble with dependencies and previous installati
+Starting from a nice and clean OS will avoid any trouble with dependencies and previous installation. 
+Also, it is possible to change apt source list to use any, or local mirror.
 
 ```bash
 # Pre-install
