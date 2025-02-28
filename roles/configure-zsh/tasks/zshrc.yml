@@ -30,7 +30,6 @@
     state: directory
   when: not directory_info.stat.exists
 
-
 - name: "Copy fastfetch conf"
   copy:
     src: "{{ role_path }}/files/fastfetch.conf"

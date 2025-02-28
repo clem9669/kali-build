@@ -2457,7 +2457,8 @@ SCShell.exe 192.168.197.131 XblAuthManager "C:\windows\system32\cmd.exe /c C:\wi
 searchsploit $technology
 searchsploit -m $exploit_path
 searchsploit -m <ebdid>
-searchsploit -m php/webapps/5220.phpsemgrep -e '$X == $X' --lang=py path/to/src
+searchsploit -m php/webapps/5220.php
+semgrep -e '$X == $X' --lang=py path/to/src
 searchsploit -u
 searchsploit -x $exploit_path
 searchsploit -x <edbid>
@@ -2553,8 +2554,6 @@ showmount -e <ip>
 showmount -e <TARGET_IP> 
 shuffledns -d "$DOMAIN" -list example-subdomains.txt -r resolvers.txt
 shuffledns -d "$DOMAIN" -w wordlist.txt -r resolvers.txt
-sid : origin domain sid : Get-DomainSID -Domain domainname
-sids :  ExtraSid value (Enterprise Admins SID) : parent SID
 SimplyEmail.py -all -e cybersyndicates.com
 sipvicious_svcrack -u100 -d dictionary.txt udp://$TARGET:$PORT
 sipvicious_svcrack -u100 -r1-9999 -z4 $TARGETsliver-server
@@ -2764,7 +2763,6 @@ sudo docker run --rm -it immunit/drupwn --users --nodes --modules --dfiles --the
 sudo docker run -it --network host --rm wpscanteam/wpscan --proxy http://127.0.0.1:8080 --url <url> --disable-tls-checks -e ap,tt,cb,dbe,u1-20,m --api-token <wpscan_apitoken>
 sudo gunzip rockyou.txt.gz
 sudo mkdir -p /media/Downloads
-sudo nano /
 sudo nano /etc/apt/sources.list
 sudo nano /etc/fstab
 sudo nano /etc/john/john.conf
