@@ -64,7 +64,7 @@
       - libkrb5-dev
       - krb5-config
       - krb5-user
-      - freerdp2-x11
+      - freerdp3-x11
       - hydra
       - chromium
       - vlc
