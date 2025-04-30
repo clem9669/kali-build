@@ -1,6 +1,7 @@
 ---
-- name: Install various Go packages
-  shell: "/usr/local/go/bin/go install '{{ item }}'"
+# Install various Go packages
+- name: Install critical Go tools for security testing
+  ansible.builtin.shell: "/usr/local/go/bin/go install '{{ item }}'"
   loop:
     - github.com/denandz/sourcemapper@latest
     - github.com/schollz/croc/v9@latest
@@ -9,10 +10,26 @@
     - github.com/wader/fq@latest
     - github.com/lc/gau/v2/cmd/gau@latest
     - github.com/tomnomnom/gron@latest
-    - github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
-    - github.com/projectdiscovery/katana/cmd/katana@latest
-    - github.com/projectdiscovery/mapcidr/cmd/mapcidr@latest
+    - github.com/projectdiscovery/pdtm/cmd/pdtm@latest
 
+# Note: Some ProjectDiscovery tools are installed via apt-get
+# - github.com/projectdiscovery/httpx/cmd/httpx@latest is installed via apt-get
+# - github.com/projectdiscovery/naabu/v2/cmd/naabu@latest is installed via apt-get
 
-# github.com/projectdiscovery/httpx/cmd/httpx@latest is installed via apt-get
-# github.com/projectdiscovery/naabu/v2/cmd/naabu@latest is installed via apt-get
+# ProjectDiscovery Tool Manager (pdtm) automation
+- name: Check if ProjectDiscovery Tool Manager is installed
+  ansible.builtin.stat:
+    path: "{{ ansible_env.HOME }}/go/bin/pdtm"
+  register: pdtm_binary
+
+- name: Install all ProjectDiscovery tools when pdtm is not available
+  ansible.builtin.shell: "{{ ansible_env.HOME }}/go/bin/pdtm -install-all -install-path"
+  when: not pdtm_binary.stat.exists
+  register: pdtm_install_result
+  changed_when: "'Installed' in pdtm_install_result.stdout"
+
+- name: Update all ProjectDiscovery tools when pdtm is available
+  ansible.builtin.shell: "{{ ansible_env.HOME }}/go/bin/pdtm -update-all"
+  when: pdtm_binary.stat.exists
+  register: pdtm_update_result
+  changed_when: "'Updated' in pdtm_update_result.stdout"

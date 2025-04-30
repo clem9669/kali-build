@@ -1,31 +1,82 @@
 ---
-- name: Check if zed_free binary exists
+# ZED FREE INSTALLATION
+# =====================
+# These tasks handle the installation of ZED Free
+
+- name: Check if ZED Free binary exists
   stat:
     path: '/usr/bin/zed_free'
   register: zed_free_binary
 
-- name: Copy zedencrypt archive to the remote host
-  when: zed_free_binary.stat.exists == false
+- name: Copy ZED Free archive to the remote host
+  when: not zed_free_binary.stat.exists
   copy:
-    src: 'files/ZEDFREE-2023.2.Ubuntu.amd64.zip'
-    dest: '/opt/ZEDFREE-2023.2.Ubuntu.amd64.zip'
-    mode: '0600'  # Set the appropriate permissions for the .deb file
+    src: 'files/ZEDFREE-2025.1.b11.Ubuntu.amd64.zip'
+    dest: '/opt/ZEDFREE-2025.1.b11.Ubuntu.amd64.zip'
+    mode: '0600'
 
-- name: Create the destination folder for unzipping
-  when: zed_free_binary.stat.exists == false
+- name: Create ZED Free extraction directory
+  when: not zed_free_binary.stat.exists
   file:
-    path: '/opt/zedencrypt'
+    path: '/opt/zedencrypt/zed_free'
     state: directory
     mode: '0755'
 
-- name: Unzip the zedencrypt archive
-  when: zed_free_binary.stat.exists == false
+- name: Extract ZED Free archive
+  when: not zed_free_binary.stat.exists
   unarchive:
-    src: '/opt/ZEDFREE-2023.2.Ubuntu.amd64.zip'
-    dest: '/opt/zedencrypt'  # Destination folder for the unzipped contents
+    src: '/opt/ZEDFREE-2025.1.b11.Ubuntu.amd64.zip'
+    dest: '/opt/zedencrypt/zed_free'
+    remote_src: yes  # File is already on remote system
 
-- name: Install zedencrypt using dpkg
-  when: zed_free_binary.stat.exists == false
-  shell: dpkg -i '/opt/zedencrypt/Ubuntu 22.04/ZEDFREE-2023.2.Ubuntu22.04.amd64.deb'
+- name: Install ZED Free package
+  when: not zed_free_binary.stat.exists
+  shell: dpkg -i '/opt/zedencrypt/zed_free/Ubuntu 24.04/ZEDFREE-2025.1.Ubuntu24.04.amd64.deb'
   become: true
   become_method: sudo
+
+# ZEDLE INSTALLATION
+# =================
+# These tasks handle the installation of ZEDLE
+
+- name: Check if ZEDLE binary exists
+  stat:
+    path: '/usr/bin/zedle'
+  register: zedle_binary
+
+- name: Copy ZEDLE archive to the remote host
+  when: not zedle_binary.stat.exists
+  copy:
+    src: 'files/ZEDLE Ubuntu 2025.1 (build 11) x64.zip'
+    dest: '/opt/ZEDLE-2025.1-x64.zip'
+    mode: '0600'
+
+- name: Create ZEDLE extraction directory
+  when: not zedle_binary.stat.exists
+  file:
+    path: '/opt/zedencrypt/zedle'
+    state: directory
+    mode: '0755'
+
+- name: Extract ZEDLE archive
+  when: not zedle_binary.stat.exists
+  unarchive:
+    src: '/opt/ZEDLE-2025.1-x64.zip'
+    dest: '/opt/zedencrypt/zedle'
+    remote_src: yes 
+
+- name: Install ZEDLE package
+  when: not zedle_binary.stat.exists
+  shell: dpkg -i '/opt/zedencrypt/zedle/Ubuntu 24.04/ZEDLE-2025.1.Ubuntu24.04.amd64.deb'
+  become: true
+  become_method: sudo
+  
+# Cleanup temporary files to save disk space
+- name: Remove ZED Free and ZEDLE zip files after installation
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - '/opt/ZEDFREE-2025.1.b11.Ubuntu.amd64.zip'
+    - '/opt/ZEDLE-2025.1-x64.zip'
+  when: not zed_free_binary.stat.exists or not zedle_binary.stat.exists

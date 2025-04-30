@@ -1,23 +1,56 @@
-# Ansible Task README
+# Ansible Playbook README
 
-## Updating Firefox Policies
+## Firefox Configuration Role
 
-This Ansible task is designed to automate the process of updating Firefox policies on a target system using the policy templates provided by Mozilla. The task leverages the Jinja2 template engine to customize the `policies.json` file and then deploys it to the specified destination on the target system.
+This Ansible role is designed to harden and optimize Firefox for security, privacy, and penetration testing. It applies a comprehensive set of policies to Firefox and installs security-focused extensions.
 
-### Task Details
+### Role Overview
 
-- **Task Name:** Updating Firefox Policies
-- **Task Module:** `template`
-- **Source Template:** `templates/policies.json.j2`
-- **Destination Path:** `/usr/share/firefox-esr/distribution/policies.json`
-- **Privilege Escalation:** The task uses `become` with `sudo` as the privilege escalation method.
+- **Creates Directory**: Establishes the `/etc/firefox/policies/` directory for system-wide Firefox policies
+- **Applies Policies**: Deploys a customized `policies.json` file with security and privacy settings
+- **Installs Extensions**: Configures Firefox to automatically install security and penetration testing extensions
 
-### Extensions
+### Deployed Firefox Policies
 
-Firefox Plugins:
-  - "foxyproxy-standard"
-  - "ublock-origin"
-  - "decentraleyes"
-  - "wappalyzer"
-  - "privacy-badger17"
-  - "pwnfox"
+The role configures Firefox with the following security and privacy settings:
+
+1. **Privacy Enhancements**:
+   - Rejects third-party cookies and trackers
+   - Disables Pocket integration
+   - Disables Firefox accounts
+   - Disables telemetry and studies
+
+2. **Security Settings**:
+   - Installs custom certificates (including Burp Suite CA for intercepting HTTPS)
+   - Controls password management features
+   - Sets secure DNS settings
+
+3. **Penetration Testing Optimizations**:
+   - Enables developer tools
+   - Configures proxy settings
+   - Allows customization of user agent
+
+4. **Bookmarks Organization**:
+   - Creates structured bookmark folders for:
+     - CTF tools (CyberChef, GTFOBins, JWT.io, etc.)
+     - OSINT resources
+     - Password cracking sites
+     - Reference materials for internal/external testing
+     - General security utilities
+
+### Pre-installed Extensions
+
+Firefox is configured to automatically install these security-focused extensions:
+
+- **FoxyProxy Standard**: Advanced proxy management
+- **uBlock Origin**: Ad and tracker blocking
+- **Decentraleyes**: Local CDN emulation for privacy
+- **Wappalyzer**: Technology identification
+- **Privacy Badger**: Automatic tracker blocking
+- **PwnFox**: Penetration testing assistance
+
+### Implementation Details
+
+- The task uses Ansible's template module to deploy a Jinja2 template (`policies.json.j2`)
+- Policies are applied system-wide to affect all users
+- The configuration requires root privileges (via become/sudo)
