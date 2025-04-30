@@ -45,6 +45,7 @@
       - python3-pip
       - fzf
       - sshpass
+      - netexec
     state: latest
   become: true
   become_method: sudo
