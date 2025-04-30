@@ -8,4 +8,3 @@
     dest: "/home/{{ ansible_user }}/.mozilla/firefox/{{ firefox_profile_dir }}/user.js"
     mode: 0644
   become: true
-  become_user: "{{ ansible_user }}"
