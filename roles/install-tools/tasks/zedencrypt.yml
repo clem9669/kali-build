@@ -65,11 +65,12 @@
     dest: '/opt/zedencrypt/zedle'
     remote_src: yes 
 
-- name: Install ZEDLE package
-  when: not zedle_binary.stat.exists
-  shell: dpkg -i '/opt/zedencrypt/zedle/Ubuntu 24.04/ZEDLE-2025.1.Ubuntu24.04.amd64.deb'
-  become: true
-  become_method: sudo
+# zed_free and zedle cannot be installed both
+# - name: Install ZEDLE package
+#   when: not zedle_binary.stat.exists
+#   shell: dpkg -i '/opt/zedencrypt/zedle/Ubuntu 24.04/ZEDLE-2025.1.Ubuntu24.04.amd64.deb'
+#   become: true
+#   become_method: sudo
   
 # Cleanup temporary files to save disk space
 - name: Remove ZED Free and ZEDLE zip files after installation
