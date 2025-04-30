@@ -229,6 +229,6 @@ find -L /usr/share/seclists /usr/share/wordlists /usr/share/dirbuster /usr/share
 }
 
 ## PATH export
-export PATH="$PATH:$HOME/.local/bin:/usr/local/go/bin:$HOME/.cargo/bin:$HOME/go/bin:$HOME/.atuin/bin"
+export PATH="$PATH:$HOME/.local/bin:/usr/local/go/bin:$HOME/.cargo/bin:$HOME/go/bin:$HOME/.atuin/bin:$HOME/.pdtm/go/bin"
 
 eval "$(atuin init zsh --disable-up-arrow)"
