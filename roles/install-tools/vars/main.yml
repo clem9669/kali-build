@@ -27,8 +27,8 @@ burpsuite_extras_extensions:
     checksum: sha256:ae3d413db8af1fd73935ec684c186e9b75e293b8c2e59c2253f1871280ab3761
   jsonwebtoken:
     name: json_web_token.bapp
-    url: https://portswigger-cdn.net/bappstore/bapps/download/f923cbf91698420890354c1d8958fee6/29
-    checksum: sha256:a5454c1e41a7044853a80ef1d1640732843ff8e1d88d7d96aad038ede12cf79e
+    url: https://portswigger-cdn.net/bappstore/bapps/download/f923cbf91698420890354c1d8958fee6/32
+    checksum: sha256:a0fc9bdae68c9211f701bb011ac70636bda1d471f92b5ff21a2b5051f8b6df19
   active_scan:
     name: active_scan_plus.bapp
     url: https://portswigger-cdn.net/bappstore/bapps/download/3123d5b5f25c4128894d97ea1acc4976/39
