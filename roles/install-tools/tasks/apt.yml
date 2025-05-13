@@ -61,6 +61,7 @@
       - wine64
       - realtek-rtl88xxau-dkms
       - libpcap-dev
+      - linux-headers-{{ ansible_kernel }}
       - libreoffice
       - libkrb5-dev
       - krb5-config
