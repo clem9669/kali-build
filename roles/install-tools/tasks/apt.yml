@@ -62,6 +62,7 @@
       - realtek-rtl88xxau-dkms
       - libpcap-dev
       - linux-headers-{{ ansible_kernel }}
+      - linssid
       - libreoffice
       - libkrb5-dev
       - krb5-config
