@@ -7,7 +7,7 @@
     depth: 5
   loop:
     - { repo: "https://github.com/411Hall/JAWS", location: "/opt/JAWS"}
-    - { repo: "https://github.com/Ragnt/AngryOxide", location: "/opt/AngryOxide"} 
+    # - { repo: "https://github.com/Ragnt/AngryOxide", location: "/opt/AngryOxide"}    https://github.com/Ragnt/AngryOxide/issues/56
     - { repo: "https://github.com/AlessandroZ/LaZagne", location: "/opt/LaZagne"}
     - { repo: "https://github.com/BeichenDream/GodPotato", location: "/opt/GodPotato"}
     - { repo: "https://github.com/bitsadmin/wesng", location: "/opt/wesng"}
@@ -93,7 +93,7 @@
     - { path: "/opt/PrintSpoofer/bin/" }
     - { path: "/opt/GodPotato/bin/" }
     - { path: "/opt/LaZagne/" }
-    - { path: "/opt/AngryOxide"}
+    # - { path: "/opt/AngryOxide"}
     
 - name: Download Github releases
   ansible.builtin.get_url:
@@ -125,7 +125,7 @@
     - { url: "https://github.com/BeichenDream/GodPotato/releases/latest/download/GodPotato-NET35.exe", dest: "/opt/GodPotato/bin/GodPotato-NET35.exe" }
     - { url: "https://github.com/BeichenDream/GodPotato/releases/latest/download/GodPotato-NET4.exe", dest: "/opt/GodPotato/bin/GodPotato-NET4.exe" }
     - { url: "https://github.com/AlessandroZ/LaZagne/releases/latest/download/lazagne.exe", dest: "/opt/LaZagne/lazagne.exe" }
-    - { url: "https://github.com/Ragnt/AngryOxide/releases/latest/download/angryoxide-linux-x86_64.tar.gz", dest: "/opt/AngryOxide/angryoxide-linux-x86_64.tar.gz" }
+    - { url: "https://github.com/Ragnt/AngryOxide/releases/latest/download/angryoxide-linux-x86_64.tar.gz", dest: "/opt/angryoxide-linux-x86_64.tar.gz" }
 
 # install Vulscan into nmap: usage *nmap -sV --script=vulscan/vulscan.nse TARGET*
 # - name: "Configuring vulscan into nmap"
