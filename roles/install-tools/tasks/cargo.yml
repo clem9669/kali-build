@@ -2,5 +2,8 @@
 - name: Download and install Rustup
   shell: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"
 
-- name: Install tools with Cargo
+- name: Install bat with Cargo
   command: "{{ ansible_env.HOME }}/.cargo/bin/cargo install bat"
+  
+- name: Install legba with Cargo
+  command: "{{ ansible_env.HOME }}/.cargo/bin/cargo install legba"
