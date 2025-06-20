@@ -53,7 +53,7 @@
   ansible.builtin.get_url:
     url: "{{ item.value.url }}"
     dest: "{{ burpsuite_extras_dir_extensions }}/{{ item.value.name }}"
-    checksum: "{{ item.value.checksum }}"
+#    checksum: "{{ item.value.checksum }}"
     mode: '0644'
   loop: "{{ lookup('dict', burpsuite_extras_extensions) }}"
 
