@@ -61,6 +61,10 @@ burpsuite_extras_extensions:
     name: PwnFox.jar
     url: https://github.com/yeswehack/PwnFox/releases/download/v1.0.3/PwnFox.jar
     checksum: sha256:eddaef68aff92fd69f507497803f86ddab9727515825732248ed442da08d971e
+  SequenceComparer:
+    name: SequenceComparer.jar
+    url: https://portswigger.net/bappstore/bapps/download/fd75bc61c9364dab833a61312fdaa07d/2
+    checksum: sha256:90b2b275ad15dc1efc9ded279c02b7f38e948f41fb9e3a5ec5c5a82fed1b2f9e
 
 #  Auth_Analyzer:
 #    name: Auth_Analyzer.bapp
