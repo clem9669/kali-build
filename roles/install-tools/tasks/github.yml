@@ -7,7 +7,7 @@
     depth: 5
   loop:
     - { repo: "https://github.com/411Hall/JAWS", location: "/opt/JAWS"}
-    # - { repo: "https://github.com/Ragnt/AngryOxide", location: "/opt/AngryOxide"}    https://github.com/Ragnt/AngryOxide/issues/56
+    - { repo: "https://github.com/Ragnt/AngryOxide", location: "/opt/AngryOxide"}
     - { repo: "https://github.com/AlessandroZ/LaZagne", location: "/opt/LaZagne"}
     - { repo: "https://github.com/BeichenDream/GodPotato", location: "/opt/GodPotato"}
     - { repo: "https://github.com/bitsadmin/wesng", location: "/opt/wesng"}
@@ -80,8 +80,12 @@
     - { repo: "https://github.com/hashcat/hashcat-utils", location: "/opt/hashcat-utils"}
     - { repo: "https://github.com/iphelix/pack", location: "/opt/pack"}
     - { repo: "https://github.com/ticarpi/jwt_tool", location: "/opt/jwt_tool"}
-    
-    
+    - { repo: "https://github.com/TheManticoreProject/Delegations", location: "/opt/Delegations"}    
+    - { repo: "https://github.com/TheManticoreProject/FindGPPPasswords", location: "/opt/FindGPPPasswords"}
+    - { repo: "https://github.com/TheManticoreProject/goLAPS", location: "/opt/goLAPS"}
+    - { repo: "https://github.com/p0dalirius/Coercer", location: "/opt/Coercer"}
+    - { repo: "https://github.com/p0dalirius/smbclient-ng", location: "/opt/smbclient-ng"}
+       
 - name: Ensure directory exists for downloading Github binaries
   ansible.builtin.file:
     path: "{{ item.path }}"
