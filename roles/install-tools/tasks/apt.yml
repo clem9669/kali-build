@@ -73,6 +73,7 @@
       - vlc
       - rlwrap
       - genisoimage
+      - zbar-tools
     state: latest
   become: true
   become_method: sudo
