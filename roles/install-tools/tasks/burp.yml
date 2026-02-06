@@ -50,6 +50,8 @@
   loop: "{{ lookup('dict', burpsuite_extras_jars) }}"
 
 - name: Download Burp's extensions 
+  become: true
+  become_user: "{{ ansible_user_id }}"
   ansible.builtin.get_url:
     url: "{{ item.value.url }}"
     dest: "{{ burpsuite_extras_dir_extensions }}/{{ item.value.name }}"
