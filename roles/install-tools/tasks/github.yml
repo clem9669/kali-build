@@ -85,6 +85,7 @@
     - { repo: "https://github.com/TheManticoreProject/goLAPS", location: "/opt/goLAPS"}
     - { repo: "https://github.com/p0dalirius/Coercer", location: "/opt/Coercer"}
     - { repo: "https://github.com/p0dalirius/smbclient-ng", location: "/opt/smbclient-ng"}
+    - { repo: "https://github.com/g0h4n/RustHound-CE", location: "/opt/RustHound-CE"}
        
 - name: Ensure directory exists for downloading Github binaries
   ansible.builtin.file:
@@ -131,6 +132,7 @@
     - { url: "https://github.com/BeichenDream/GodPotato/releases/latest/download/GodPotato-NET4.exe", dest: "/opt/GodPotato/bin/GodPotato-NET4.exe" }
     - { url: "https://github.com/AlessandroZ/LaZagne/releases/latest/download/lazagne.exe", dest: "/opt/LaZagne/lazagne.exe" }
     - { url: "https://github.com/Ragnt/AngryOxide/releases/latest/download/angryoxide-linux-x86_64.tar.gz", dest: "/opt/angryoxide-linux-x86_64.tar.gz" }
+    - { url: "https://github.com/SpecterOps/bloodhound-cli/releases/latest/download/bloodhound-cli-linux-amd64.tar.gz", dest: "/opt/bloodhound-cli-linux-amd64.tar.gz" }
 
 # install Vulscan into nmap: usage *nmap -sV --script=vulscan/vulscan.nse TARGET*
 # - name: "Configuring vulscan into nmap"
