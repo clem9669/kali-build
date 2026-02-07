@@ -19,6 +19,7 @@
     - { name: 'bypass-url-parser', url: 'git+https://github.com/laluka/bypass-url-parser.git'}
     - { name: 'adidnsdump', url: 'git+https://github.com/dirkjanm/adidnsdump.git'}   
     - { name: 'bopscrk', url: ''}
+    - { name: 'nfs-security-tooling', url: 'githttps://github.com/hvs-consulting/nfs-security-tooling'}
 
 - name: Install pip packages
   ansible.builtin.pip:
@@ -87,3 +88,4 @@
     - twisted
     - xlsxwriter
     - yara-python
+
