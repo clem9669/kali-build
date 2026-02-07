@@ -1,4 +1,6 @@
 [
 	{ "keys": ["ctrl+tab"], "command": "next_view" },
-{ "keys": ["ctrl+shift+tab"], "command": "prev_view" }
+{ "keys": ["ctrl+shift+tab"], "command": "prev_view" },
+{ "keys": ["ctrl+alt+c"], "command": "insert_snippet", "args": { "contents": "```sh\n$SELECTION\n```" }, 
+  "context": [{ "key": "selection_empty", "operator": "equal", "operand": false }] }
 ]
