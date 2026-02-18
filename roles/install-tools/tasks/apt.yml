@@ -76,6 +76,8 @@
       - zbar-tools
       - docker.io
       - docker-compose
+      - libfuse3-dev
+      - python3-dev
     state: latest
   become: true
   become_method: sudo
