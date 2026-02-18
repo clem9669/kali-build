@@ -36,7 +36,7 @@
       - httpx-toolkit
       - testssl.sh
       - iptables-persistent
-      - keepassxc
+#      - keepassxc | not present by default in kali apt depot
       - btop
       - strace
       - ltrace
