@@ -20,7 +20,7 @@
     - { name: 'adidnsdump', url: 'git+https://github.com/dirkjanm/adidnsdump.git'}   
     - { name: 'bopscrk', url: ''}
     - { name: 'git-dumper', url: ''}
-    - { name: 'nfs-security-tooling', url: 'githttps://github.com/hvs-consulting/nfs-security-tooling.git'}
+    - { name: 'nfs-security-tooling', url: 'git+https://github.com/hvs-consulting/nfs-security-tooling.git'}
     - { name: 'bloodyAD', url: 'git+https://github.com/CravateRouge/bloodyAD.git'}
 
 - name: Install pip packages
@@ -90,6 +90,7 @@
     - twisted
     - xlsxwriter
     - yara-python
+
 
 
 
