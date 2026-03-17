@@ -135,6 +135,111 @@
     - { url: "https://github.com/Ragnt/AngryOxide/releases/latest/download/angryoxide-linux-x86_64.tar.gz", dest: "/opt/angryoxide-linux-x86_64.tar.gz" }
     - { url: "https://github.com/SpecterOps/bloodhound-cli/releases/latest/download/bloodhound-cli-linux-amd64.tar.gz", dest: "/opt/bloodhound-cli-linux-amd64.tar.gz" }
 
+- name: Set architecture mapping for Legba and OpenGrep release assets
+  ansible.builtin.set_fact:
+    legba_release_arch_map:
+      x86_64: "linux-x86_64"
+      amd64: "linux-x86_64"
+      aarch64: "linux-arm64"
+      arm64: "linux-arm64"
+    opengrep_release_arch_map:
+      x86_64: "manylinux_x86"
+      amd64: "manylinux_x86"
+      aarch64: "manylinux_aarch64"
+      arm64: "manylinux_aarch64"
+
+- name: Resolve architecture-specific release suffixes
+  ansible.builtin.set_fact:
+    legba_release_arch: "{{ legba_release_arch_map[ansible_architecture] | default('') }}"
+    opengrep_release_arch: "{{ opengrep_release_arch_map[ansible_architecture] | default('') }}"
+
+- name: Fail when architecture is unsupported for Legba or OpenGrep releases
+  ansible.builtin.fail:
+    msg: "Unsupported architecture '{{ ansible_architecture }}' for Legba/OpenGrep release install."
+  when: legba_release_arch == "" or opengrep_release_arch == ""
+
+- name: Fetch latest Legba release metadata
+  ansible.builtin.uri:
+    url: "https://api.github.com/repos/evilsocket/legba/releases/latest"
+    method: GET
+    return_content: true
+  register: legba_release
+
+- name: Resolve Legba release asset URL
+  ansible.builtin.set_fact:
+    legba_release_url: >-
+      {{
+        (
+          legba_release.json.assets
+          | selectattr(
+              'name',
+              'equalto',
+              'legba-' ~ legba_release.json.tag_name ~ '-' ~ legba_release_arch ~ '.tar.gz'
+            )
+          | map(attribute='browser_download_url')
+          | first
+        ) | default('')
+      }}
+
+- name: Fail if Legba release asset cannot be resolved
+  ansible.builtin.fail:
+    msg: "Could not find a Legba release asset for architecture '{{ ansible_architecture }}'."
+  when: legba_release_url == ""
+
+- name: Download Legba release archive
+  ansible.builtin.get_url:
+    url: "{{ legba_release_url }}"
+    dest: "/tmp/legba-{{ legba_release_arch }}.tar.gz"
+    mode: "0644"
+
+- name: Ensure temporary Legba extraction directory exists
+  ansible.builtin.file:
+    path: "/tmp/legba-release"
+    state: absent
+
+- name: Recreate temporary Legba extraction directory
+  ansible.builtin.file:
+    path: "/tmp/legba-release"
+    state: directory
+    mode: "0755"
+
+- name: Extract Legba release archive
+  ansible.builtin.unarchive:
+    src: "/tmp/legba-{{ legba_release_arch }}.tar.gz"
+    dest: "/tmp/legba-release"
+    remote_src: true
+
+- name: Find Legba executable after extraction
+  ansible.builtin.find:
+    paths: "/tmp/legba-release"
+    recurse: true
+    file_type: file
+    patterns:
+      - "legba"
+  register: legba_executable
+
+- name: Fail if Legba executable is missing after extraction
+  ansible.builtin.fail:
+    msg: "Legba executable not found in extracted archive."
+  when: legba_executable.matched | int == 0
+
+- name: Install Legba binary to /usr/local/bin
+  ansible.builtin.copy:
+    src: "{{ legba_executable.files[0].path }}"
+    dest: "/usr/local/bin/legba"
+    mode: "0755"
+    remote_src: true
+  become: true
+  become_method: sudo
+
+- name: Download OpenGrep release binary
+  ansible.builtin.get_url:
+    url: "https://github.com/opengrep/opengrep/releases/latest/download/opengrep_{{ opengrep_release_arch }}"
+    dest: "/usr/local/bin/opengrep"
+    mode: "0755"
+  become: true
+  become_method: sudo
+
 # install Vulscan into nmap: usage *nmap -sV --script=vulscan/vulscan.nse TARGET*
 # - name: "Configuring vulscan into nmap"
 #   command: "[ -e /usr/share/nmap/scripts/vulscan ] && echo 'Link already exists' || ln -s /opt/scipag_vulscan /usr/share/nmap/scripts/vulscan"
