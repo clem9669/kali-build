@@ -99,8 +99,7 @@ This Ansible playbook focuses on installing various tools and utilities on a tar
     - Downloads and configures the Mistral AI model when enabled
 
 11. **Docker Installation**
-    - File: `docker.yml`
-    - Removes unofficial Docker packages
-    - Installs official Docker CE from Docker's repository
-    - Configures Docker repositories and GPG keys
-    - Installs Docker components: docker-ce, docker-ce-cli, containerd.io, docker-buildx-plugin, docker-compose-plugin
+    - File: `apt.yml`
+    - Installs Docker from Kali APT packages: `docker.io` and `docker-compose`
+    - Docker installation is optional and controlled by `install_docker` from `install.sh`
+    - Docker packages are installed only when `install_mode` is `full` and `install_docker` is `true`
