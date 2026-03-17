@@ -48,14 +48,14 @@ esac
 
 # Display menu to the user for Docker installation choice
 docker_choice=$(whiptail --title "Install Docker" --menu "Do you want to install Docker?" 20 70 10 \
-    "1" "Do not install Docker" \
-    "2" "Install Docker" \
+    "1" "Install Docker" \
+    "2" "Do not install Docker" \
     3>&1 1>&2 2>&3)
 
 # Map the docker_choice to actual Docker installation flag using case
 case $docker_choice in
-    "1") install_docker="false" ;;
-    "2") install_docker="true" ;;
+    "1") install_docker="true" ;;
+    "2") install_docker="false" ;;
     *)  install_docker="false" ;;  # Default to false if an unexpected value is chosen
 esac
 
