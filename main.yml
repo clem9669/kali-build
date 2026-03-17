@@ -1,57 +1,56 @@
 ---
 - name: "Welcome to Kali-build 🦖🦖🦖"
-  hosts: localhost
-  connection: local
+  hosts: localhost
+  connection: local
 
-  #  environment:
-  #    http_proxy: http://proxy.example.com:8080
-  #    https_proxy: http://proxy.example.com:8080
+  #  environment:
+  #    http_proxy: http://proxy.example.com:8080
+  #    https_proxy: http://proxy.example.com:8080
 
-  vars:
-    install_mode: light
-    install_desktop: xfce
-    install_terminal: qterminal
-    install_docker: false
+  vars:
+    install_mode: light
+    install_desktop: xfce
+    install_terminal: qterminal
+    install_docker: false
 
-  roles:
-    - role: "roles/configure-desktop"
-    - role: "roles/configure-terminal"
-    - role: gantsign.oh-my-zsh
-      users:
-        - username: "{{ ansible_user_id }}"
-          oh_my_zsh:
-            theme: agnoster
-            plugins:
-              - git
-              - ansible
-              - rust
-              - docker
-              - colored-man-pages
-              - zsh-autosuggestions
-            update_mode: reminder
-            update_frequency: 3
-            write_zshrc: false
+  roles:
+    - role: "roles/configure-desktop"
+    - role: "roles/configure-terminal"
+    - role: gantsign.oh-my-zsh
+      users:
+        - username: "{{ ansible_user_id }}"
+          oh_my_zsh:
+            theme: agnoster
+            plugins:
+              - git
+              - ansible
+              - rust
+              - docker
+              - colored-man-pages
+              - zsh-autosuggestions
+            update_mode: reminder
+            update_frequency: 3
+            write_zshrc: false
 
-    - role: gantsign.golang
-      golang_install_dir: "/usr/local/go/"
-      golang_architecture: amd64
-      golang_mirror: "https://dl.google.com/go"
+    - role: gantsign.golang
+      golang_install_dir: "/usr/local/go/"
+      golang_architecture: amd64
+      golang_mirror: "https://dl.google.com/go"
 
-    - role: "roles/configure-zsh"
-    - role: "roles/install-tools"
-    - role: gantsign.visual-studio-code
-      users:
-        - username: "{{ ansible_user_id }}"
-          visual_studio_code_extensions:
-            - streetsidesoftware.code-spell-checker
-            - wholroyd.jinja
-            - esbenp.prettier-vscode
-            - ms-python.python
-            - snyk-security.snyk-vulnerability-scanner
-            - ms-azuretools.vscode-docker
-    
-    - role: "roles/configure-firefox"
-    - role: "roles/configure-logging"
-    - role: "roles/configure-hardening"
-      when: install_mode == 'hard'
+    - role: "roles/configure-zsh"
+    - role: "roles/install-tools"
+    - role: gantsign.visual-studio-code
+      users:
+        - username: "{{ ansible_user_id }}"
+          visual_studio_code_extensions:
+            - streetsidesoftware.code-spell-checker
+            - wholroyd.jinja
+            - esbenp.prettier-vscode
+            - ms-python.python
+            - snyk-security.snyk-vulnerability-scanner
+            - ms-azuretools.vscode-docker
 
+    - role: "roles/configure-firefox"
+    - role: "roles/configure-logging"
+    - role: "roles/configure-hardening"
+      when: install_mode == 'hard'
