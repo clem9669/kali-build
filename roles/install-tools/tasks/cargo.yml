@@ -5,5 +5,5 @@
 - name: Install bat with Cargo
   command: "{{ ansible_env.HOME }}/.cargo/bin/cargo install bat"
   
-- name: Install legba with Cargo
-  command: "{{ ansible_env.HOME }}/.cargo/bin/cargo install legba"
+# - name: Install legba with Cargo
+#   command: "{{ ansible_env.HOME }}/.cargo/bin/cargo install legba"
