@@ -17,19 +17,7 @@
 # - github.com/projectdiscovery/naabu/v2/cmd/naabu@latest is installed via apt-get
 
 # ProjectDiscovery Tool Manager (pdtm) automation
-- name: Check if ProjectDiscovery Tool Manager is installed
-  ansible.builtin.stat:
-    path: "{{ ansible_env.HOME }}/go/bin/pdtm"
-  register: pdtm_binary
-
 - name: Install all ProjectDiscovery tools when pdtm is not available
-  ansible.builtin.shell: "{{ ansible_env.HOME }}/go/bin/pdtm -install-all -install-path"
-  when: not pdtm_binary.stat.exists
-  register: pdtm_install_result
-  changed_when: "'Installed' in pdtm_install_result.stdout"
-
-- name: Update all ProjectDiscovery tools when pdtm is available
-  ansible.builtin.shell: "{{ ansible_env.HOME }}/go/bin/pdtm -update-all"
-  when: pdtm_binary.stat.exists
-  register: pdtm_update_result
-  changed_when: "'Updated' in pdtm_update_result.stdout"
+  ansible.builtin.shell: "{{ ansible_env.HOME }}/go/bin/pdtm -install-all -install-path {{ ansible_env.HOME }}/.pdtm/go/bin"
+  register: pdtm_install_result
+  changed_when: "'Installed' in pdtm_install_result.stdout or 'updated' in pdtm_install_result.stdout | lower"
