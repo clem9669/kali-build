@@ -68,9 +68,6 @@
             - snyk-security.snyk-vulnerability-scanner
             - ms-azuretools.vscode-docker
     
-    # Does not support Kali yet
-    # - role: geerlingguy.docker
-    #   when: install_docker
     - role: "roles/configure-firefox"
     - role: "roles/configure-logging"
     - role: "roles/configure-hardening"
