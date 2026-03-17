@@ -73,11 +73,21 @@
       - vlc
       - rlwrap
       - genisoimage
-      - zbar-tools
-      - docker.io
-      - docker-compose
-      - libfuse3-dev
-      - python3-dev
-    state: latest
-  become: true
-  become_method: sudo
+      - zbar-tools
+      - libfuse3-dev
+      - python3-dev
+    state: latest
+  become: true
+  become_method: sudo
+
+- name: "Install Docker from Kali APT (optional)"
+  when:
+    - install_mode == 'full'
+    - install_docker == 'true'
+  package:
+    name:
+      - docker.io
+      - docker-compose
+    state: latest
+  become: true
+  become_method: sudo
