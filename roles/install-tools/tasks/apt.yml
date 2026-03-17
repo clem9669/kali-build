@@ -1,78 +1,78 @@
 ---
 - name: "Check the current owner of the folder"
-  stat:
-    path: /opt/
-  register: folder_info
+  stat:
+    path: /opt/
+  register: folder_info
 
 - name: "Change folder owner if not already set"
-  file:
-    path: "/opt/"
-    owner: "{{ ansible_env.USER }}"
-    group: "{{ ansible_env.USER }}"
-    recurse: yes
-    mode: 0700
-  when: folder_info.stat.pw_name is undefined or folder_info.stat.pw_name != ansible_env.USER
-  become: true
-  become_method: sudo
+  file:
+    path: "/opt/"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+    recurse: yes
+    mode: 0700
+  when: folder_info.stat.pw_name is undefined or folder_info.stat.pw_name != ansible_env.USER
+  become: true
+  become_method: sudo
 
 - name: "Installing tools from APT (light install)"
-  package:
-    name:
-      - jq
-      - ntpsec-ntpdate
-      - flameshot
-      - xxd
-      - gdb
-      - npm
-      - xclip
-      - bettercap
-      - wafw00f
-      - remmina
-      - nuclei
-      - feroxbuster
-      - gobuster
-      - rsyslog
-      - xz-utils
-      - httpx-toolkit
-      - testssl.sh
-      - iptables-persistent
-#      - keepassxc | not present by default in kali apt depot
-      - btop
-      - strace
-      - ltrace
-      - cmake
-      - exploitdb-papers
-      - python3-pip
-      - fzf
-      - sshpass
-      - netexec
-    state: latest
-  become: true
-  become_method: sudo
+  package:
+    name:
+      - jq
+      - ntpsec-ntpdate
+      - flameshot
+      - xxd
+      - gdb
+      - npm
+      - xclip
+      - bettercap
+      - wafw00f
+      - remmina
+      - nuclei
+      - feroxbuster
+      - gobuster
+      - rsyslog
+      - xz-utils
+      - httpx-toolkit
+      - testssl.sh
+      - iptables-persistent
+#      - keepassxc | not present by default in kali apt depot
+      - btop
+      - strace
+      - ltrace
+      - cmake
+      - exploitdb-papers
+      - python3-pip
+      - fzf
+      - sshpass
+      - netexec
+    state: latest
+  become: true
+  become_method: sudo
 
 - name: "Installing tools from APT (full install)"
-  when: install_mode == 'full'
-  package:
-    name:
-      - seclists
-      - exiftool
-      - bloodhound
-      - xsltproc
-      - wine64
-      - realtek-rtl88xxau-dkms
-      - libpcap-dev
-      - linux-headers-{{ ansible_kernel }}
-      - linssid
-      - libreoffice
-      - libkrb5-dev
-      - krb5-config
-      - krb5-user
-      - freerdp3-x11
-      - hydra
-      - chromium
-      - vlc
-      - rlwrap
-      - genisoimage
+  when: install_mode == 'full'
+  package:
+    name:
+      - seclists
+      - exiftool
+      - bloodhound
+      - xsltproc
+      - wine64
+      - realtek-rtl88xxau-dkms
+      - libpcap-dev
+      - linux-headers-{{ ansible_kernel }}
+      - linssid
+      - libreoffice
+      - libkrb5-dev
+      - krb5-config
+      - krb5-user
+      - freerdp3-x11
+      - hydra
+      - chromium
+      - vlc
+      - rlwrap
+      - genisoimage
       - zbar-tools
       - libfuse3-dev
       - python3-dev
@@ -91,3 +91,4 @@
     state: latest
   become: true
   become_method: sudo
+
