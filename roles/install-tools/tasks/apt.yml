@@ -24,6 +24,7 @@
       - xxd
       - gdb
       - npm
+      - ruby-full
       - xclip
       - bettercap
       - wafw00f
