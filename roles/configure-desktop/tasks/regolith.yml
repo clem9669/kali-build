@@ -11,7 +11,7 @@
 
 - name: Add Regolith repository URL
   ansible.builtin.shell:
-    cmd: "echo deb \"[arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] https://regolith-desktop.org/release-3_0-debian-bookworm-amd64 bookworm main\" | sudo dd of=/etc/apt/sources.list.d/regolith.list"
+    cmd: "echo deb \"[arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] https://regolith-desktop.org/release-3_0-debian-{{ ansible_distribution_release }}-amd64 {{ ansible_distribution_release }} main\" | sudo dd of=/etc/apt/sources.list.d/regolith.list"
   become: true
   when: not regolith_installed.stat.exists
 

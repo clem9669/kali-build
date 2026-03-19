@@ -31,7 +31,8 @@ Here's the goals:
 
 The ansible playbook `main.yml` applies 10 ansible roles which are:
 
-- roles/configure-i3
+- roles/configure-desktop
+- roles/configure-terminal
 - gantsign.oh-my-zsh
 - gantsign.golang
 - roles/configure-zsh
@@ -39,8 +40,7 @@ The ansible playbook `main.yml` applies 10 ansible roles which are:
 - gantsign.visual-studio-code
 - roles/configure-firefox
 - roles/configure-logging
-- roles/configure-hardening
-- roles/configure-terminals
+- roles/configure-hardening (when install_mode == 'hard')
 
 ## Pre-Install, Install, Update
 
@@ -79,16 +79,16 @@ This section should list any major resources used to build the project.
 <!-- USAGE EXAMPLES -->
 ## Details and explanations
 
-### roles/configure-i3
+### roles/configure-desktop
 
 | Step                | Description                                                                                     | File(s) / Command(s) Modified                                                                 | Comments                                                                                   |
 |---------------------|-------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
-| 1. Install i3 packages | - Installs the i3 window manager and possibly its dependencies (i3status, i3lock, etc.).       | - Uses the apt module to install the necessary packages (e.g., i3, i3status)                | Ensures that i3 and associated tools are present on the system.                            |
-| 2. Create configuration directory | - Creates the configuration directory for i3 in the user's home directory (usually ~/.config/i3). | - Uses the file module to create the directory ~/.config/i3                                 | Verifies that the directory exists before copying configuration files.                   |
-| 3. Deploy configuration file | - Copies or generates the main i3 configuration file (often named config) in the configuration directory. | - Uses the copy or template module to deploy the config file (e.g., files/config or templates/config.j2) | Allows customization of the i3 configuration (keyboard shortcuts, appearance, etc.).      |
-| 4. Deploy additional files | - Deploys other optional files (e.g., configuration for i3status or autostart scripts).       | - Uses the copy module to transfer files like i3status.conf or autostart scripts            | Provides a complete configuration for the i3 environment.                                 |
-| 5. Manage permissions | - Ensures that the deployed files and directories have the correct permissions and ownership.  | - Uses the file module with owner, group, and mode parameters                               | Important to ensure that the configuration will be read correctly by i3.                  |
-| 6. Restart / reload i3 | - (Optional) Runs a command to restart or reload the i3 configuration to apply changes immediately. | - Uses the command or shell module to execute i3-msg restart or i3-msg reload              | This step can be conditional or displayed as a manual recommendation to the user.          |
+| 1. Install desktop packages | - Installs the chosen desktop environment (i3, XFCE, or Regolith) and its dependencies.       | - Uses the apt module to install the necessary packages                                     | Supports multiple desktop environments via the `install_desktop` variable.                 |
+| 2. Create configuration directory | - Creates the configuration directory for the desktop in the user's home directory.             | - Uses the file module to create the directory                                               | Verifies that the directory exists before copying configuration files.                   |
+| 3. Deploy configuration file | - Copies or generates the main configuration file in the configuration directory.               | - Uses the copy or template module to deploy the config file                                 | Allows customization of the desktop configuration (keyboard shortcuts, appearance, etc.).  |
+| 4. Deploy additional files | - Deploys other optional files (e.g., wallpaper, status bar configs, autostart scripts).       | - Uses the copy module to transfer files                                                     | Provides a complete configuration for the desktop environment.                             |
+| 5. Manage permissions | - Ensures that the deployed files and directories have the correct permissions and ownership.  | - Uses the file module with owner, group, and mode parameters                               | Important to ensure that the configuration will be read correctly.                         |
+| 6. Restart / reload | - (Optional) Runs a command to restart or reload the configuration to apply changes immediately. | - Uses the command or shell module                                                           | This step can be conditional or displayed as a manual recommendation to the user.          |
 
 ### gantsign.oh-my-zsh
 

@@ -12,6 +12,9 @@
     install_desktop: xfce
     install_terminal: qterminal
     install_docker: false
+    install_ollama: false
+    install_keyboard_layout: fr
+    install_keyboard_variant: ""
 
   roles:
     - role: "roles/configure-desktop"

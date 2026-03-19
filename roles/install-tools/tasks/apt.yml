@@ -82,7 +82,6 @@
 
 - name: "Install Docker from Kali APT (optional)"
   when:
-    - install_mode == 'full'
     - install_docker == 'true'
   package:
     name:

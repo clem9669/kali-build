@@ -1,10 +1,11 @@
-- name: Set keyboard layout to French (azerty)
+---
+- name: "Set keyboard layout to {{ install_keyboard_layout | default('fr') }}"
   become: true
   copy:
     dest: /etc/default/keyboard
     content: |
       XKBMODEL="pc105"
-      XKBLAYOUT="fr"
-      XKBVARIANT=""
+      XKBLAYOUT="{{ install_keyboard_layout | default('fr') }}"
+      XKBVARIANT="{{ install_keyboard_variant | default('') }}"
       XKBOPTIONS=""
       BACKSPACE="guess"

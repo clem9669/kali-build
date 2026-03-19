@@ -3,12 +3,22 @@ set -euo pipefail
 IFS=$'\n\t'
 export PATH="$PATH:$HOME/.local/bin"
 
+if ! command -v ansible-playbook &>/dev/null; then
+    echo "[!] ansible-playbook not found. Please run 'bash pre-install.sh' first."
+    exit 1
+fi
+
+whiptail_menu() {
+    local result
+    result=$(whiptail "$@" 3>&1 1>&2 2>&3) || { echo "[!] Selection cancelled by user."; exit 1; }
+    echo "$result"
+}
+
 # Display menu to the user using whiptail for install_mode
-install_mode_choice=$(whiptail --title "Choose Installation Mode" --menu "Select an installation mode:" 20 70 10 \
+install_mode_choice=$(whiptail_menu --title "Choose Installation Mode" --menu "Select an installation mode:" 20 70 10 \
     "1" "Full: Light installation with all tools from various sources (Go, Cargo, Gem, IA, etc)" \
     "2" "Light: Default minimum installation (lacking Go tools, Cargo tools, Apt tools, wordlists, etc)" \
-    "3" "Hard: Light installation with hardening (disabling DHCP, changing kernel params, setting up UFW rules, etc)" \
-    3>&1 1>&2 2>&3)
+    "3" "Hard: Light installation with hardening (disabling DHCP, changing kernel params, setting up UFW rules, etc)")
 
 # Map the install_mode_choice to actual installation mode names
 case $install_mode_choice in
@@ -19,11 +29,10 @@ case $install_mode_choice in
 esac
 
 # Display menu to the user using whiptail for desktop environment
-desktop_choice=$(whiptail --title "Choose Desktop Environment" --menu "Select a desktop environment:" 20 70 10 \
+desktop_choice=$(whiptail_menu --title "Choose Desktop Environment" --menu "Select a desktop environment:" 20 70 10 \
     "1" "i3" \
     "2" "XFCE" \
-    "3" "Regolith" \
-    3>&1 1>&2 2>&3)
+    "3" "Regolith")
 
 # Map the desktop_choice to actual desktop environment names
 case $desktop_choice in
@@ -34,23 +43,21 @@ case $desktop_choice in
 esac
 
 # Display menu to the user using whiptail for terminal choice
-terminal_choice=$(whiptail --title "Choose Terminal" --menu "Select a terminal:" 20 70 10 \
+terminal_choice=$(whiptail_menu --title "Choose Terminal" --menu "Select a terminal:" 20 70 10 \
     "1" "Install Alacritty" \
-    "2" "Default from the OS (e.g., qterminal)" \
-    3>&1 1>&2 2>&3)
+    "2" "Default from the OS (e.g., qterminal)")
 
 # Map the terminal_choice to actual terminal names
 case $terminal_choice in
     "1") install_terminal="alacritty" ;;
-    "2") install_terminal="default" ;;
-    *)  install_terminal="alacritty" ;;  # Default to alacritty terminal if an unexpected value is chosen
+    "2") install_terminal="qterminal" ;;
+    *)  install_terminal="alacritty" ;;
 esac
 
 # Display menu to the user for Docker installation choice
-docker_choice=$(whiptail --title "Install Docker" --menu "Do you want to install Docker?" 20 70 10 \
+docker_choice=$(whiptail_menu --title "Install Docker" --menu "Do you want to install Docker?" 20 70 10 \
     "1" "Install Docker" \
-    "2" "Do not install Docker" \
-    3>&1 1>&2 2>&3)
+    "2" "Do not install Docker")
 
 # Map the docker_choice to actual Docker installation flag using case
 case $docker_choice in
@@ -61,10 +68,9 @@ esac
 
 # Ask if the user wants to install Ollama only if the install_mode is "full"
 if [[ "$install_mode" == "full" ]]; then
-    ollama_choice=$(whiptail --title "Install Ollama + Mistral (4Gb)" --menu "Do you want to install Ollama with a model?" 20 70 10 \
+    ollama_choice=$(whiptail_menu --title "Install Ollama + Mistral (4Gb)" --menu "Do you want to install Ollama with a model?" 20 70 10 \
         "1" "Do not install Ollama" \
-        "2" "Install Ollama + Mistral (4Gb)" \
-        3>&1 1>&2 2>&3)
+        "2" "Install Ollama + Mistral (4Gb)")
 
     # Map the ollama_choice to actual Ollama installation flag using case
     case $ollama_choice in

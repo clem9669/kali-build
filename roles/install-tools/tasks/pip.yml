@@ -51,8 +51,6 @@
     - lxml
     - minikerberos
     - netaddr
-    - netaddr
-    - netifaces
     - netifaces
     - openpyxl
     - oscrypto

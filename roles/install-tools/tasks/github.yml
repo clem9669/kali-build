@@ -254,11 +254,19 @@
     path: '~/.gdbinit-gef.py'
   register: gdbinit_gef_status
 
-- name: "Configuring GEF in GDB"
+- name: "Download GEF for GDB"
   when: not gdbinit_gef_status.stat.exists
-  shell: |
-    wget -O ~/.gdbinit-gef.py -q https://gef.blah.cat/py
-    echo source ~/.gdbinit-gef.py >> ~/.gdbinit
+  ansible.builtin.get_url:
+    url: https://gef.blah.cat/py
+    dest: "{{ ansible_env.HOME }}/.gdbinit-gef.py"
+    mode: '0644'
+
+- name: "Configure GEF in GDB"
+  when: not gdbinit_gef_status.stat.exists
+  ansible.builtin.lineinfile:
+    path: "{{ ansible_env.HOME }}/.gdbinit"
+    line: "source ~/.gdbinit-gef.py"
+    create: true
 
 - name: "Download XCT's resh.py from URL"
   get_url:

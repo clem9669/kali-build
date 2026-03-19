@@ -217,8 +217,7 @@
 
 ### Changes to other files
 -w /etc/hosts -p wa -k network_modifications
--w /etc/sysconfig/network -p wa -k network_modifications
--w /etc/sysconfig/network-scripts -p w -k network_modifications
+## Debian/Kali network configuration
 -w /etc/network/ -p wa -k network
 -a always,exit -F dir=/etc/NetworkManager/ -F perm=wa -k network_modifications
 
@@ -644,8 +643,7 @@
 -w /usr/bin/docker-runc -k docker
 -w /var/lib/docker -p wa -k docker
 -w /etc/docker -k docker
--w /etc/sysconfig/docker -k docker
--w /etc/sysconfig/docker-storage -k docker
+-w /etc/default/docker -k docker
 -w /usr/lib/systemd/system/docker.service -k docker
 -w /usr/lib/systemd/system/docker.socket -k docker
 
