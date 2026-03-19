@@ -62,7 +62,7 @@
 - name: Save IPv6 iptables Rules
   shell: 'ip6tables-save > /etc/iptables/rules.v6'
   become: yes
-        
+
 - name: Enable iptables-persistent service
   shell: systemctl enable netfilter-persistent.service
   become: yes

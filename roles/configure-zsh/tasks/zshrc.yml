@@ -34,4 +34,3 @@
   copy:
     src: "{{ role_path }}/files/fastfetch.conf"
     dest: "{{ ansible_env.HOME }}/.config/fastfetch/config.jsonc"
-

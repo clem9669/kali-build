@@ -8,7 +8,6 @@
   become: true
   become_method: sudo
 
-  
 - name: Add custom network configuration
   become: yes
   lineinfile:

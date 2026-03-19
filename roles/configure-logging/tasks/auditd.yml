@@ -16,7 +16,7 @@
   become_method: sudo
 
 # - name: "Create _laurel user"
-#   when: install_mode == 'full' 
+#   when: install_mode == 'full'
 #   user:
 #     name: _laurel
 #     state: present
@@ -65,10 +65,12 @@
 #   become: true
 #   become_method: sudo
 
-# - name: "Downloading https://github.com/threathunters-io/laurel/releases/download/v0.5.2/laurel-v0.5.2-x86_64-glibc.tar.gz"
+# - name: "Download laurel release archive"
 #   when: install_mode == 'full'
 #   get_url:
-#     url: https://github.com/threathunters-io/laurel/releases/download/v0.5.2/laurel-v0.5.2-x86_64-glibc.tar.gz
+#     url: >-
+#       https://github.com/threathunters-io/laurel/releases/
+#       download/v0.5.2/laurel-v0.5.2-x86_64-glibc.tar.gz
 #     dest: /tmp/laurel-v0.5.2-x86_64-glibc.tar.gz
 #     mode: 0640
 

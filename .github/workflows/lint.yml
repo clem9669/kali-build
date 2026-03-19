@@ -23,7 +23,7 @@ jobs:
         run: pip install ansible-lint yamllint
 
       - name: Run yamllint
-        run: yamllint -d relaxed .
+        run: yamllint -c .yamllint .
 
       - name: Run ansible-lint
         run: ansible-lint main.yml
