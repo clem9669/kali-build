@@ -1,17 +1,20 @@
 ---
-profile: basic
+profile: min
 
-skip_list:
+warn_list:
   - yaml[line-length]
   - command-instead-of-shell
+  - command-instead-of-module
   - no-changed-when
   - risky-shell-pipe
+  - risky-file-permissions
   - fqcn[action-core]
   - role-name[path]
   - schema[tasks]
   - name[missing]
-  - risky-file-permissions
   - package-latest
+  - literal-compare
+  - var-naming[pattern]
 
 exclude_paths:
   - .github/
