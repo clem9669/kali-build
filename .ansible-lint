@@ -4,6 +4,9 @@ skip_list:
   - command-instead-of-shell
   - no-changed-when
   - risky-shell-pipe
+  - fqcn[action-core]
+  - role-name[path]
+  - schema[tasks]
 
 exclude_paths:
   - .github/

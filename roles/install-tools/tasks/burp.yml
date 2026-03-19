@@ -90,5 +90,5 @@
 # BurpSuite Pro Config
 - name: "Copy BurpSuite Pro Config"
   template:
-      src: "templates/UserConfigPro.json.j2"
-      dest: "/home/{{ ansible_user_id }}/.BurpSuite/UserConfigPro.json"
+    src: "templates/UserConfigPro.json.j2"
+    dest: "/home/{{ ansible_user_id }}/.BurpSuite/UserConfigPro.json"

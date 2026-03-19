@@ -10,8 +10,14 @@
   when: not regolith_installed.stat.exists
 
 - name: Add Regolith repository URL
-  ansible.builtin.shell:
-    cmd: "echo deb \"[arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] https://regolith-desktop.org/release-3_0-debian-{{ ansible_distribution_release }}-amd64 {{ ansible_distribution_release }} main\" | sudo dd of=/etc/apt/sources.list.d/regolith.list"
+  ansible.builtin.copy:
+    dest: /etc/apt/sources.list.d/regolith.list
+    content: >-
+      deb [arch=amd64
+      signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg]
+      https://regolith-desktop.org/release-3_0-debian-{{ ansible_distribution_release }}-amd64
+      {{ ansible_distribution_release }} main
+    mode: "0644"
   become: true
   when: not regolith_installed.stat.exists
 
@@ -51,20 +57,20 @@
     state: latest
   become: true
   loop:
-  - i3xrocks-battery
-  - i3xrocks-bluetooth
-  - i3xrocks-cpu-usage
-  - i3xrocks-disk-capacity
-  - i3xrocks-focused-window-name
-  - i3xrocks-info
-  - i3xrocks-memory
-  - i3xrocks-microphone
-  - i3xrocks-net-traffic
-  - i3xrocks-rofication
-  - i3xrocks-temp
-  - i3xrocks-time
-  - i3xrocks-volume
-  - i3xrocks-wifi
+    - i3xrocks-battery
+    - i3xrocks-bluetooth
+    - i3xrocks-cpu-usage
+    - i3xrocks-disk-capacity
+    - i3xrocks-focused-window-name
+    - i3xrocks-info
+    - i3xrocks-memory
+    - i3xrocks-microphone
+    - i3xrocks-net-traffic
+    - i3xrocks-rofication
+    - i3xrocks-temp
+    - i3xrocks-time
+    - i3xrocks-volume
+    - i3xrocks-wifi
 
 - name: Register if Regolith config exists
   ansible.builtin.stat:
