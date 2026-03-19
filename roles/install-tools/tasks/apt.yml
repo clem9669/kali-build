@@ -29,12 +29,10 @@
       - bettercap
       - wafw00f
       - remmina
-      - nuclei
       - feroxbuster
       - gobuster
       - rsyslog
       - xz-utils
-      - httpx-toolkit
       - testssl.sh
       - iptables-persistent
 #      - keepassxc | not present by default in kali apt depot
@@ -77,6 +75,7 @@
       - zbar-tools
       - libfuse3-dev
       - python3-dev
+      - ligolo-ng
     state: latest
   become: true
   become_method: sudo
