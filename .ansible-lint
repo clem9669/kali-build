@@ -1,0 +1,9 @@
+---
+skip_list:
+  - yaml[line-length]
+  - command-instead-of-shell
+  - no-changed-when
+  - risky-shell-pipe
+
+exclude_paths:
+  - .github/
