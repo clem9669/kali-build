@@ -1,19 +1,19 @@
 ---
 - name: "Remove unofficial docker images"
   package:
-    name: 
+    name:
       - docker.io
       - docker-compose
       - docker-doc
       - podman-docker
     state: absent
-  register: docker_remove  
+  register: docker_remove
   become: true
   become_method: sudo
 
 - name: "Remove Containerd/Runc"
   package:
-    name: 
+    name:
       - containerd
       - runc
     state: absent
@@ -47,7 +47,7 @@
 
 - name: "Install Docker"
   package:
-    name: 
+    name:
       - docker-ce
       - docker-ce-cli
       - containerd.io

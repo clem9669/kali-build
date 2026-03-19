@@ -49,7 +49,7 @@
     mode: '0644'
   loop: "{{ lookup('dict', burpsuite_extras_jars) }}"
 
-- name: Download Burp's extensions 
+- name: Download Burp's extensions
   become: true
   become_user: "{{ ansible_user_id }}"
   ansible.builtin.get_url:

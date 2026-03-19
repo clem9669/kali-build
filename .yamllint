@@ -5,5 +5,4 @@ rules:
   line-length:
     max: 256
     level: warning
-  truthy:
-    level: warning
+  truthy: disable

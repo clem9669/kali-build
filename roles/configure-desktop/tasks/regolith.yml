@@ -50,7 +50,7 @@
     name: '{{ item }}'
     state: latest
   become: true
-  loop: 
+  loop:
   - i3xrocks-battery
   - i3xrocks-bluetooth
   - i3xrocks-cpu-usage

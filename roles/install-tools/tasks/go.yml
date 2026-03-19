@@ -19,5 +19,5 @@
 # ProjectDiscovery Tool Manager (pdtm) automation
 - name: Install all ProjectDiscovery tools when pdtm is not available
   ansible.builtin.shell: "{{ ansible_env.HOME }}/go/bin/pdtm -install-all -install-path {{ ansible_env.HOME }}/.pdtm/go/bin"
-  register: pdtm_install_result
-  changed_when: "'Installed' in pdtm_install_result.stdout or 'updated' in pdtm_install_result.stdout | lower"
+  register: pdtm_install_result
+  changed_when: "'Installed' in pdtm_install_result.stdout or 'updated' in pdtm_install_result.stdout | lower"

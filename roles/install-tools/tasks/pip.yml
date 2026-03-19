@@ -17,7 +17,7 @@
     - { name: 'DonPAPI', url: 'git+https://github.com/login-securite/DonPAPI.git'}
     - { name: 'dploot', url: 'git+https://github.com/zblurx/dploot.git'}
     - { name: 'bypass-url-parser', url: 'git+https://github.com/laluka/bypass-url-parser.git'}
-    - { name: 'adidnsdump', url: 'git+https://github.com/dirkjanm/adidnsdump.git'}   
+    - { name: 'adidnsdump', url: 'git+https://github.com/dirkjanm/adidnsdump.git'}
     - { name: 'bopscrk', url: ''}
     - { name: 'git-dumper', url: ''}
     - { name: 'nfs-security-tooling', url: 'git+https://github.com/hvs-consulting/nfs-security-tooling.git'}
@@ -88,7 +88,3 @@
     - twisted
     - xlsxwriter
     - yara-python
-
-
-
-

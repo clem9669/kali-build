@@ -12,4 +12,3 @@ i3_xresources_block: |
     regolith.wallpaper.options: stretched
     wm.mod: Mod1 # super key is ALT not win/cmd
     wm.alt: Mod4 # super key is ALT not win/cmd
-

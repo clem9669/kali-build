@@ -1,7 +1,7 @@
 ---
 - name: "Install i3"
   apt:
-    name: 
+    name:
       - i3
       - i3blocks
       - i3lock
