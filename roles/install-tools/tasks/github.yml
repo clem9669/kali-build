@@ -87,6 +87,8 @@
     - { repo: "https://github.com/p0dalirius/smbclient-ng", location: "/opt/smbclient-ng"}
     - { repo: "https://github.com/g0h4n/RustHound-CE", location: "/opt/RustHound-CE"}
     - { repo: "https://github.com/micahvandeusen/gMSADumper", location: "/opt/gMSADumper"}
+    - { repo: "https://github.com/p0dalirius/pyLDAPWordlistHarvester", location: "/opt/pyLDAPWordlistHarvester"}
+    - { repo: "https://github.com/p0dalirius/ExtractBitlockerKeys", location: "/opt/ExtractBitlockerKeys"}
 
 - name: Ensure directory exists for downloading Github binaries
   ansible.builtin.file:
