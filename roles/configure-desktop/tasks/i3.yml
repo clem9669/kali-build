@@ -9,6 +9,23 @@
   become: true
   become_method: sudo
 
+- name: Clone i3blocks-contrib scripts
+  git:
+    repo: https://github.com/vivien/i3blocks-contrib.git
+    dest: /tmp/i3blocks-contrib
+
+- name: Install i3blocks scripts
+  copy:
+    src: "/tmp/i3blocks-contrib/{{ item }}/{{ item }}"
+    dest: "/usr/share/i3blocks/{{ item }}"
+    mode: '0755'
+  loop:
+    - cpu_usage
+    - memory
+    - disk
+    - bandwidth
+    - iface
+
 - name: "Creates directory for config i3 in home"
   file:
     path: "{{ ansible_env.HOME }}/.config/i3/"
