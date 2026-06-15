@@ -1,16 +1,26 @@
 ---
+
+- name: "Install pipx tools from PyPI"
+  community.general.pipx:
+    name: "{{ item }}"
+    state: latest
+    install_deps: true
+  loop:
+    - tldr
+    - bopscrk
+    - git-dumper
+
 - name: "Install pipx tools"
   community.general.pipx:
     name: "{{ item.name }}"
     source: "{{ item.url }}"
-    state: latest
+    state: present
     install_deps: true
   loop:
     - { name: 'impacket', url: 'git+https://github.com/fortra/impacket.git' }
     - { name: 'ldeep', url: 'git+https://github.com/franc-pentest/ldeep.git' }
     - { name: 'certipy-ad', url: 'git+https://github.com/ly4k/Certipy.git' }
     - { name: 'coercer', url: 'git+https://github.com/p0dalirius/Coercer.git' }
-    - { name: 'tldr', url: ''}
     - { name: 'sipvicious', url: 'git+https://github.com/EnableSecurity/sipvicious.git'}
     - { name: 'ApacheTomcatScanner', url: 'git+https://github.com/p0dalirius/ApacheTomcatScanner.git'}
     # - { name: 'NetExec', url: 'git+https://github.com/Pennyw0rth/NetExec.git'}
@@ -18,8 +28,6 @@
     - { name: 'dploot', url: 'git+https://github.com/zblurx/dploot.git'}
     - { name: 'bypass-url-parser', url: 'git+https://github.com/laluka/bypass-url-parser.git'}
     - { name: 'adidnsdump', url: 'git+https://github.com/dirkjanm/adidnsdump.git'}
-    - { name: 'bopscrk', url: ''}
-    - { name: 'git-dumper', url: ''}
     - { name: 'nfs-security-tooling', url: 'git+https://github.com/hvs-consulting/nfs-security-tooling.git'}
     - { name: 'bloodyAD', url: 'git+https://github.com/CravateRouge/bloodyAD.git'}
 
