@@ -68,9 +68,9 @@ esac
 
 # Ask if the user wants to install Ollama only if the install_mode is "full"
 if [[ "$install_mode" == "full" ]]; then
-    ollama_choice=$(whiptail_menu --title "Install Ollama + Mistral (4Gb)" --menu "Do you want to install Ollama with a model?" 20 70 10 \
+    ollama_choice=$(whiptail_menu --title "Install Ollama" --menu "Do you want to install Ollama ?" 20 70 10 \
         "1" "Do not install Ollama" \
-        "2" "Install Ollama + Mistral (4Gb)")
+        "2" "Install Ollama")
 
     # Map the ollama_choice to actual Ollama installation flag using case
     case $ollama_choice in
