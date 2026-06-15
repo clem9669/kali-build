@@ -15,5 +15,5 @@
     path: /tmp/ollama-install.sh
     state: absent
 
-- name: Pull Ollama Mistral model
-  ansible.builtin.shell: "ollama pull mistral"
+# - name: Pull Ollama Mistral model
+#   ansible.builtin.shell: "ollama pull mistral"
