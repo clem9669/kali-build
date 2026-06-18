@@ -14,7 +14,17 @@
     repo: https://github.com/vivien/i3blocks-contrib.git
     dest: /tmp/i3blocks-contrib
 
+- name: Ensure /usr/share/i3blocks directory exists
+  become: true
+  file:
+    path: /usr/share/i3blocks
+    state: directory
+    mode: '0755'
+    owner: root
+    group: root
+
 - name: Install i3blocks scripts
+  become: true
   copy:
     src: "/tmp/i3blocks-contrib/{{ item }}/{{ item }}"
     dest: "/usr/share/i3blocks/{{ item }}"
